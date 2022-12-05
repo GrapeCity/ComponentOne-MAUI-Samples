@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexGridExplorer.CustomSortIcon"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="true"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
+    <ContentPage.Resources>
+        <DataTemplate x:Key="SortAscendingIcon">
+            <c1:C1SVGIcon Source="Resources/Raw/sort-ascending.svg"/>
+        </DataTemplate>
+        <DataTemplate x:Key="Sort2Icon">
+            <c1:C1SVGIcon Source="Resources/Raw/sort2.svg"/>
+        </DataTemplate>
+        <DataTemplate x:Key="Sort2AscendingIcon">
+            <c1:C1SVGIcon Source="Resources/Raw/sort2-ascending.svg"/>
+        </DataTemplate>
+        <DataTemplate x:Key="Sort2DescendingIcon">
+            <c1:C1SVGIcon Source="Resources/Raw/sort2-descending.svg"/>
+        </DataTemplate>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Picker x:Name="sortIconPosition" Title="Sort Icon Position" SelectedIndexChanged="SortIconPositionChanged" Margin="4"/>
+        <Picker x:Name="sortIconTemplate" Title="Sort Icon Template" SelectedIndexChanged="SortIconTemplateChanged" Grid.Row="1" Margin="4"/>
+        <c1:FlexGrid x:Name="grid" SortIconPosition="Left" Grid.Row="2">
+            <c1:FlexGrid.SortAscendingIconTemplate>
+                <c1:C1IconTemplate>
+                    <!--<DataTemplate>
+                        <c1:C1BitmapIcon ShowAsMonochrome="False" Source="arrow_up.png"/>
+                    </DataTemplate>-->
+                </c1:C1IconTemplate>
+            </c1:FlexGrid.SortAscendingIconTemplate>
+        </c1:FlexGrid>
+    </Grid>
+</ContentPage>

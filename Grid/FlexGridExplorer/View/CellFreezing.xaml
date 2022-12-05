@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexGridExplorer.CellFreezing"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="true"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
+    <c1:FlexGrid x:Name="grid" AutoGenerateColumns="False" FrozenColumns="1" FrozenRows="1" AllowMerging="Cells" FrozenLinesBrush="#9b9b9b">
+        <c1:FlexGrid.Columns>
+            <c1:GridColumn Binding="Name" />
+            <c1:GridColumn Binding="Address" />
+            <c1:GridColumn Binding="City" />
+            <c1:GridColumn Binding="Country" AllowMerging="true" />
+            <c1:GridColumn Binding="PostalCode" />
+            <c1:GridColumn Binding="Email" />
+            <c1:GridColumn Binding="LastOrderDate" />
+        </c1:FlexGrid.Columns>
+    </c1:FlexGrid>
+</ContentPage>

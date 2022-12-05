@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell Title="FlexGridExplorer"
+    x:Class="FlexGridExplorer.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FlexGridExplorer"
+    xmlns:res="clr-namespace:FlexGridExplorer.Strings">
+
+<ShellContent Title="{x:Static res:AppResources.GettingStartedTitle}"
+                      ContentTemplate="{DataTemplate local:GettingStarted}" />
+    <ShellContent Title="{x:Static res:AppResources.ColumnDefinitionTitle}"
+                      ContentTemplate="{DataTemplate local:ColumnDefinitions}" />
+    <ShellContent Title="{x:Static res:AppResources.SelectionModesTitle}"
+                      ContentTemplate="{DataTemplate local:SelectionModes}" />
+    <ShellContent Title="{x:Static res:AppResources.EditConfirmationTitle}"
+                      ContentTemplate="{DataTemplate local:EditConfirmation}" />
+    <ShellContent Title="{x:Static res:AppResources.EditingTitle}"
+                      ContentTemplate="{DataTemplate local:Editing}" />
+    <ShellContent Title="{x:Static res:AppResources.ConditionalFormattingTitle}"
+                      ContentTemplate="{DataTemplate local:ConditionalFormatting}" />
+    <ShellContent Title="{x:Static res:AppResources.CustomCellsTitle}"
+                      ContentTemplate="{DataTemplate local:CustomCells}" />
+    <ShellContent Title="{x:Static res:AppResources.GroupingTitle}"
+                      ContentTemplate="{DataTemplate local:Grouping}" />
+    <ShellContent Title="{x:Static res:AppResources.RowDetailsTitle}"
+                      ContentTemplate="{DataTemplate local:RowDetails}" />
+    <ShellContent Title="{x:Static res:AppResources.FullTextFilterTitle}"
+                      ContentTemplate="{DataTemplate local:FullTextFilter}" />
+    <ShellContent Title="{x:Static res:AppResources.FilterRowTitle}"
+                      ContentTemplate="{DataTemplate local:FilterRow}" />
+    <ShellContent Title="{x:Static res:AppResources.ColumnLayoutTitle}"
+                      ContentTemplate="{DataTemplate local:ColumnLayout}" />
+    <ShellContent Title="{x:Static res:AppResources.StarSizingTitle}"
+                      ContentTemplate="{DataTemplate local:StarSizing}" />
+    <ShellContent Title="{x:Static res:AppResources.CellFreezingTitle}"
+                      ContentTemplate="{DataTemplate local:CellFreezing}" />
+    <ShellContent Title="{x:Static res:AppResources.CustomMergingTitle}"
+                      ContentTemplate="{DataTemplate local:CustomMerging}" />
+    <ShellContent Title="{x:Static res:AppResources.UnboundTitle}"
+                      ContentTemplate="{DataTemplate local:Unbound}" />
+    <ShellContent Title="{x:Static res:AppResources.OnDemandTitle}"
+                      ContentTemplate="{DataTemplate local:OnDemand}" />
+    <ShellContent Title="{x:Static res:AppResources.CustomAppearanceTitle}"
+                      ContentTemplate="{DataTemplate local:CustomAppearance}" />
+    <ShellContent Title="{x:Static res:AppResources.NewRowTitle}"
+                      ContentTemplate="{DataTemplate local:NewRow}" />
+    <ShellContent Title="{x:Static res:AppResources.CheckListTitle}"
+                      ContentTemplate="{DataTemplate local:CheckList}" />
+    <ShellContent Title="{x:Static res:AppResources.LiveUpdatesTitle}"
+                      ContentTemplate="{DataTemplate local:LiveUpdates}" />
+    <ShellContent Title="{x:Static res:AppResources.CustomSortIconTitle}"
+                      ContentTemplate="{DataTemplate local:CustomSortIcon}" />
+    <ShellContent Title="{x:Static res:AppResources.ExportTitle}"
+                      ContentTemplate="{DataTemplate local:Export}" />
+
+</Shell>
+
