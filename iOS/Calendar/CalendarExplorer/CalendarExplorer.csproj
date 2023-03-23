@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-ios</TargetFramework>
+    <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="C1.iOS.Calendar">
+      <Version>6.0.20231.517</Version>
+    </PackageReference>
+    <PackageReference Include="C1.iOS.Core">
+      <Version>6.0.20231.517</Version>
+    </PackageReference>
+  </ItemGroup>
+</Project>

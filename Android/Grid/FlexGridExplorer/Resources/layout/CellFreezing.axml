@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<c1.android.grid.FlexGrid
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/Grid"
+    style="@style/FlexGridClassicStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:frozenRows="1"
+    app:frozenColumns="1"/>

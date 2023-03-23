@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FlexGridExplorer.GettingStarted"
-             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
-             ios:Page.UseSafeArea="true"
-             xmlns:c1="clr-namespace:C1.Maui.Grid;assembly=C1.Maui.Grid">
-    <c1:FlexGrid x:Name="grid" AutoGeneratingColumn="OnAutoGeneratingColumn"/>
-</ContentPage>
