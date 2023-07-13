@@ -15,13 +15,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="C1.Android.Core">
-      <Version>6.0.20231.516</Version>
+      <Version>6.0.20232.595</Version>
     </PackageReference>
     <PackageReference Include="C1.Android.Grid">
-      <Version>6.0.20231.516</Version>
+      <Version>6.0.20232.595</Version>
     </PackageReference>
     <PackageReference Include="C1.Android.Input">
-      <Version>6.0.20231.516</Version>
+      <Version>6.0.20232.595</Version>
     </PackageReference>
   </ItemGroup>
 </Project>

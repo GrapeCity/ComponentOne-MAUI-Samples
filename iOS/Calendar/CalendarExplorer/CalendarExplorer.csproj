@@ -6,10 +6,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="C1.iOS.Calendar">
-      <Version>6.0.20231.517</Version>
+      <Version>6.0.20232.596</Version>
     </PackageReference>
     <PackageReference Include="C1.iOS.Core">
-      <Version>6.0.20231.517</Version>
+      <Version>6.0.20232.596</Version>
     </PackageReference>
   </ItemGroup>
 </Project>

@@ -34,6 +34,8 @@ namespace FlexGridExplorer
         {
             var serializedColumns = await SerializeLayout(grid);
             var filePath = Path.Combine(FileSystem.Current.AppDataDirectory, FILENAME);
+            if (!File.Exists(filePath))
+                using (File.Create(filePath)) { }
             using var fileStream = File.Open(filePath, FileMode.Truncate, FileAccess.Write);
             using var textWriter = new StreamWriter(fileStream);
             await textWriter.WriteAsync(serializedColumns);

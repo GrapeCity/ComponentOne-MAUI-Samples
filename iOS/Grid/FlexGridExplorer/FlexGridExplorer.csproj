@@ -1,4 +1,5 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0-ios</TargetFramework>
     <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
@@ -7,13 +8,17 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="C1.iOS.Core">
-      <Version>6.0.20231.517</Version>
+      <Version>6.0.20232.596</Version>
     </PackageReference>
     <PackageReference Include="C1.iOS.Grid">
-      <Version>6.0.20231.517</Version>
+      <Version>6.0.20232.596</Version>
     </PackageReference>
     <PackageReference Include="C1.iOS.Input">
-      <Version>6.0.20231.517</Version>
+      <Version>6.0.20232.596</Version>
     </PackageReference>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FlexGridExplorer.gclicx" />
   </ItemGroup>
 </Project>

@@ -23,15 +23,6 @@
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="C1.Maui.Calendar">
-      <Version>6.0.20231.519</Version>
-    </PackageReference>
-    <PackageReference Include="C1.Maui.Core">
-      <Version>6.0.20231.519</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" Condition="$(TargetFramework.Contains('-windows'))" />
-  </ItemGroup>
-  <ItemGroup>
     <!-- App Icon -->
     <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#FFFFFF" />
     <!-- Splash Screen -->
@@ -40,6 +31,9 @@
     <MauiImage Include="Resources\Images\*" />
     <!-- Custom Fonts -->
     <MauiFont Include="Resources\Fonts\*" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include=".gclicx" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Fonts\cour.ttf" />
@@ -59,5 +53,13 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="C1.Maui.Calendar">
+      <Version>6.0.20232.597</Version>
+    </PackageReference>
+    <PackageReference Include="C1.Maui.Core">
+      <Version>6.0.20232.597</Version>
+    </PackageReference>
   </ItemGroup>
 </Project>

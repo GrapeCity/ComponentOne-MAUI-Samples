@@ -49,11 +49,16 @@
     <EmbeddedResource Remove="Resources\AppResources.zh-Hans.resx" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove=".gclicx" />
     <None Remove="Resources\Fonts\ShantellSans-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include=".gclicx" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="C1.Maui.Grid">
-      <Version>6.0.20231.519</Version>
+      <Version>6.0.20232.597</Version>
     </PackageReference>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
   </ItemGroup>
 </Project>
