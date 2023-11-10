@@ -34,3 +34,5 @@ This will install any needed dependencies, build the project, and run the projec
 * Product Details: https://developer.mescius.com/componentone/maui-ui-controls/flexgrid-maui-datagrid
 * Documentation: https://developer.mescius.com/componentone/docs/maui
 * Support Forum: https://developer.mescius.com/forums/maui-edition
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/dotnet/winforms/blob/master/LICENSE.TXT) 
