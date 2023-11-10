@@ -9,6 +9,7 @@
     <UseMaui>true</UseMaui>
     <SingleProject>true</SingleProject>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ProvisioningType>manual</ProvisioningType>
     <!-- Display name -->
     <ApplicationTitle>FlexGridExplorer</ApplicationTitle>
     <!-- App Identifier -->
@@ -27,6 +28,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
+    <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.1.2" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.10.0.1" />
+  </ItemGroup>
   <ItemGroup>
     <!-- App Icon -->
     <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#FFFFFF" />
@@ -56,9 +61,31 @@
     <EmbeddedResource Include=".gclicx" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="C1.DataCollection.BindingList" Version="7.0.20233.174" />
     <PackageReference Include="C1.Maui.Grid">
-      <Version>6.0.20232.597</Version>
+      <Version>7.0.20233.667</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Strings\AppResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="View\TransposedGrid.xaml.cs">
+      <DependentUpon>TransposedGrid.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Strings\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <MauiXaml Update="View\TransposedGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
   </ItemGroup>
 </Project>

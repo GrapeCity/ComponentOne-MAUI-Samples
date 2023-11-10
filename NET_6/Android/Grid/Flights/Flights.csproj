@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0-android</TargetFramework>
+    <TargetFramework>net7.0-android</TargetFramework>
     <OutputType>Exe</OutputType>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -15,13 +15,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="C1.Android.Core">
-      <Version>6.0.20232.595</Version>
+      <Version>7.0.20233.666</Version>
     </PackageReference>
     <PackageReference Include="C1.Android.Grid">
-      <Version>6.0.20232.595</Version>
+      <Version>7.0.20233.666</Version>
     </PackageReference>
     <PackageReference Include="C1.Android.Input">
-      <Version>6.0.20232.595</Version>
+      <Version>7.0.20233.666</Version>
     </PackageReference>
   </ItemGroup>
 </Project>

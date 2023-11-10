@@ -7,4 +7,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:frozenRows="1"
+    app:frozenBottomRows="1"
     app:frozenColumns="1"/>

@@ -385,4 +385,27 @@
   <data name="RowDetailsPostalCode" xml:space="preserve">
     <value>Postal Code</value>
   </data>
+  <data name="DataTableSampleDescription" xml:space="preserve">
+    <value>Shows hot to use FlexGrid bound to Microsoft DataTable and supports all the features. You can see editing, adding, removing, filtering, and sorting in action.</value>
+  </data>
+  <data name="DataTableSampleTitle" xml:space="preserve">
+    <value>DataTable</value>
+  </data>
+  <data name="ChangesInDataTableMessage" xml:space="preserve">
+    <value>{0} rows added
+{1} rows modified
+{2} rows deleted</value>
+  </data>
+  <data name="NoChangesEditDataTableFirstMessage" xml:space="preserve">
+    <value>There are no changes in the table yet, Please edit the cells by pressing F2 or double click, or remove rows by pressing delete or use new row to add items.</value>
+  </data>
+  <data name="ShowChangesInTableLabel" xml:space="preserve">
+    <value>Show changes in the table</value>
+  </data>
+  <data name="TransposedGridDescription" xml:space="preserve">
+    <value>Show how to transpose columns and rows so the data items are shown as columns.</value>
+  </data>
+  <data name="TransposedGridTitle" xml:space="preserve">
+    <value>Transposed Grid</value>
+  </data>
 </root>

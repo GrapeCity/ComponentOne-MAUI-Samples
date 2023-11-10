@@ -22,6 +22,7 @@ namespace FlexGridExplorer
             var grid = new FlexGrid();
             grid.Rows.Add(new GridFilterRow() { AutoComplete = true, Placeholder = "Enter text to filer" });
             grid.ItemsSource = Customer.GetCustomerList(100);
+            grid.ColumnFooterRows.Add(new GridSummaryRow());
             grid.TranslatesAutoresizingMaskIntoConstraints = false;
             vc.View.BackgroundColor = UIColor.White;
             vc.View.AddSubview(grid);

@@ -93,6 +93,12 @@ namespace FlexGridExplorer
                     case 22:
                         StartActivity(typeof(ExportActivity));
                         break;
+                    case 23:
+                        StartActivity(typeof(SummaryRowActivity));
+                        break;
+                    case 24:
+                        StartActivity(typeof(TransposedGridActivity));
+                        break;
                 }
             };
             recyclerView.SetAdapter(adapter);
@@ -106,7 +112,7 @@ namespace FlexGridExplorer
         {
             get
             {
-                return 23;
+                return 25;
             }
         }
 
@@ -246,6 +252,16 @@ namespace FlexGridExplorer
                     h.SetTitle(resources.GetString(Resource.String.ExportTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.ExportDescription));
                     h.SetIcon(Resource.Drawable.export_grid);
+                    break;
+                case 23:
+                    h.SetTitle(resources.GetString(Resource.String.SummaryRowTitle));
+                    h.SetSubtitle(resources.GetString(Resource.String.SummaryRowDescription));
+                    h.SetIcon(Resource.Drawable.flexgrid);
+                    break;
+                case 24:
+                    h.SetTitle(resources.GetString(Resource.String.TransposedGridTitle));
+                    h.SetSubtitle(resources.GetString(Resource.String.TransposedGridDescription));
+                    h.SetIcon(Resource.Drawable.flexgrid);
                     break;
             }
         }

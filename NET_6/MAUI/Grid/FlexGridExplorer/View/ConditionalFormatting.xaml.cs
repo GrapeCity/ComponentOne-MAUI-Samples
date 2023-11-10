@@ -1,8 +1,5 @@
 ﻿using C1.Maui.Grid;
 using FlexGridExplorer.Strings;
-using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Graphics;
 
 namespace FlexGridExplorer
 {
@@ -23,6 +20,52 @@ namespace FlexGridExplorer
 
     public class MyCellFactory : GridCellFactory
     {
+        static Color LightRedForeground = Color.FromArgb("#FFC42B1C");
+        static SolidColorBrush LightRedBackground = new SolidColorBrush(Color.FromArgb("#FFFDE7E9"));
+        static Color LightGreenForeground = Color.FromArgb("#FF0F7B0F");
+        static SolidColorBrush LightGreenBackground = new SolidColorBrush(Color.FromArgb("#FFDFF6DD"));
+        static Color DarkRedForeground = Color.FromArgb("#FFFF99A4");
+        static SolidColorBrush DarkRedBackground = new SolidColorBrush(Color.FromArgb("#FF442726"));
+        static Color DarkGreenForeground = Color.FromArgb("#FF6CCB5F");
+        static SolidColorBrush DarkGreenBackground = new SolidColorBrush(Color.FromArgb("#FF393D1B"));
+
+        private static bool IsLight()
+        {
+            return Application.Current.RequestedTheme == AppTheme.Light;
+        }
+
+        public Color RedForeground
+        {
+            get
+            {
+                return IsLight() ? LightRedForeground : DarkRedForeground;
+            }
+        }
+
+        public Brush RedBackground
+        {
+            get
+            {
+                return IsLight() ? LightRedBackground : DarkRedBackground;
+            }
+        }
+
+        public Color GreenForeground
+        {
+            get
+            {
+                return IsLight() ? LightGreenForeground : DarkGreenForeground;
+            }
+        }
+
+        public Brush GreenBackground
+        {
+            get
+            {
+                return IsLight() ? LightGreenBackground : DarkGreenBackground;
+            }
+        }
+
         public override void PrepareCell(GridCellType cellType, GridCellRange range, GridCellView cell, Thickness internalBorders)
         {
             base.PrepareCell(cellType, range, cell, internalBorders);
@@ -32,7 +75,7 @@ namespace FlexGridExplorer
                 var cellValue = Grid[range.Row, range.Column] as int?;
                 if (cellValue.HasValue)
                 {
-                    cell.Background = new SolidColorBrush(cellValue < 50.0 ? Color.FromRgb((double)0xFF / 255.0, (double)0x70 / 255.0, (double)0x70 / 255.0) : Color.FromRgb((double)0x8E / 255.0, (double)0xE9 / 255.0, (double)0x8E / 255.0));
+                    cell.Background = cellValue < 50.0 ? RedBackground : GreenBackground;
                 }
             }
         }
@@ -56,7 +99,7 @@ namespace FlexGridExplorer
                     var cellValue = Grid[range.Row, range.Column] as double?;
                     if (cellValue.HasValue)
                     {
-                        label.TextColor = cellValue < 5000.0 ? Colors.Red : Colors.Green;
+                        label.TextColor = cellValue < 5000.0 ? RedForeground : GreenForeground;
                     }
                 }
             }

@@ -52,6 +52,9 @@
                       ContentTemplate="{DataTemplate local:CustomSortIcon}" />
     <ShellContent Title="{x:Static res:AppResources.ExportTitle}"
                       ContentTemplate="{DataTemplate local:Export}" />
-
+    <ShellContent Title="{x:Static res:AppResources.DataTableSampleTitle}"
+                      ContentTemplate="{DataTemplate local:DataTableSample}" />
+    <ShellContent Title="{x:Static res:AppResources.TransposedGridTitle}"
+                      ContentTemplate="{DataTemplate local:TransposedGrid}" />
 </Shell>
 

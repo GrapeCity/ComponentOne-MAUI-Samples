@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexGridExplorer.DataTableSample"
+             xmlns:res="clr-namespace:FlexGridExplorer.Strings"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <c1:C1TextBox x:Name="filter" Margin="4" Placeholder="{x:Static res:AppResources.FilterPlaceholderText}" HorizontalOptions="Start" MinimumWidthRequest="250"/>
+            <c1:C1Button Content="{x:Static res:AppResources.ShowChangesInTableLabel}" HorizontalOptions="End" Margin="4" Click="OnShowChangesClicked"/>
+            <c1:FlexGrid x:Name="grid" HeadersVisibility="All" NewRowPosition="Bottom" NewRowPlaceholder="{x:Static res:AppResources.NewRowPlaceholder}" Grid.Row="1">
+                <c1:FlexGrid.Behaviors>
+                    <c1:FullTextFilterBehavior FilterEntry="{x:Reference filter}" MatchNumbers="True"/>
+                </c1:FlexGrid.Behaviors>
+            </c1:FlexGrid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -106,6 +106,17 @@ namespace FlexGridExplorer.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} rows added
+        ///{1} rows modified
+        ///{2} rows deleted.
+        /// </summary>
+        public static string ChangesInDataTableMessage {
+            get {
+                return ResourceManager.GetString("ChangesInDataTableMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show how to select flexgrid rows through checkboxes..
         /// </summary>
         public static string CheckListDescription {
@@ -264,6 +275,24 @@ namespace FlexGridExplorer.Strings {
         public static string CustomSortIconTitle {
             get {
                 return ResourceManager.GetString("CustomSortIconTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows hot to use FlexGrid bound to Microsoft DataTable and supports all the features. You can see editing, adding, removing, filtering, and sorting in action..
+        /// </summary>
+        public static string DataTableSampleDescription {
+            get {
+                return ResourceManager.GetString("DataTableSampleDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DataTable.
+        /// </summary>
+        public static string DataTableSampleTitle {
+            get {
+                return ResourceManager.GetString("DataTableSampleTitle", resourceCulture);
             }
         }
         
@@ -574,6 +603,15 @@ namespace FlexGridExplorer.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There are no changes in the table yet, Please edit the cells by pressing F2 or double click, or remove rows by pressing delete or use new row to add items..
+        /// </summary>
+        public static string NoChangesEditDataTableFirstMessage {
+            get {
+                return ResourceManager.GetString("NoChangesEditDataTableFirstMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string OK {
@@ -718,6 +756,15 @@ namespace FlexGridExplorer.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show changes in the table.
+        /// </summary>
+        public static string ShowChangesInTableLabel {
+            get {
+                return ResourceManager.GetString("ShowChangesInTableLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ShowMarquee.
         /// </summary>
         public static string ShowMarquee {
@@ -795,6 +842,24 @@ namespace FlexGridExplorer.Strings {
         public static string Thursday {
             get {
                 return ResourceManager.GetString("Thursday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show how to transpose columns and rows so the data items are shown as columns..
+        /// </summary>
+        public static string TransposedGridDescription {
+            get {
+                return ResourceManager.GetString("TransposedGridDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transposed Grid.
+        /// </summary>
+        public static string TransposedGridTitle {
+            get {
+                return ResourceManager.GetString("TransposedGridTitle", resourceCulture);
             }
         }
         

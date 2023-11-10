@@ -7,16 +7,16 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="C1.iOS.Core">
-      <Version>6.0.20232.596</Version>
+      <Version>7.0.20233.665</Version>
     </PackageReference>
     <PackageReference Include="C1.iOS.Grid">
-      <Version>6.0.20232.596</Version>
+      <Version>7.0.20233.665</Version>
     </PackageReference>
     <PackageReference Include="C1.iOS.GridControl">
-      <Version>6.0.20232.596</Version>
+      <Version>7.0.20233.665</Version>
     </PackageReference>
     <PackageReference Include="C1.iOS.Input">
-      <Version>6.0.20232.596</Version>
+      <Version>7.0.20233.665</Version>
     </PackageReference>
   </ItemGroup>
 </Project>

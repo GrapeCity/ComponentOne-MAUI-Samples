@@ -80,4 +80,8 @@
   <string name="SortIconTemplate">Sort icon template</string>
   <string name="MatchCase">Match case</string>
   <string name="MatchWholeWord">Match whole word</string>
+  <string name="SummaryRowTitle">Summary Row</string>
+  <string name="SummaryRowDescription">Shows a row that summarizes the values in the columns.</string>
+  <string name="TransposedGridTitle">Transposed Grid</string>
+  <string name="TransposedGridDescription">Show how to transpose columns and rows so the data items are shown as columns.</string>
 </resources>

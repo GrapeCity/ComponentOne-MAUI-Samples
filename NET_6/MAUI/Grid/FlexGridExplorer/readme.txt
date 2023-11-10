@@ -27,3 +27,5 @@ Shows the following samples
 	- Live Updates
 	- Custom Sort Icon
 	- Export
+	- DataTable Sample
+	- Transposed Grid
