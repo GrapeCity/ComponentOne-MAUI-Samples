@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-android</TargetFramework>
+    <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationId>com.grapecity.android.flexgridexplorer</ApplicationId>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="C1.Android.Core">
+      <Version>8.0.20233.668</Version>
+    </PackageReference>
+    <PackageReference Include="C1.Android.Grid">
+      <Version>8.0.20233.668</Version>
+    </PackageReference>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.8" />
+    <PackageReference Include="Xamarin.AndroidX.RecyclerView" Version="1.3.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\drawable\arrow_up.png" />
+    <None Remove="Resources\drawable\export_grid.png" />
+    <None Remove="Resources\drawable\exp_dark_column_header.xml" />
+    <None Remove="Resources\drawable\filter.png" />
+    <None Remove="Resources\drawable\flexgrid.png" />
+    <None Remove="Resources\drawable\flexgrid_checkList.png" />
+    <None Remove="Resources\drawable\flexgrid_columns.png" />
+    <None Remove="Resources\drawable\flexgrid_conditionalFormatting.png" />
+    <None Remove="Resources\drawable\flexgrid_custom.png" />
+    <None Remove="Resources\drawable\flexgrid_customAppearance.png" />
+    <None Remove="Resources\drawable\flexgrid_customSort.png" />
+    <None Remove="Resources\drawable\flexgrid_editConfirmation.png" />
+    <None Remove="Resources\drawable\flexgrid_filter.png" />
+    <None Remove="Resources\drawable\flexgrid_freezing.png" />
+    <None Remove="Resources\drawable\flexgrid_grouping.png" />
+    <None Remove="Resources\drawable\flexgrid_headers.png" />
+    <None Remove="Resources\drawable\flexgrid_loading.png" />
+    <None Remove="Resources\drawable\flexgrid_merging.png" />
+    <None Remove="Resources\drawable\flexgrid_newRow.png" />
+    <None Remove="Resources\drawable\flexgrid_rowdetails.png" />
+    <None Remove="Resources\drawable\flexgrid_selection.png" />
+    <None Remove="Resources\drawable\flexgrid_starSizing.png" />
+    <None Remove="Resources\drawable\gradient_background.xml" />
+    <None Remove="Resources\drawable\icon_foreground.xml" />
+    <None Remove="Resources\drawable\input_form.png" />
+    <None Remove="Resources\drawable\logo_toolbar.xml" />
+    <None Remove="Resources\drawable\placeholder.png" />
+    <None Remove="Resources\drawable\retro_TV_filled_50_dark.png" />
+    <None Remove="Resources\drawable\retro_TV_filled_50_light.png" />
+    <None Remove="Resources\font\cour.ttf" />
+    <None Remove="Resources\font\courier_new.xml" />
+    <None Remove="Resources\layout\CellFreezing.axml" />
+    <None Remove="Resources\layout\CustomAppearance.axml" />
+    <None Remove="Resources\layout\CustomMerging.axml" />
+    <None Remove="Resources\layout\CustomSortIcon.axml" />
+    <None Remove="Resources\layout\EditingForm.axml" />
+    <None Remove="Resources\layout\Export.axml" />
+    <None Remove="Resources\layout\FullTextFilter.axml" />
+    <None Remove="Resources\layout\GettingStarted.axml" />
+    <None Remove="Resources\layout\ListItem.axml" />
+    <None Remove="Resources\layout\Main.axml" />
+    <None Remove="Resources\layout\NewRow.axml" />
+    <None Remove="Resources\layout\OnDemand.axml" />
+    <None Remove="Resources\layout\PopUp.axml" />
+    <None Remove="Resources\layout\RowDetailsCell.axml" />
+    <None Remove="Resources\layout\SelectionModes.axml" />
+    <None Remove="Resources\values\colors.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FlexGridExplorer.gclicx" />
+  </ItemGroup>
+</Project>

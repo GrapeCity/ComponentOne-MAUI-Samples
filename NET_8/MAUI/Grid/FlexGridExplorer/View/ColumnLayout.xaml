@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexGridExplorer.ColumnLayout"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:res="clr-namespace:FlexGridExplorer.Strings"
+             ios:Page.UseSafeArea="true"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnEditColumnLayout" Text="{x:Static res:AppResources.EditColumnLayout}" Clicked="OnEditColumnLayout" Order="Primary" Priority="0"/>
+        <ToolbarItem x:Name="btnSerializeColumnLayout" Text="{x:Static res:AppResources.Save}" Clicked="OnSerializeColumnLayout" Order="Primary" Priority="0"/>
+    </ContentPage.ToolbarItems>
+    <c1:FlexGrid x:Name="grid"/>
+</ContentPage>

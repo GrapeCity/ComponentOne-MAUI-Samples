@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-ios</TargetFramework>
+    <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
+    <OutputType>Exe</OutputType>
+    <SupportedOSPlatformVersion>11.2</SupportedOSPlatformVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="C1.iOS.Core">
+      <Version>8.0.20233.668</Version>
+    </PackageReference>
+    <PackageReference Include="C1.iOS.Grid">
+      <Version>8.0.20233.668</Version>
+    </PackageReference>
+    <PackageReference Include="C1.iOS.GridControl">
+      <Version>8.0.20233.668</Version>
+    </PackageReference>
+    <PackageReference Include="C1.iOS.Input">
+      <Version>8.0.20233.668</Version>
+    </PackageReference>
+  </ItemGroup>
+</Project>

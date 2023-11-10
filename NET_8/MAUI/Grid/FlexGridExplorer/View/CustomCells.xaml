@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexGridExplorer.CustomCells"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="true"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
+    <c1:FlexGrid x:Name="_flexiTunes" Grid.Row="2"
+                     ShowOutlineBar="True"
+                     HeadersVisibility="Column"
+                     GridLinesVisibility="None"
+                     Background="White"
+                     RowBackground="White"
+                     AlternatingRowBackground="White"
+                     GroupRowBackground="White"
+                     MinColumnWidth="30"
+                     DefaultRowHeight="24"
+                     DefaultGroupRowHeight="24"
+                     DefaultColumnHeaderRowHeight="24"
+                     CellPadding="4"
+                     SelectionBackground="#a0eaeff4"
+                     CursorBackground="#ffeaeff4"
+                     AutoGenerateColumns="False" >
+        <c1:FlexGrid.Columns>
+            <c1:GridColumn Binding="Name" Header="Title" AllowDragging="False" Width="300" />
+            <c1:GridColumn Binding="Duration" HorizontalAlignment="End" AllowFiltering="False" IsReadOnly="True" />
+            <c1:GridColumn Binding="Size" HorizontalAlignment="End" IsReadOnly="True"/>
+            <c1:GridColumn Binding="Rating" HorizontalAlignment="Start" Width="200" Aggregate="Average" IsReadOnly="True"/>
+        </c1:FlexGrid.Columns>
+    </c1:FlexGrid>
+</ContentPage>

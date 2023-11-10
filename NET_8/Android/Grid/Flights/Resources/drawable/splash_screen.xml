@@ -1,0 +1,4 @@
+﻿<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+  <item android:drawable="@drawable/sky_background"/>
+  <item android:drawable="@drawable/icon_foreground" android:width="208dp" android:height="208dp" android:gravity="center"/>
+</layer-list>
