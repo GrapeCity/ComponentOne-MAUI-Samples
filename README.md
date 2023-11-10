@@ -34,7 +34,3 @@ This will install any needed dependencies, build the project, and run the projec
 * Product Details: https://developer.mescius.com/componentone/maui-ui-controls/flexgrid-maui-datagrid
 * Documentation: https://developer.mescius.com/componentone/docs/maui
 * Support Forum: https://developer.mescius.com/forums/maui-edition
-
-## Licensing
-
-ComponentOne MAUI Preview controls are not intended to be used in production and provided "as is" with no licensing restriction. A future version may be released with built-in licensing similar to other ComponentOne UI controls.
