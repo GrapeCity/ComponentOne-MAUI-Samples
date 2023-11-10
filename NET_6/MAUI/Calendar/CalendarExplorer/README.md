@@ -1,5 +1,5 @@
 ## CalendarExplorer for Maui
-#### [Download as zip](https://grapecity.github.io/DownGit/#/home?url=https://github.com/GrapeCity/ComponentOne-MAUI-Samples/tree/master/MAUI/Calendar/CalendarExplorer)
+#### [Download as zip](https://grapecity.github.io/DownGit/#/home?url=https://github.com/GrapeCity/ComponentOne-MAUI-Samples/tree/master/NET_6/MAUI/Calendar/CalendarExplorer)
 ____
 #### Shows samples of the Calendar control.
 ____

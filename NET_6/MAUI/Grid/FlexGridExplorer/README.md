@@ -1,5 +1,5 @@
 ## FlexGridExplorer for Maui
-#### [Download as zip](https://grapecity.github.io/DownGit/#/home?url=https://github.com/GrapeCity/ComponentOne-MAUI-Samples/tree/master/MAUI/Grid/FlexGridExplorer)
+#### [Download as zip](https://grapecity.github.io/DownGit/#/home?url=https://github.com/GrapeCity/ComponentOne-MAUI-Samples/tree/master/NET_6/MAUI/Grid/FlexGridExplorer)
 ____
 #### Shows samples of the Grid control.
 ____
