@@ -1,10 +1,10 @@
 # ComponentOne MAUI Samples
 
-This repository contains the samples for [ComponentOne MAUI Edition](https://www.grapecity.com/componentone/maui-ui-controls) - Preview. These samples provide complete implementation details for the MAUI control features. 
+This repository contains the samples for [ComponentOne MAUI Edition](https://developer.mescius.com/componentone/maui-ui-controls) - Preview. These samples provide complete implementation details for the MAUI control features. 
 
-The samples reference, but do not include, the control packages. The control packages can be downloaded from [nuget.org](https://www.nuget.org/packages?q=C1.Maui) or [grapecity.com/componentone](https://www.grapecity.com/componentone/download).
+The samples reference, but do not include, the control packages. The control packages can be downloaded from [nuget.org](https://www.nuget.org/packages?q=C1.Maui) or [developer.mescius.com/componentone](https://developer.mescius.com/componentone/download).
 
-## About ComponentOne MAUI Edition (Preview)
+## About ComponentOne MAUI Edition
 
 Showcase your data with FlexGrid, a complete and powerful datagrid UI control for MAUI.
 
@@ -31,9 +31,9 @@ This will install any needed dependencies, build the project, and run the projec
 
 ## Resources
 
-* Product Details: https://www.grapecity.com/componentone/maui-ui-controls/flexgrid-maui-datagrid
-* Documentation: https://www.grapecity.com/componentone/docs/maui
-* Support Forum: https://www.grapecity.com/forums/maui-edition
+* Product Details: https://developer.mescius.com/componentone/maui-ui-controls/flexgrid-maui-datagrid
+* Documentation: https://developer.mescius.com/componentone/docs/maui
+* Support Forum: https://developer.mescius.com/forums/maui-edition
 
 ## Licensing
 
