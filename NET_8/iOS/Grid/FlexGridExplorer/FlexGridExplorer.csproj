@@ -8,13 +8,13 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="C1.iOS.Core">
-      <Version>8.0.20233.668</Version>
+      <Version>8.0.20233.674</Version>
     </PackageReference>
     <PackageReference Include="C1.iOS.Grid">
-      <Version>8.0.20233.668</Version>
+      <Version>8.0.20233.674</Version>
     </PackageReference>
     <PackageReference Include="C1.iOS.Input">
-      <Version>8.0.20233.668</Version>
+      <Version>8.0.20233.674</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
   </ItemGroup>

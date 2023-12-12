@@ -12,10 +12,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="C1.Android.Core">
-      <Version>8.0.20233.668</Version>
+      <Version>8.0.20233.672</Version>
     </PackageReference>
     <PackageReference Include="C1.Android.Grid">
-      <Version>8.0.20233.668</Version>
+      <Version>8.0.20233.672</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.8" />
