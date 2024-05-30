@@ -17,7 +17,7 @@ namespace FlexGridExplorer
 
             SetContentView(Resource.Layout.GettingStarted);
 
-            ActionBar.Title = GetString(Resource.String.GettingStartedTitle);
+            ActionBar.Title = GetString(Resource.String.SummaryRowTitle);
             ActionBar.SetDisplayHomeAsUpEnabled(true);
             ActionBar.SetHomeButtonEnabled(true);
 

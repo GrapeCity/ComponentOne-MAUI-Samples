@@ -12,10 +12,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="C1.Android.Core">
-      <Version>8.0.20233.672</Version>
+      <Version>8.0.20241.806</Version>
     </PackageReference>
     <PackageReference Include="C1.Android.Grid">
-      <Version>8.0.20233.672</Version>
+      <Version>8.0.20241.806</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.8" />
@@ -61,6 +61,7 @@
     <None Remove="Resources\layout\Export.axml" />
     <None Remove="Resources\layout\FullTextFilter.axml" />
     <None Remove="Resources\layout\GettingStarted.axml" />
+    <None Remove="Resources\layout\HierarchicalRows.axml" />
     <None Remove="Resources\layout\ListItem.axml" />
     <None Remove="Resources\layout\Main.axml" />
     <None Remove="Resources\layout\NewRow.axml" />

@@ -10,7 +10,7 @@
             <c1:GridColumn Binding="Name" />
             <c1:GridColumn Binding="Address" />
             <c1:GridColumn Binding="City" />
-            <c1:GridColumn Binding="CountryID" AllowMerging="true" />
+            <c1:GridColumn Binding="CountryID" Header="Country" AllowMerging="true" />
             <c1:GridColumn Binding="PostalCode" />
             <c1:GridColumn Binding="Email" />
             <c1:GridColumn Binding="LastOrderDate" />

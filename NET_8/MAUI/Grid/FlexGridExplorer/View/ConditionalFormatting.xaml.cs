@@ -123,7 +123,7 @@ namespace FlexGridExplorer
             var label = cellContent as Label;
             if (label != null)
             {
-                label.TextColor = null;
+                label.ClearValue(Label.TextColorProperty);
             }
         }
     }

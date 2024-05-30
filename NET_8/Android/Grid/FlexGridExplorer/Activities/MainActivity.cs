@@ -46,57 +46,60 @@ namespace FlexGridExplorer
                         StartActivity(typeof(CustomCellsActivity));
                         break;
                     case 7:
-                        StartActivity(typeof(GroupingActivity));
+                        StartActivity(typeof(HierarchicalRowsActivity));
                         break;
                     case 8:
-                        StartActivity(typeof(RowDetailsActivity));
+                        StartActivity(typeof(GroupingActivity));
                         break;
                     case 9:
-                        StartActivity(typeof(FilterActivity));
+                        StartActivity(typeof(RowDetailsActivity));
                         break;
                     case 10:
-                        StartActivity(typeof(FilterRowActivity));
+                        StartActivity(typeof(FilterActivity));
                         break;
                     case 11:
-                        StartActivity(typeof(FullTextFilterActivity));
+                        StartActivity(typeof(FilterRowActivity));
                         break;
                     case 12:
-                        StartActivity(typeof(ColumnLayoutActivity));
+                        StartActivity(typeof(FullTextFilterActivity));
                         break;
                     case 13:
-                        StartActivity(typeof(StarSizingActivity));
+                        StartActivity(typeof(ColumnLayoutActivity));
                         break;
                     case 14:
-                        StartActivity(typeof(CellFreezingActivity));
+                        StartActivity(typeof(StarSizingActivity));
                         break;
                     case 15:
-                        StartActivity(typeof(CustomMergingActivity));
+                        StartActivity(typeof(CellFreezingActivity));
                         break;
                     case 16:
-                        StartActivity(typeof(UnboundActivity));
+                        StartActivity(typeof(CustomMergingActivity));
                         break;
                     case 17:
-                        StartActivity(typeof(OnDemandActivity));
+                        StartActivity(typeof(UnboundActivity));
                         break;
                     case 18:
-                        StartActivity(typeof(CustomAppearanceActivity));
+                        StartActivity(typeof(OnDemandActivity));
                         break;
                     case 19:
-                        StartActivity(typeof(NewRowActivity));
+                        StartActivity(typeof(CustomAppearanceActivity));
                         break;
                     case 20:
-                        StartActivity(typeof(CheckListActivity));
+                        StartActivity(typeof(NewRowActivity));
                         break;
                     case 21:
-                        StartActivity(typeof(CustomSortIconActivity));
+                        StartActivity(typeof(CheckListActivity));
                         break;
                     case 22:
-                        StartActivity(typeof(ExportActivity));
+                        StartActivity(typeof(CustomSortIconActivity));
                         break;
                     case 23:
-                        StartActivity(typeof(SummaryRowActivity));
+                        StartActivity(typeof(ExportActivity));
                         break;
                     case 24:
+                        StartActivity(typeof(SummaryRowActivity));
+                        break;
+                    case 25:
                         StartActivity(typeof(TransposedGridActivity));
                         break;
                 }
@@ -112,7 +115,7 @@ namespace FlexGridExplorer
         {
             get
             {
-                return 25;
+                return 26;
             }
         }
 
@@ -174,91 +177,96 @@ namespace FlexGridExplorer
                     h.SetIcon(Resource.Drawable.flexgrid_custom);
                     break;
                 case 7:
+                    h.SetTitle(resources.GetString(Resource.String.HierarchicalRowsTitle));
+                    h.SetSubtitle(resources.GetString(Resource.String.HierarchicalRowsDescription));
+                    h.SetIcon(Resource.Drawable.flexgrid_grouping);
+                    break;
+                case 8:
                     h.SetTitle(resources.GetString(Resource.String.GroupingTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.GroupingDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_grouping);
                     break;
-                case 8:
+                case 9:
                     h.SetTitle(resources.GetString(Resource.String.RowDetailsTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.RowDetailsDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_rowdetails);
                     break;
-                case 9:
+                case 10:
                     h.SetTitle(resources.GetString(Resource.String.FilterTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.FilterDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_filter);
                     break;
-                case 10:
+                case 11:
                     h.SetTitle(resources.GetString(Resource.String.FilterRowTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.FilterRowDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_filter);
                     break;
-                case 11:
+                case 12:
                     h.SetTitle(resources.GetString(Resource.String.FullTextFilterTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.FullTextFilterDescription));
                     h.SetIcon(Resource.Drawable.filter);
                     break;
-                case 12:
+                case 13:
                     h.SetTitle(resources.GetString(Resource.String.ColumnLayoutTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.ColumnLayoutDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_columns);
                     break;
-                case 13:
+                case 14:
                     h.SetTitle(resources.GetString(Resource.String.StarSizingTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.StarSizingDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_starSizing);
                     break;
-                case 14:
+                case 15:
                     h.SetTitle(resources.GetString(Resource.String.CellFreezingTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.CellFreezingDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_freezing);
                     break;
-                case 15:
+                case 16:
                     h.SetTitle(resources.GetString(Resource.String.CustomMergingTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.CustomMergingDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_merging);
                     break;
-                case 16:
+                case 17:
                     h.SetTitle(resources.GetString(Resource.String.UnboundTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.UnboundDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_headers);
                     break;
-                case 17:
+                case 18:
                     h.SetTitle(resources.GetString(Resource.String.OnDemandTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.OnDemandDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_loading);
                     break;
-                case 18:
+                case 19:
                     h.SetTitle(resources.GetString(Resource.String.CustomAppearanceTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.CustomAppearanceDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_customAppearance);
                     break;
-                case 19:
+                case 20:
                     h.SetTitle(resources.GetString(Resource.String.NewRowTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.NewRowDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_newRow);
                     break;
-                case 20:
+                case 21:
                     h.SetTitle(resources.GetString(Resource.String.CheckListTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.CheckListDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_checkList);
                     break;
-                case 21:
+                case 22:
                     h.SetTitle(resources.GetString(Resource.String.CustomSortIconTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.CustomSortIconDescription));
                     h.SetIcon(Resource.Drawable.flexgrid_customSort);
                     break;
-                case 22:
+                case 23:
                     h.SetTitle(resources.GetString(Resource.String.ExportTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.ExportDescription));
                     h.SetIcon(Resource.Drawable.export_grid);
                     break;
-                case 23:
+                case 24:
                     h.SetTitle(resources.GetString(Resource.String.SummaryRowTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.SummaryRowDescription));
                     h.SetIcon(Resource.Drawable.flexgrid);
                     break;
-                case 24:
+                case 25:
                     h.SetTitle(resources.GetString(Resource.String.TransposedGridTitle));
                     h.SetSubtitle(resources.GetString(Resource.String.TransposedGridDescription));
                     h.SetIcon(Resource.Drawable.flexgrid);

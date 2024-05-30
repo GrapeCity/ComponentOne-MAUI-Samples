@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.Funnel"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Funnel Chart">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <StackLayout>
+                <Label Text="Chart Type" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Chart Type"
+                      ItemsSource="{Binding ChartTypes}" 
+                      SelectedItem="{Binding ChartType, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexChart x:Name="flexChart" ChartType="Funnel" LegendPosition="Bottom"
+                      Header="Recruitment Funnel" Margin="8"
+                      Binding="Value" BindingX="Name" ItemsSource="{Binding Data}" Grid.Row="3">
+            <c1:FlexChart.DataLabel>
+                <c1:DataLabel Content="{}{value}" Position="Center" />
+            </c1:FlexChart.DataLabel>
+            <c1:FlexChart.Options>
+                <c1:ChartOptions FunnelType="{Binding Source={x:Reference flexChart}, Path=BindingContext.ChartType}" />
+            </c1:FlexChart.Options>
+            <c1:Series  />
+        </c1:FlexChart>
+    </Grid>
+</ContentPage>

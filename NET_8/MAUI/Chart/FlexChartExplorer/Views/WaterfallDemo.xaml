@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.WaterfallDemo"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Waterfall">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <StackLayout Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding Source={x:Reference wf}, Path=ConnectorLines}"/>
+                <Label Text="Show Connector Lines" Margin="-8,0,0,0" VerticalTextAlignment="Center" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding Source={x:Reference wf}, Path=ShowTotal}"/>
+                <Label Text="Show Total" Margin="-8,0,0,0" VerticalTextAlignment="Center" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding Source={x:Reference wf}, Path=ShowIntermediateTotal}"/>
+                <Label Text="Show Intermediate Total" Margin="-8,0,0,0" VerticalTextAlignment="Center" />
+            </StackLayout>
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexChart x:Name="flexChart" ToolTipContent="{}{x}&#x000A;Value: {y}"
+                      ItemsSource="{Binding Data}" BindingX="Name" Binding="Value" Grid.Row="3"
+                      Margin="8" LegendPosition="Bottom">
+            <c1:FlexChart.AxisX>
+                <c1:Axis LabelAngle="45" />
+            </c1:FlexChart.AxisX>
+            <c1:Waterfall x:Name="wf" 
+                          RelativeData="True" 
+                          ShowTotal="True" Start="100" ShowIntermediateTotal="True"
+                          IntermediateTotalLabels="Q1,Q2,Q3,Q4" 
+                          SeriesName="Increase, Decrease, Total"
+                          >
+                <c1:Waterfall.StartStyle>
+                    <c1:ChartStyle Fill="#7dc7ed" />
+                </c1:Waterfall.StartStyle>
+                <c1:Waterfall.FallingStyle>
+                    <c1:ChartStyle Fill="#dd2714" />
+                </c1:Waterfall.FallingStyle>
+                <c1:Waterfall.RisingStyle>
+                    <c1:ChartStyle Fill="#0f9d58" Stroke="#0f9d58" />
+                </c1:Waterfall.RisingStyle>
+                <c1:Waterfall.IntermediateTotalStyle>
+                    <c1:ChartStyle Fill="#7dc7ed" />
+                </c1:Waterfall.IntermediateTotalStyle>
+                <c1:Waterfall.TotalStyle>
+                    <c1:ChartStyle Fill="#7dc7ed" />
+                </c1:Waterfall.TotalStyle>
+                <c1:Waterfall.ConnectorLineStyle>
+                    <c1:ChartStyle Stroke="#888" StrokeDashArray="3,3" StrokeThickness="2"/>
+                </c1:Waterfall.ConnectorLineStyle>
+            </c1:Waterfall>
+        </c1:FlexChart>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.AnimationPage"
+             xmlns:c1="clr-namespace:C1.Maui.Chart;assembly=C1.Maui.Chart"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Animation Page">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="4" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <Picker x:Name="cbChartType" Title="Chart Type" Margin="10"
+                      ItemsSource="{Binding BindingContext.ChartTypes}" >
+            </Picker>
+            <Button Text="New" Clicked="NewData" />
+            <Button Clicked="UpdateData" Text="Update Data" />
+            <Button Clicked="AddSeries" Text="Add Series" />
+            <Button Clicked="RemoveSeries" Text="Remove Series" />
+            <Button Clicked="AddPoint" Text="Add Point" />
+            <Button Clicked="RemovePoint" Text="Remove Point" />
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexChart x:Name="chart" Grid.Row="3" Margin="10" Loaded="ChartLoaded"
+                      AnimationSettings="All"    
+                      ChartType="{Binding Source={x:Reference cbChartType},Path=SelectedItem}" 
+                          HorizontalOptions="Fill" 
+                          VerticalOptions="Fill"  >
+        </c1:FlexChart>
+    </Grid>
+</ContentPage>

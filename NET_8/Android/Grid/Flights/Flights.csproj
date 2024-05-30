@@ -14,14 +14,17 @@
     <None Remove="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Flights.gclicx" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="C1.Android.Core">
-      <Version>8.0.20233.672</Version>
+      <Version>8.0.20241.806</Version>
     </PackageReference>
     <PackageReference Include="C1.Android.Grid">
-      <Version>8.0.20233.672</Version>
+      <Version>8.0.20241.806</Version>
     </PackageReference>
     <PackageReference Include="C1.Android.Input">
-      <Version>8.0.20233.672</Version>
+      <Version>8.0.20241.806</Version>
     </PackageReference>
   </ItemGroup>
 </Project>

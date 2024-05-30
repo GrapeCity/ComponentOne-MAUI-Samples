@@ -4,17 +4,17 @@
     <TargetFramework>net8.0-ios</TargetFramework>
     <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
     <OutputType>Exe</OutputType>
-    <SupportedOSPlatformVersion>11.2</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="C1.iOS.Core">
-      <Version>8.0.20233.674</Version>
+      <Version>8.0.20241.809</Version>
     </PackageReference>
     <PackageReference Include="C1.iOS.Grid">
-      <Version>8.0.20233.674</Version>
+      <Version>8.0.20241.809</Version>
     </PackageReference>
     <PackageReference Include="C1.iOS.Input">
-      <Version>8.0.20233.674</Version>
+      <Version>8.0.20241.809</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
   </ItemGroup>

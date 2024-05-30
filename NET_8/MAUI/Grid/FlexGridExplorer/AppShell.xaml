@@ -20,6 +20,8 @@
                       ContentTemplate="{DataTemplate local:ConditionalFormatting}" />
     <ShellContent Title="{x:Static res:AppResources.CustomCellsTitle}"
                       ContentTemplate="{DataTemplate local:CustomCells}" />
+    <ShellContent Title="{x:Static res:AppResources.HierarchicalRowsTitle}"
+                      ContentTemplate="{DataTemplate local:HierarchicalRows}" />
     <ShellContent Title="{x:Static res:AppResources.GroupingTitle}"
                       ContentTemplate="{DataTemplate local:Grouping}" />
     <ShellContent Title="{x:Static res:AppResources.RowDetailsTitle}"

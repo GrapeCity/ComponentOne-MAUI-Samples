@@ -1,10 +1,8 @@
-using Android.App;
 using Android.Content.PM;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-using Android.OS;
 using Android.Views;
-using Android.Widget;
+using C1.Android.Core;
 using C1.Android.Grid;
 
 namespace FlexGridExplorer
@@ -25,7 +23,8 @@ namespace FlexGridExplorer
             var grid = FindViewById<FlexGrid>(Resource.Id.Grid);
 
             grid.AutoGenerateColumns = false;
-            grid.Columns.Add(new GridColumn { Binding = "Name" });
+            grid.Columns.Add(new GridColumn { Binding = "FirstName" });
+            grid.Columns.Add(new GridColumn { Binding = "LastName" });
             grid.Columns.Add(new GridColumn { Binding = "OrderTotal", Format = "C2" });
             grid.Columns.Add(new GridColumn { Binding = "OrderCount", Format = "N1" });
             grid.Columns.Add(new GridColumn { Binding = "CountryId", Header = "Country" });
@@ -54,18 +53,57 @@ namespace FlexGridExplorer
 
     public class MyCellFactory : GridCellFactory
     {
-        private Color Red = Color.Argb(255, 255, 112, 112);
-        private Color Green = Color.Argb(255, 142, 233, 142);
+        static Color LightRedForeground = Color.Argb(0xFF, 0xC4, 0x2B, 0x1C);
+        static Color LightRedBackground = Color.Argb(0xFF, 0xFD, 0xE7, 0xE9);
+        static Color LightGreenForeground = Color.Argb(0xFF, 0x0F, 0x7B, 0x0F);
+        static Color LightGreenBackground = Color.Argb(0xFF, 0xDF, 0xF6, 0xDD);
+        static Color DarkRedForeground = Color.Argb(0xFF, 0xFF, 0x99, 0xA4);
+        static Color DarkRedBackground = Color.Argb(0xFF, 0x44, 0x27, 0x26);
+        static Color DarkGreenForeground = Color.Argb(0xFF, 0x6C, 0xCB, 0x5F);
+        static Color DarkGreenBackground = Color.Argb(0xFF, 0x39, 0x3D, 0x1B);
+
+        public Color RedForeground
+        {
+            get
+            {
+                return !C1ThemeInfo.ForContext(Grid.Context).IsDark ? LightRedForeground : DarkRedForeground;
+            }
+        }
+
+        public Color RedBackground
+        {
+            get
+            {
+                return !C1ThemeInfo.ForContext(Grid.Context).IsDark ? LightRedBackground : DarkRedBackground;
+            }
+        }
+
+        public Color GreenForeground
+        {
+            get
+            {
+                return !C1ThemeInfo.ForContext(Grid.Context).IsDark ? LightGreenForeground : DarkGreenForeground;
+            }
+        }
+
+        public Color GreenBackground
+        {
+            get
+            {
+                return !C1ThemeInfo.ForContext(Grid.Context).IsDark ? LightGreenBackground : DarkGreenBackground;
+            }
+        }
 
         public override void PrepareCell(GridCellType cellType, GridCellRange range, GridCellView cell, C1.Android.Core.C1Thickness internalBorders)
         {
             base.PrepareCell(cellType, range, cell, internalBorders);
-            if (cellType == GridCellType.Cell && range.Column == 2)
+            var orderCountColumn = Grid.Columns["OrderCount"];
+            if (cellType == GridCellType.Cell && range.Column == orderCountColumn.Index)
             {
                 var cellValue = Grid[range.Row, range.Column] as int?;
                 if (cellValue.HasValue)
                 {
-                    cell.Background = new ColorDrawable(cellValue < 50.0 ? Red : Green);
+                    cell.Background = new ColorDrawable(cellValue < 50.0 ? RedBackground : GreenBackground);
                 }
             }
         }
@@ -79,7 +117,8 @@ namespace FlexGridExplorer
         public override void BindCellContent(GridCellType cellType, GridCellRange range, View cellContent)
         {
             base.BindCellContent(cellType, range, cellContent);
-            if (cellType == GridCellType.Cell && range.Column == 1)
+            var orderTotalColumn = Grid.Columns["OrderTotal"];
+            if (cellType == GridCellType.Cell && range.Column == orderTotalColumn.Index)
             {
                 var label = cellContent as TextView;
                 if (label != null)
@@ -87,7 +126,7 @@ namespace FlexGridExplorer
                     var cellValue = Grid[range.Row, range.Column] as double?;
                     if (cellValue.HasValue)
                     {
-                        label.SetTextColor(cellValue < 5000.0 ? Red : Green);
+                        label.SetTextColor(cellValue < 5000.0 ? RedForeground : GreenForeground);
                     }
                 }
             }

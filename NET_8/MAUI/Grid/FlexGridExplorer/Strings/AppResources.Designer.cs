@@ -531,6 +531,24 @@ namespace FlexGridExplorer.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shows a tree-like data-source bound to FlexGrid using ChildItemsPath property..
+        /// </summary>
+        public static string HierarchicalRowsDescription {
+            get {
+                return ResourceManager.GetString("HierarchicalRowsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hierarchical Rows.
+        /// </summary>
+        public static string HierarchicalRowsTitle {
+            get {
+                return ResourceManager.GetString("HierarchicalRowsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shows how to animates changes in the grid..
         /// </summary>
         public static string LiveUpdatesDescription {
@@ -860,6 +878,24 @@ namespace FlexGridExplorer.Strings {
         public static string TransposedGridTitle {
             get {
                 return ResourceManager.GetString("TransposedGridTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TreeColumnIndex.
+        /// </summary>
+        public static string TreeColumnIndex {
+            get {
+                return ResourceManager.GetString("TreeColumnIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TreeIndent.
+        /// </summary>
+        public static string TreeIndent {
+            get {
+                return ResourceManager.GetString("TreeIndent", resourceCulture);
             }
         }
         

@@ -58,9 +58,9 @@
     <EmbeddedResource Include=".gclicx" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.DataCollection.BindingList" Version="7.0.20233.175" />
+    <PackageReference Include="C1.DataCollection.BindingList" Version="8.0.20241.192" />
     <PackageReference Include="C1.Maui.Grid">
-      <Version>8.0.20233.675</Version>
+      <Version>8.0.20241.812</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
   </ItemGroup>
@@ -81,6 +81,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <MauiXaml Update="View\HierarchicalRows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
     <MauiXaml Update="View\TransposedGrid.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>

@@ -11,6 +11,7 @@ Shows the following samples
 	- Editing Form
 	- Conditional Formatting
 	- Custom Cells
+	- Hierarchical Rows
 	- Grouping
 	- Row Details
 	- Full Text Filter
