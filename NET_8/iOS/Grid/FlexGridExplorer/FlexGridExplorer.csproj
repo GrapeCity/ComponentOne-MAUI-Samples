@@ -1,22 +1,37 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0-ios</TargetFramework>
     <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
     <OutputType>Exe</OutputType>
     <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
+    <ProvisioningType>manual</ProvisioningType>
+    <UseInterpreter>true</UseInterpreter>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Icons\filter.svg" />
+    <None Remove="Icons\sort2.svg" />
+    <None Remove="Icons\sort2_ascending.svg" />
+    <None Remove="Icons\sort2_descending.svg" />
+    <None Remove="Icons\sort_ascending.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Icons\filter.svg" />
+    <BundleResource Include="Icons\sort2.svg" />
+    <BundleResource Include="Icons\sort2_ascending.svg" />
+    <BundleResource Include="Icons\sort2_descending.svg" />
+    <BundleResource Include="Icons\sort_ascending.svg" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="C1.iOS.Core">
-      <Version>8.0.20241.809</Version>
+      <Version>8.0.20242.968</Version>
     </PackageReference>
     <PackageReference Include="C1.iOS.Grid">
-      <Version>8.0.20241.809</Version>
+      <Version>8.0.20242.968</Version>
     </PackageReference>
     <PackageReference Include="C1.iOS.Input">
-      <Version>8.0.20241.809</Version>
+      <Version>8.0.20242.968</Version>
     </PackageReference>
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.0" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FlexGridExplorer.gclicx" />

@@ -20,17 +20,28 @@
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
     <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+    <!--<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>-->
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net8.0.0-android'">
     <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.1.2" />
     <PackageReference Include="Xamarin.Google.Android.Material" Version="1.10.0.1" />
   </ItemGroup>
+  <!-- App Icon -->
+  <Choose>
+    <When Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
+      <ItemGroup>
+        <MauiIcon Condition="" Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" ForegroundScale="0.65" Color="#FFFFFF" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <MauiIcon Condition="" Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#FFFFFF" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
   <ItemGroup>
-    <!-- App Icon -->
-    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#FFFFFF" />
     <!-- Splash Screen -->
-    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#a21d33" BaseSize="128,128" />
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#d6564c" BaseSize="128,128" />
     <!-- Images -->
     <MauiImage Include="Resources\Images\*" />
     <!-- Custom Fonts -->
@@ -60,10 +71,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="C1.Maui.Calendar">
-      <Version>8.0.20241.812</Version>
+      <Version>8.0.20242.969</Version>
     </PackageReference>
     <PackageReference Include="C1.Maui.Core">
-      <Version>8.0.20241.812</Version>
+      <Version>8.0.20242.969</Version>
     </PackageReference>
   </ItemGroup>
 </Project>

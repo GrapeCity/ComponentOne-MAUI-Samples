@@ -16,6 +16,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
@@ -40,13 +41,18 @@
 
         </FlexLayout>
 
-        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+        <Label Text="Tap To Select Data Point, Pan To Change Y-coordinate" Grid.Row="2" />
 
-        <c1:FlexChart x:Name="flexChart"  
-                      ChartType="Scatter" LegendPosition="Bottom"
-                      ItemsSource="{Binding Data}" BindingX="X" Binding="Y" Grid.Row="3">
-            <c1:Series SeriesName="Raw Data" />
+        <BoxView Style="{StaticResource divider}" Grid.Row="3" />
+
+        <c1:FlexChart x:Name="flexChart" SelectionMode="Point" 
+                      ChartType="Scatter" LegendPosition="Bottom" ToolTipContent="{x:Null}"
+                      ItemsSource="{Binding Data}" BindingX="X" Binding="Y" Grid.Row="4">
+            <c1:FlexChart.SelectionStyle>
+                <c1:ChartStyle Stroke="Red" StrokeThickness="4" />
+            </c1:FlexChart.SelectionStyle>
             <c1:TrendLine x:Name="trendLine" SeriesName="Trend Line" FitType="{Binding FitType}" Order="{Binding Order}" />
+            <c1:Series SeriesName="Raw Data" SymbolSize="12" />
         </c1:FlexChart>
 
     </Grid>

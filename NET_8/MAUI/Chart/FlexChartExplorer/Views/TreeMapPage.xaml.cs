@@ -2,6 +2,7 @@
 
 namespace FlexChartExplorer
 {
+#pragma warning disable 1591
     public partial class TreeMapPage : ContentPage
     {
         object[] _data;
@@ -13,6 +14,14 @@ namespace FlexChartExplorer
         }
 
         public List<int> MaxDepths => new() { 1, 2, 3, 4 };
+
+        TreeMapType chartType = TreeMapType.Squarified;
+
+        public TreeMapType ChartType
+        {
+            get => chartType;
+            set { chartType = value; OnPropertyChanged(); }
+        }
         public List<TreeMapType> ChartTypes => new() { TreeMapType.Squarified, TreeMapType.Horizontal, TreeMapType.Vertical };
 
         public List<Palette> Palettes

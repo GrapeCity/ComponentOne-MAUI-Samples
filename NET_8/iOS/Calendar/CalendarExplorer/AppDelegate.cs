@@ -22,6 +22,7 @@ namespace CoreExplorer
             // create a UIViewController with a single UILabel
             var vc = new UIViewController();
             var calendar = new C1Calendar();
+            calendar.MouseOverMode = CalendarMouseOverMode.Slot;
             calendar.Orientation = CalendarOrientation.Vertical;
             calendar.BoldedDates = new DateTime[] { DateTime.Today.AddDays(3) };
             calendar.TranslatesAutoresizingMaskIntoConstraints = false;

@@ -320,4 +320,118 @@
   <data name="ExportTitle" xml:space="preserve">
     <value>Export</value>
   </data>
+  <data name="SelectRowMessage" xml:space="preserve">
+    <value>Please select a row first or double-tap the row directly.</value>
+  </data>
+  <data name="DetailsVisibiltyMode" xml:space="preserve">
+    <value>DetailsVisibiltyMode</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="Weekday" xml:space="preserve">
+    <value>Weekday</value>
+  </data>
+  <data name="Weekend" xml:space="preserve">
+    <value>Weekend</value>
+  </data>
+  <data name="ShowMarquee" xml:space="preserve">
+    <value>ShowMarquee</value>
+  </data>
+  <data name="NewRowDescription" xml:space="preserve">
+    <value>Shows adding new rows.</value>
+  </data>
+  <data name="NewRowTitle" xml:space="preserve">
+    <value>New Row</value>
+  </data>
+  <data name="NewRowPlaceholder" xml:space="preserve">
+    <value>Click here to add a new row</value>
+  </data>
+  <data name="MatchCaseLabel" xml:space="preserve">
+    <value>Match Case</value>
+  </data>
+  <data name="MatchWholeWordLabel" xml:space="preserve">
+    <value>Match Whole Word</value>
+  </data>
+  <data name="CheckListDescription" xml:space="preserve">
+    <value>Show how to select flexgrid rows through checkboxes.</value>
+  </data>
+  <data name="CheckListTitle" xml:space="preserve">
+    <value>Check-List</value>
+  </data>
+  <data name="FilterRowDescription" xml:space="preserve">
+    <value>Filters the data by columns through GridFilterRow.</value>
+  </data>
+  <data name="FilterRowTitle" xml:space="preserve">
+    <value>Filter Row</value>
+  </data>
+  <data name="RowDetailsAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="RowDetailsCity" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="RowDetailsCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="RowDetailsPostalCode" xml:space="preserve">
+    <value>Postal Code</value>
+  </data>
+  <data name="DataTableSampleDescription" xml:space="preserve">
+    <value>Shows how to use FlexGrid bound to Microsoft DataTable and supports all the features. You can see editing, adding, removing, filtering, and sorting in action.</value>
+    <comment>Shows how to use FlexGrid bound to Microsoft DataTable and supports all the features. You can see editing, adding, removing, filtering, and sorting in action.</comment>
+  </data>
+  <data name="DataTableSampleTitle" xml:space="preserve">
+    <value>DataTable</value>
+  </data>
+  <data name="ChangesInDataTableMessage" xml:space="preserve">
+    <value>{0} rows added
+{1} rows modified
+{2} rows deleted</value>
+  </data>
+  <data name="NoChangesEditDataTableFirstMessage" xml:space="preserve">
+    <value>There are no changes in the table yet, Please edit the cells by pressing F2 or double click, or remove rows by pressing delete or use new row to add items.</value>
+  </data>
+  <data name="ShowChangesInTableLabel" xml:space="preserve">
+    <value>Show changes in the table</value>
+  </data>
+  <data name="TransposedGridDescription" xml:space="preserve">
+    <value>Show how to transpose columns and rows so the data items are shown as columns.</value>
+  </data>
+  <data name="TransposedGridTitle" xml:space="preserve">
+    <value>Transposed Grid</value>
+  </data>
+  <data name="HierarchicalRowsDescription" xml:space="preserve">
+    <value>Shows a tree-like data-source bound to FlexGrid using ChildItemsPath property.</value>
+  </data>
+  <data name="HierarchicalRowsTitle" xml:space="preserve">
+    <value>Hierarchical Rows</value>
+  </data>
+  <data name="TreeColumnIndex" xml:space="preserve">
+    <value>TreeColumnIndex</value>
+  </data>
+  <data name="TreeIndent" xml:space="preserve">
+    <value>TreeIndent</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>FlexGridExplorer</value>
+  </data>
 </root>

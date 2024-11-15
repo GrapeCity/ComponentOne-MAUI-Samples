@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0-maccatalyst</TargetFramework>
     <RuntimeIdentifier>maccatalyst-x64</RuntimeIdentifier>
@@ -15,8 +15,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="C1.iOS.Grid">
-      <Version>8.0.20241.809</Version>
+      <Version>8.0.20242.968</Version>
     </PackageReference>
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.0" />
   </ItemGroup>
 </Project>

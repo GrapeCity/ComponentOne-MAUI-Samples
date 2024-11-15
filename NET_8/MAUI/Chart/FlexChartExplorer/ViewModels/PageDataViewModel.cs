@@ -72,6 +72,10 @@
                                       "Show Histogram Chart"),
                             new PageDataViewModel(typeof(WaterfallDemo), "Waterfall",
                                       "Show Waterfall Chart") { Image = "waterfall_chart" },
+                            new PageDataViewModel(typeof(HeatmapPage), "Heatmap",
+                                      "Show Heatmap Chart") { Image = "treemap" },
+                            new PageDataViewModel(typeof(ColumnHeatmapPage), "Column & Heatmap",
+                                      "Show combination of Range Column and Heatmap Charts") { Image = "treemap" },
                     }),
                     new SampleGroup(
                        "Interaction",
@@ -85,7 +89,9 @@
                             new PageDataViewModel(typeof(LineMarker), "Line Marker",
                                       "Show FlexChart with LineMarker") { Image = "line_marker"},
                             new PageDataViewModel(typeof(HitTest), "Hit Test",
-                                      "Show using FlexChart.HitTest() method")
+                                      "Show using FlexChart.HitTest() method"),
+                            new PageDataViewModel(typeof(AxisMarkers), "Axis Markers",
+                                      "Show how to display LineMarker's over the axes")
                         }),
                     new SampleGroup(
                        "Axes",

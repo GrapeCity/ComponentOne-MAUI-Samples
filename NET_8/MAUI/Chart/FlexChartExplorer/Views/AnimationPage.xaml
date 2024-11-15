@@ -22,9 +22,13 @@
         <BoxView Style="{StaticResource divider}" />
 
         <FlexLayout Wrap="Wrap" Grid.Row="1">
-            <Picker x:Name="cbChartType" Title="Chart Type" Margin="10"
-                      ItemsSource="{Binding BindingContext.ChartTypes}" >
-            </Picker>
+            <StackLayout Margin="8,4">
+                <Label Text="Chart Type" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Chart Type"
+                      ItemsSource="{Binding ChartTypes}" 
+                      SelectedItem="{Binding ChartType, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
             <Button Text="New" Clicked="NewData" />
             <Button Clicked="UpdateData" Text="Update Data" />
             <Button Clicked="AddSeries" Text="Add Series" />
@@ -37,7 +41,7 @@
 
         <c1:FlexChart x:Name="chart" Grid.Row="3" Margin="10" Loaded="ChartLoaded"
                       AnimationSettings="All"    
-                      ChartType="{Binding Source={x:Reference cbChartType},Path=SelectedItem}" 
+                      ChartType="{Binding ChartType}" 
                           HorizontalOptions="Fill" 
                           VerticalOptions="Fill"  >
         </c1:FlexChart>

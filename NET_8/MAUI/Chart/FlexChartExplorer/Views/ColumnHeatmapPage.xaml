@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.ColumnHeatmapPage"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Heatmap">
+    <ContentPage.Resources>
+        <Color x:Key="clr1">#ffa6cee3</Color>
+        <Color x:Key="clr2">#fffdbf6f</Color>
+        <SolidColorBrush x:Key="brush1" Color="{StaticResource clr1}" />
+        <SolidColorBrush x:Key="brush2" Color="{StaticResource clr2}" />
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <c1:FlexChart x:Name="chart" Loaded="ChartLoaded" Grid.Row="1"
+                      BindingX="Date" ItemsSource="{Binding Data}"
+                      Header="Temperature Difference New York vs San Francisco" 
+                      LegendPosition="Top"
+                      ToolTipContent="{}{Date:MMM-dd}&#x0a;New York {Temp1}C&#x0a;San Francisco {Temp2}C">
+            <c1:FlexChart.AxisX>
+                <c1:Axis AxisLine="False" LabelAlignment="Left" MajorGrid="True" MajorUnit="2" TimeUnit="Month" MajorTickMarks="None" />
+            </c1:FlexChart.AxisX>
+            <c1:FlexChart.AxisY>
+                <c1:Axis AxisLine="False" MajorGrid="True" MajorTickMarks="None"  Title="Temperature, C" Min="-10" Max="30"/>
+            </c1:FlexChart.AxisY>
+            <c1:Series Binding="Temp1,Temp2" SymbolRendering="SymbolRendering"/>
+            <c1:Heatmap x:Name="heatmap" 
+                        StartY = "-10" StepY = "1" StepX = "1"  Visibility="Plot" Tooltip = "{}{x:MMM-dd}" >
+                <c1:Heatmap.ColorScale>
+                    <c1:GradientColorScale Min="0" Max="1" >
+                        <c1:GradientColorScale.Colors>
+                            <local:ColorList>
+                                <Color>#ffa6cee3</Color>
+                                <Color>#fffdbf6f</Color>
+                            </local:ColorList>
+                        </c1:GradientColorScale.Colors>
+                    </c1:GradientColorScale>
+                </c1:Heatmap.ColorScale>
+            </c1:Heatmap>
+            <!-- Only to display legend -->
+            <c1:Series SeriesName="New York warmer" >
+                <c1:Series.Style>
+                    <c1:ChartStyle Fill="{StaticResource brush2}" Stroke="{StaticResource brush2}" />
+                </c1:Series.Style>
+            </c1:Series>
+            <c1:Series SeriesName="San Fransisco warmer" >
+                <c1:Series.Style>
+                    <c1:ChartStyle Fill="{StaticResource brush1}" Stroke="{StaticResource brush1}"/>
+                </c1:Series.Style>
+            </c1:Series>
+        </c1:FlexChart>
+    </Grid>
+</ContentPage>

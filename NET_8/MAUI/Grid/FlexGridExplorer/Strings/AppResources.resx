@@ -386,7 +386,8 @@
     <value>Postal Code</value>
   </data>
   <data name="DataTableSampleDescription" xml:space="preserve">
-    <value>Shows hot to use FlexGrid bound to Microsoft DataTable and supports all the features. You can see editing, adding, removing, filtering, and sorting in action.</value>
+    <value>Shows how to use FlexGrid bound to Microsoft DataTable and supports all the features. You can see editing, adding, removing, filtering, and sorting in action.</value>
+    <comment>Shows how to use FlexGrid bound to Microsoft DataTable and supports all the features. You can see editing, adding, removing, filtering, and sorting in action.</comment>
   </data>
   <data name="DataTableSampleTitle" xml:space="preserve">
     <value>DataTable</value>
@@ -419,5 +420,8 @@
   </data>
   <data name="TreeIndent" xml:space="preserve">
     <value>TreeIndent</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>FlexGridExplorer</value>
   </data>
 </root>

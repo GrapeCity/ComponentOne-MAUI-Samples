@@ -7,16 +7,16 @@
              xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
     <ContentPage.Resources>
         <DataTemplate x:Key="SortAscendingIcon">
-            <c1:C1SVGIcon Source="Resources/Raw/sort-ascending.svg"/>
+            <c1:C1SVGIcon Source="sort_ascending.svg"/>
         </DataTemplate>
         <DataTemplate x:Key="Sort2Icon">
-            <c1:C1SVGIcon Source="Resources/Raw/sort2.svg"/>
+            <c1:C1SVGIcon Source="sort2.svg"/>
         </DataTemplate>
         <DataTemplate x:Key="Sort2AscendingIcon">
-            <c1:C1SVGIcon Source="Resources/Raw/sort2-ascending.svg"/>
+            <c1:C1SVGIcon Source="sort2_ascending.svg"/>
         </DataTemplate>
         <DataTemplate x:Key="Sort2DescendingIcon">
-            <c1:C1SVGIcon Source="Resources/Raw/sort2-descending.svg"/>
+            <c1:C1SVGIcon Source="sort2_descending.svg"/>
         </DataTemplate>
     </ContentPage.Resources>
     <Grid>

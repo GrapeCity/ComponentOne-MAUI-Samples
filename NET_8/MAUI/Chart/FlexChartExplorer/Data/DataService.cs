@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
@@ -69,6 +70,15 @@ namespace FlexChartExplorer.Data
         public string Name { get; set; }
         public double Sales { get; set; }
     }
+
+    public class TemperatureDiff
+    {
+        public DateTime Date { get; set; }
+        public double Temp1 { get; set; }
+        public double Temp2 { get; set; }
+        public double Diff => Temp2 - Temp1;
+    }
+
 
     public class DataService
     {
@@ -141,6 +151,44 @@ namespace FlexChartExplorer.Data
                 data.Add(country);
             }
             return data;
+        }
+
+        private static List<TemperatureDiff> temperatureDiffs;
+
+        public static List<TemperatureDiff> GetTemperatureDifferenceData()
+        {
+            if (temperatureDiffs == null)
+            {
+                var list = new List<TemperatureDiff>();
+                var asm = Assembly.GetExecutingAssembly();
+
+                using (var stream = asm.GetManifestResourceStream(asm.GetName().Name + ".Resources.tempNY-SF.csv"))
+                {
+                    using (var sr = new StreamReader(stream))
+                    {
+                        for (var line = sr.ReadLine(); line != null; line = sr.ReadLine())
+                        {
+                            if (line.StartsWith("date"))
+                                continue;
+
+                            var fields = line.Split(',');
+                            if (fields.Length == 3)
+                            {
+                                list.Add(new TemperatureDiff()
+                                {
+                                    Date = DateTime.ParseExact(fields[0], "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                                    Temp1 = double.Parse(fields[1], CultureInfo.InvariantCulture),
+                                    Temp2 = double.Parse(fields[2], CultureInfo.InvariantCulture),
+                                });
+                            }
+                        }
+                    }
+                }
+
+                temperatureDiffs = list;
+            }
+
+            return temperatureDiffs;
         }
     }
 }

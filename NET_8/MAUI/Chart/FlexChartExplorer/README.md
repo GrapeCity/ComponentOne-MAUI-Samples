@@ -34,6 +34,7 @@ The sample includes the following demos:
 * Pie Selection
 * Pan & Zoom
 * Line Marker
+* Hit Test
 
   Axes
 

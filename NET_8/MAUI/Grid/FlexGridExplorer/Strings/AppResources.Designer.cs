@@ -279,7 +279,7 @@ namespace FlexGridExplorer.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shows hot to use FlexGrid bound to Microsoft DataTable and supports all the features. You can see editing, adding, removing, filtering, and sorting in action..
+        ///   Looks up a localized string similar to Shows how to use FlexGrid bound to Microsoft DataTable and supports all the features. You can see editing, adding, removing, filtering, and sorting in action..
         /// </summary>
         public static string DataTableSampleDescription {
             get {
@@ -860,6 +860,15 @@ namespace FlexGridExplorer.Strings {
         public static string Thursday {
             get {
                 return ResourceManager.GetString("Thursday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FlexGridExplorer.
+        /// </summary>
+        public static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
             }
         }
         

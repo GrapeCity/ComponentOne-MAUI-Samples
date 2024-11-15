@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace FlexChartExplorer
 {
+#pragma warning disable 1591
     public partial class AnimationPage : ContentPage
     {
         public AnimationPage()
@@ -49,6 +50,14 @@ namespace FlexChartExplorer
         void RemovePoint(object sender, EventArgs args)
         {
             data?.RemovePoint();
+        }
+
+        ChartType chartType = ChartType.Column;
+
+        public ChartType ChartType
+        {
+            get => chartType;
+            set { chartType = value; OnPropertyChanged(); }
         }
 
         public ChartType[] ChartTypes

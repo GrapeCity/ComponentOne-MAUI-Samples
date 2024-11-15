@@ -16,15 +16,19 @@
 
         <BoxView Style="{StaticResource divider}" />
 
-        <Picker x:Name="cbChartType" Title="Chart Type" Margin="10" Grid.Row="1"
-                      ItemsSource="{Binding BindingContext.ChartTypes}" SelectedIndex="0" >
-        </Picker>
+        <StackLayout Margin="8,4" Grid.Row="1">
+            <Label Text="Chart Type" IsVisible="{OnPlatform WinUI=false}" />
+            <Picker Title="Chart Type"
+                      ItemsSource="{Binding ChartTypes}" 
+                      SelectedItem="{Binding ChartType, Mode=TwoWay}">
+            </Picker>
+        </StackLayout>
 
         <BoxView Style="{StaticResource divider}" Grid.Row="2" />
 
         <c1:C1TreeMap x:Name="treeMap" Margin="10" Grid.Row="3" Binding="sales" 
                       BindingName="type" ChildItemsPath="items"
-                      ChartType="{Binding Source={x:Reference cbChartType}, Path=SelectedItem}"
+                      ChartType="{Binding ChartType}"
                       ItemsSource="{Binding Data}" MaxDepth="2" ToolTipContent="{}{value}"
                       LegendPosition="Bottom">
             <c1:C1TreeMap.DataLabel>

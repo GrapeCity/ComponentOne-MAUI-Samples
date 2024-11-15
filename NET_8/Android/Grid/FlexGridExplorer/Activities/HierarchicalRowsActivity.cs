@@ -24,6 +24,8 @@ namespace FlexGridExplorer
             TreeIndentEditText = FindViewById<EditText>(Resource.Id.TreeIndentEditText)!;
             TreeColumnIndexEditText = FindViewById<EditText>(Resource.Id.TreeColumnIndexEditText)!;
             TreeExpandModeSpinner = FindViewById<Spinner>(Resource.Id.TreeExpandModeSpinner)!;
+            TreeLinesModeSpinner = FindViewById<Spinner>(Resource.Id.TreeLinesModeSpinner)!;
+            TreeIndentModeSpinner = FindViewById<Spinner>(Resource.Id.TreeIndentModeSpinner)!;
 
             #region Create tasks
             var task1 = new ProjectTask() { WBS = "1", Name = "Requirements", Duration = new TimeSpan(50, 0, 0, 0), Start = new DateTime(2009, 12, 4) };
@@ -85,6 +87,19 @@ namespace FlexGridExplorer
             {
                 Grid.TreeExpandMode = items[TreeExpandModeSpinner.SelectedItemPosition];
             };
+            var treeLinesItems = Enum.GetValues<GridTreeLinesMode>();
+            TreeLinesModeSpinner.Adapter = new ArrayAdapter(BaseContext, global::Android.Resource.Layout.SimpleSpinnerDropDownItem, treeLinesItems.Select(mode => mode.ToString()).ToArray());
+            TreeLinesModeSpinner.SetSelection(1);
+            TreeLinesModeSpinner.ItemSelected += (s, e) =>
+            {
+                Grid.TreeLinesMode = treeLinesItems[TreeLinesModeSpinner.SelectedItemPosition];
+            };
+            var treeIndentItems = Enum.GetValues<GridTreeIndentMode>();
+            TreeIndentModeSpinner.Adapter = new ArrayAdapter(BaseContext, global::Android.Resource.Layout.SimpleSpinnerDropDownItem, treeIndentItems.Select(mode => mode.ToString()).ToArray());
+            TreeIndentModeSpinner.ItemSelected += (s, e) =>
+            {
+                Grid.TreeIndentMode = treeIndentItems[TreeIndentModeSpinner.SelectedItemPosition];
+            }; 
             TreeIndentEditText.TextChanged += (s, e) =>
             {
                 if (int.TryParse(e.Text.ToString(), out var treeIndent))
@@ -105,7 +120,7 @@ namespace FlexGridExplorer
         public FlexGrid Grid;
         private EditText TreeIndentEditText;
         private EditText TreeColumnIndexEditText;
-        private Spinner TreeExpandModeSpinner;
+        private Spinner TreeExpandModeSpinner, TreeLinesModeSpinner, TreeIndentModeSpinner;
 
         private void OnAutoGeneratingColumn(object sender, C1.Android.Grid.GridAutoGeneratingColumnEventArgs e)
         {

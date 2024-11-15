@@ -1,14 +1,9 @@
-﻿using Android.App;
-using Android.Content.PM;
+﻿using Android.Content.PM;
 using Android.Graphics;
-using Android.OS;
 using Android.Views;
-using Android.Widget;
 using C1.Android.Core;
 using C1.Android.Grid;
 using C1.DataCollection;
-using System;
-using System.Collections.Generic;
 
 namespace FlexGridExplorer
 {
@@ -41,16 +36,73 @@ namespace FlexGridExplorer
                 grid.SortIconPosition = positionItems[positionModes.SelectedItemPosition];
             };
             positionModes.SetSelection(0, false);
-            var iconItems = new C1IconTemplate[] { C1IconTemplate.TriangleNorth, C1IconTemplate.ChevronUp, C1IconTemplate.ArrowUp };
+            var arrowUpBitmapTemplate = new C1IconTemplate(context => new C1BitmapIcon(context)
+            {
+                Source = BitmapFactory.DecodeResource(this.Resources, Resource.Drawable.arrow_up),
+                ShowAsMonochrome = true
+            });
+            var sortAscendingTemplate = new C1IconTemplate(context => new C1SVGIcon(context)
+            {
+                Source = new Uri("raw:///sort_ascending")
+            });
+            var sort2Template = new C1IconTemplate(context => new C1SVGIcon(context)
+            {
+                Source = new Uri("raw:///sort2")
+            });
+            var sort2AscendingTemplate = new C1IconTemplate(context => new C1SVGIcon(context)
+            {
+                Source = new Uri("raw:///sort2_ascending")
+            });
+            var sort2DescendingTemplate = new C1IconTemplate(context => new C1SVGIcon(context)
+            {
+                Source = new Uri("raw:///sort2_descending")
+            });
             var iconAdapterItems = new List<string>();
-            foreach (var value in new string[] { nameof(C1IconTemplate.TriangleNorth), nameof(C1IconTemplate.ChevronUp), nameof(C1IconTemplate.ArrowUp) })
+            foreach (var value in new string[] { "Bitmap", "Custom1", "Custom2", nameof(C1IconTemplate.TriangleUp), nameof(C1IconTemplate.TriangleNorth), nameof(C1IconTemplate.ChevronUp), nameof(C1IconTemplate.ArrowUp) })
             {
                 iconAdapterItems.Add(value);
             }
             iconModes.Adapter = new ArrayAdapter(BaseContext, global::Android.Resource.Layout.SimpleSpinnerDropDownItem, iconAdapterItems);
             iconModes.ItemSelected += (s, e) =>
             {
-                grid.SortAscendingIconTemplate = iconItems[iconModes.SelectedItemPosition];
+                switch (iconModes.SelectedItemPosition)
+                {
+                    case 0:
+                        grid.SortAscendingIconTemplate = arrowUpBitmapTemplate;
+                        grid.SortDescendingIconTemplate = null;
+                        grid.SortIndeterminateIconTemplate = null;
+                        break;
+                    case 1:
+                        grid.SortAscendingIconTemplate = sortAscendingTemplate;
+                        grid.SortDescendingIconTemplate = null;
+                        grid.SortIndeterminateIconTemplate = null;
+                        break;
+                    case 2:
+                        grid.SortAscendingIconTemplate = sort2AscendingTemplate;
+                        grid.SortDescendingIconTemplate = sort2DescendingTemplate;
+                        grid.SortIndeterminateIconTemplate = sort2Template;
+                        break;
+                    case 3:
+                        grid.SortAscendingIconTemplate = C1IconTemplate.TriangleUp;
+                        grid.SortDescendingIconTemplate = null;
+                        grid.SortIndeterminateIconTemplate = null;
+                        break;
+                    case 4:
+                        grid.SortAscendingIconTemplate = C1IconTemplate.TriangleNorth;
+                        grid.SortDescendingIconTemplate = null;
+                        grid.SortIndeterminateIconTemplate = null;
+                        break;
+                    case 5:
+                        grid.SortAscendingIconTemplate = C1IconTemplate.ChevronUp;
+                        grid.SortDescendingIconTemplate = null;
+                        grid.SortIndeterminateIconTemplate = null;
+                        break;
+                    case 6:
+                        grid.SortAscendingIconTemplate = C1IconTemplate.ArrowUp;
+                        grid.SortDescendingIconTemplate = null;
+                        grid.SortIndeterminateIconTemplate = null;
+                        break;
+                }
             };
             iconModes.SetSelection(0, false);
             grid = FindViewById<FlexGrid>(Resource.Id.Grid);
@@ -61,7 +113,6 @@ namespace FlexGridExplorer
             var cv = new C1DataCollection<Customer>(Customer.GetCustomerList(100));
             await cv.SortAsync(new SortDescription("FirstName", SortDirection.Ascending), new SortDescription("LastName", SortDirection.Descending));
             grid.ItemsSource = cv;
-            grid.SortAscendingIconTemplate = new C1IconTemplate(context => new C1BitmapIcon(context) { Source = BitmapFactory.DecodeResource(this.Resources, Resource.Drawable.arrow_up), ShowAsMonochrome = true});
         }
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
