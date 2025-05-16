@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.TrendLineDemo"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Trend Line">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <StackLayout>
+                <Label Text="Fit Type" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Fit Type"
+                      ItemsSource="{Binding FitTypes}" 
+                      SelectedItem="{Binding FitType, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Order" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Orders"
+                      ItemsSource="{Binding Orders}"
+                      SelectedItem="{Binding Order}" >
+                </Picker>
+            </StackLayout>
+
+        </FlexLayout>
+
+        <Label Text="Tap To Select Data Point, Pan To Change Y-coordinate" Grid.Row="2" />
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="3" />
+
+        <c1:FlexChart x:Name="flexChart" SelectionMode="Point" 
+                      ChartType="Scatter" LegendPosition="Bottom" ToolTipContent="{x:Null}"
+                      ItemsSource="{Binding Data}" BindingX="X" Binding="Y" Grid.Row="4">
+            <c1:FlexChart.SelectionStyle>
+                <c1:ChartStyle Stroke="Red" StrokeThickness="4" />
+            </c1:FlexChart.SelectionStyle>
+            <c1:TrendLine x:Name="trendLine" SeriesName="Trend Line" FitType="{Binding FitType}" Order="{Binding Order}" />
+            <c1:Series SeriesName="Raw Data" SymbolSize="12" />
+        </c1:FlexChart>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.PanZoomPage"
+             xmlns:c1="clr-namespace:C1.Maui.Chart;assembly=C1.Maui.Chart"
+             xmlns:c1i="clr-namespace:C1.Maui.Chart.Interaction;assembly=C1.Maui.Chart"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Pan And Zoom Page">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="4" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <Button x:Name="btnNew" Text="New Data" />
+            <Button x:Name="btnReset" Text="Reset Zoom" />
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexChart x:Name="flexChart" Grid.Row="3" ToolTipContent="{x:Null}" 
+                      ChartType="Scatter" BindingX="X" Binding="Y">
+            <c1:FlexChart.Behaviors>
+                <c1i:ZoomBehavior x:Name="zoomBehavior" />
+                <c1i:TranslateBehavior />
+            </c1:FlexChart.Behaviors>
+
+            <c1:Series SymbolSize="4" />
+            <c1:FlexChart.AxisX>
+                <c1:Axis MajorGrid="True" />
+            </c1:FlexChart.AxisX>
+            <c1:FlexChart.AxisY>
+                <c1:Axis MajorGrid="True" />
+            </c1:FlexChart.AxisY>
+        </c1:FlexChart>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0-ios</TargetFramework>
+    <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
+    <OutputType>Exe</OutputType>
+    <UseInterpreter>true</UseInterpreter>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Flights.gclicx" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="C1.iOS.Core">
+      <Version>9.0.20251.1075</Version>
+    </PackageReference>
+    <PackageReference Include="C1.iOS.Grid">
+      <Version>9.0.20251.1075</Version>
+    </PackageReference>
+    <PackageReference Include="C1.iOS.GridControl">
+      <Version>9.0.20251.1075</Version>
+    </PackageReference>
+    <PackageReference Include="C1.iOS.Input">
+      <Version>9.0.20251.1075</Version>
+    </PackageReference>
+  </ItemGroup>
+</Project>

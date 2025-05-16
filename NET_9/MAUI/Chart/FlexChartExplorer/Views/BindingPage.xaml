@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.BindingPage"
+             xmlns:c1="clr-namespace:C1.Maui.Chart;assembly=C1.Maui.Chart"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Binding Page">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <StackLayout>
+                <Label Text="Chart Type" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Chart Type"
+                      ItemsSource="{Binding ChartTypes}" 
+                      SelectedItem="{Binding ChartType, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Interpolate Nulls" />
+                <Switch x:Name="switchInterpolateNulls" />
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Legend Toggle" />
+                <Switch x:Name="switchLegendToggle" />
+            </StackLayout>
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexChart Grid.Row="3" Margin="10"
+                      ItemsSource="{Binding Data}" BindingX="Date" 
+                      ChartType="{Binding ChartType}"
+                      LegendToggle="{Binding Source={x:Reference switchLegendToggle}, Path=IsToggled}">
+            <c1:Series SeriesName="Downloads" Binding="Downloads" />
+            <c1:Series SeriesName="Sales" Binding="Sales"/>
+            <c1:FlexChart.Options>
+                <c1:ChartOptions InterpolateNulls="{Binding Source={x:Reference switchInterpolateNulls}, Path=IsToggled}" />
+            </c1:FlexChart.Options>
+
+        </c1:FlexChart>
+    </Grid>
+</ContentPage>

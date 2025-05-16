@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexGridExplorer.SelectionModes"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="true"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
+    <StackLayout>
+        <Picker x:Name="selectionMode" Title="SelectionMode" SelectedIndexChanged="SelectionModeChanged" Margin="4"/>
+        <StackLayout Orientation="Horizontal" Spacing="4" Margin="4,0,4,4">
+            <Label x:Name ="lblMarquee"  VerticalOptions="Center"/>
+            <Switch x:Name="switchMarquee" BindingContext="{x:Reference grid}" IsToggled="{Binding ShowMarquee, Mode=TwoWay}"/>
+        </StackLayout>
+        <Label x:Name="lblSelection" Margin="4,0,4,0"/>
+        <Grid VerticalOptions="FillAndExpand">
+            <c1:FlexGrid x:Name="grid" HeadersVisibility="All" AllowResizing="Both" Style="{x:Static c1:FlexGrid.ClassicStyle}" SelectionChanging="OnSelectionChanging" SelectionChanged="OnSelectionChanged"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>

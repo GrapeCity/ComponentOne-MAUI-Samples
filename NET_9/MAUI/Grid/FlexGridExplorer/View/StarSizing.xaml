@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexGridExplorer.StarSizing"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="true"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
+    <c1:FlexGrid x:Name="grid" 
+                 DefaultColumnWidth="*"
+                 AutoGenerateColumns="False" 
+                 AllowResizing="None" 
+                 HeadersVisibility="Column" 
+                 BackgroundColor="White"
+                 RowBackground="#FFE5E6FA"
+                 RowForeground="Black"
+                 AlternatingRowBackground="White" 
+                 GridLinesVisibility="None"
+                 ColumnHeaderGridLinesVisibility="None"
+                 ColumnHeaderBackground="#FF778898" 
+                 ColumnHeaderForeground="White" 
+                 ColumnHeaderFontAttributes="Bold"
+                 SelectionBackground="#FFFAD127" 
+                 SelectionForeground="Black">
+        <c1:FlexGrid.Columns>
+            <c1:GridColumn Binding="FirstName"/>
+            <c1:GridColumn Binding="LastName"/>
+            <c1:GridColumn Binding="LastOrderDate" Format="d"/>
+            <c1:GridColumn Binding="OrderTotal" Format="N" HorizontalAlignment="End"/>
+        </c1:FlexGrid.Columns>
+    </c1:FlexGrid>
+</ContentPage>

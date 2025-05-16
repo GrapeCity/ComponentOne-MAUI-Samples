@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+	<!--<style name="MyTheme" parent="MyTheme.Base">
+  </style>
+  <style name="MyTheme.Base" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <item name="logo">@drawable/logo_toolbar</item>
+    <item name="colorPrimary">?android:attr/colorBackground</item>
+    -->
+	<!--<item name="colorPrimaryDark">@color/primaryDark</item>
+    <item name="colorAccent">@color/accent</item>
+    <item name="android:windowBackground">@color/window_background</item>-->
+	<!--
+    <item name="windowActionModeOverlay">true</item>
+    <item name="toolbarNavigationButtonStyle">@style/myToolbarNavigationButtonStyle</item>
+    <item name="toolbarStyle">@style/myToolbarStyle</item>
+  </style>
+  <style name="myToolbarNavigationButtonStyle" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+    <item name="android:minWidth">0dp</item>
+    <item name="android:paddingLeft">10dp</item>
+  </style>
+  <style name="myToolbarStyle" parent="Widget.AppCompat.Toolbar">
+    <item name="contentInsetStart">0dp</item>
+    <item name="contentInsetLeft">0dp</item>
+    <item name="contentInsetStartWithNavigation">0dp</item>
+  </style>-->
+	<style name="CustomFontStyle">
+		<item name="android:fontFamily">@font/courier_new</item>
+		<item name="android:textSize">24sp</item>
+		<item name="android:textColor">#FF0000</item>
+	</style>
+	<style name="GreenCalendar" parent="C1CalendarStyle">
+		<item name="android:background">#FFEBEBEB</item>
+		<item name="android:foreground">#FF000000</item>
+		<item name="headerBackground">#FF3D834B</item>
+		<item name="headerForeground">#FFFFFFFF</item>
+		<item name="headerTextSize">18sp</item>
+		<item name="headerTypeface">serif</item>
+		<item name="dayOfWeekBackground">#FF63A646</item>
+		<item name="dayOfWeekForeground">#FFFFFFFF</item>
+		<item name="dayOfWeekFormat">d</item>
+		<item name="dayOfWeekTextStyle">italic</item>
+		<item name="dayOfWeekTypeface">sans</item>
+		<item name="dayOfWeekTextSize">16sp</item>
+		<item name="selectionBackground">#FFD2D2D2</item>
+		<item name="selectionForeground">#FF000000</item>
+		<item name="todayBackground">#FF63A646</item>
+		<item name="todayTextStyle">bold</item>
+		<item name="todayFontFamily">@font/courier_new</item>
+		<item name="dayBorderWidth">1dip</item>
+		<item name="dayBorderBrush">#FFF2F2F2</item>
+		<item name="adjacentDayForeground">#FFA5A5A3</item>
+		<item name="dayOfWeekPadding">4</item>
+	</style>
+</resources>

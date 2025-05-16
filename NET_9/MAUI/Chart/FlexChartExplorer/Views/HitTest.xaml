@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.HitTest"
+             xmlns:c1="clr-namespace:C1.Maui.Chart;assembly=C1.Maui.Chart"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Hit Test">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="12" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <c1:FlexChart x:Name="flexChart" ChartType="SplineSymbols" Grid.Row="1"
+                      Header="Newspapers Losing Relevance as News Source"
+                      Footer="The data is fictional" FooterAlignment="Right"
+                      LegendPosition="TopLeft" ToolTipContent="{x:Null}"
+                      ItemsSource="{Binding Data}" BindingX="Year"  >
+            <c1:Series SeriesName="Newspaper" Binding="Newspaper" />
+            <c1:Series SeriesName="Internet" Binding="Internet" />
+            <c1:FlexChart.AxisX>
+                <c1:Axis AxisLine="False" />
+            </c1:FlexChart.AxisX>
+            <c1:FlexChart.AxisY>
+                <c1:Axis Format="p0" AxisLine="False" MajorGrid="True" MajorTickMarks="None" Min="0" />
+            </c1:FlexChart.AxisY>
+        </c1:FlexChart>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <Label x:Name="label1" Grid.Row="3" />
+        <Label x:Name="label2" Grid.Row="4" />
+        <Label Grid.Row="5" HorizontalTextAlignment="Center" Text="Tap on chart to see hit test result" />
+    </Grid>
+</ContentPage>

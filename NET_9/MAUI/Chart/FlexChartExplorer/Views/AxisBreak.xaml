@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.AxisBreak"
+             xmlns:c1="clr-namespace:C1.Maui.Chart;assembly=C1.Maui.Chart"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="FlexChart with Axis Break">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+        <c1:ChartStyle x:Key="seriesStyle" Fill="#FF88BDE6" Stroke="#FF88BDE6"></c1:ChartStyle>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <StackLayout>
+                <Label Text="Axis Break" />
+                <Switch x:Name="switchAxisBreak" Toggled="switchAxisBreak_Toggled" Loaded="switchAxisBreak_Loaded" />
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Rotated" />
+                <Switch x:Name="switchRotated" Toggled="switchRotated_Toggled" />
+            </StackLayout>
+            <StackLayout Margin="8,4">
+                <Label Text="Chart Type" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Chart Type"
+                      ItemsSource="{Binding ChartTypes}" 
+                      SelectedItem="{Binding ChartType, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexChart x:Name="flexChart" Grid.Row="3" Margin="4,20" 
+                      BindingX="X" Binding="Y" ChartType="{Binding ChartType}" 
+                      ItemsSource="{Binding Data}" >
+            <c1:Series Style="{StaticResource seriesStyle}" />
+        </c1:FlexChart>
+
+    </Grid>
+</ContentPage>

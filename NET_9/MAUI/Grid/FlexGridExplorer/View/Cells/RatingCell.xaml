@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexGridExplorer.RatingCell">
+    <HorizontalStackLayout>
+        <Image Source="star.png" WidthRequest="15" HeightRequest="15" Opacity="{Binding Star1Opacity}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ChangeStarCommand}" CommandParameter="0"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="star.png" WidthRequest="15" HeightRequest="15" Opacity="{Binding Star2Opacity}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ChangeStarCommand}" CommandParameter="1"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="star.png" WidthRequest="15" HeightRequest="15" Opacity="{Binding Star3Opacity}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ChangeStarCommand}" CommandParameter="2"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="star.png" WidthRequest="15" HeightRequest="15" Opacity="{Binding Star4Opacity}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ChangeStarCommand}" CommandParameter="3"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="star.png" WidthRequest="15" HeightRequest="15" Opacity="{Binding Star5Opacity}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ChangeStarCommand}" CommandParameter="4"/>
+            </Image.GestureRecognizers>
+        </Image>
+    </HorizontalStackLayout>
+</ContentView>

@@ -1,0 +1,111 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0-ios</TargetFramework>
+    <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
+    <OutputType>Exe</OutputType>
+    <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
+    <ProvisioningType>manual</ProvisioningType>
+    <UseInterpreter>true</UseInterpreter>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Icons\alert-circle.svg" />
+    <None Remove="Icons\arrow-down.svg" />
+    <None Remove="Icons\arrow-up.svg" />
+    <None Remove="Icons\asterisk.svg" />
+    <None Remove="Icons\chevron-down.svg" />
+    <None Remove="Icons\chevron-left.svg" />
+    <None Remove="Icons\chevron-right.svg" />
+    <None Remove="Icons\chevron-up.svg" />
+    <None Remove="Icons\close.svg" />
+    <None Remove="Icons\copy.svg" />
+    <None Remove="Icons\cut.svg" />
+    <None Remove="Icons\delete.svg" />
+    <None Remove="Icons\edit.svg" />
+    <None Remove="Icons\function.svg" />
+    <None Remove="Icons\funnel.svg" />
+    <None Remove="Icons\gear.svg" />
+    <None Remove="Icons\paste.svg" />
+    <None Remove="Icons\select-all.svg" />
+    <None Remove="Icons\star-5.svg" />
+    <None Remove="Icons\three-dots-horizontal.svg" />
+    <None Remove="Icons\three-dots-vertical.svg" />
+    <None Remove="Icons\triangle-down.svg" />
+    <None Remove="Icons\triangle-east.svg" />
+    <None Remove="Icons\triangle-left-down.svg" />
+    <None Remove="Icons\triangle-left-up.svg" />
+    <None Remove="Icons\triangle-left.svg" />
+    <None Remove="Icons\triangle-north-east.svg" />
+    <None Remove="Icons\triangle-north-west.svg" />
+    <None Remove="Icons\triangle-north.svg" />
+    <None Remove="Icons\triangle-right-down.svg" />
+    <None Remove="Icons\triangle-right-up.svg" />
+    <None Remove="Icons\triangle-right.svg" />
+    <None Remove="Icons\triangle-south-east.svg" />
+    <None Remove="Icons\triangle-south-west.svg" />
+    <None Remove="Icons\triangle-south.svg" />
+    <None Remove="Icons\triangle-up.svg" />
+    <None Remove="Icons\triangle-west.svg" />
+    <None Remove="Icons\undo.svg" />
+    <None Remove="Resources\data.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Icons\alert-circle.svg" />
+    <BundleResource Include="Icons\arrow-down.svg" />
+    <BundleResource Include="Icons\arrow-up.svg" />
+    <BundleResource Include="Icons\asterisk.svg" />
+    <BundleResource Include="Icons\chevron-down.svg" />
+    <BundleResource Include="Icons\chevron-left.svg" />
+    <BundleResource Include="Icons\chevron-right.svg" />
+    <BundleResource Include="Icons\chevron-up.svg" />
+    <BundleResource Include="Icons\close.svg" />
+    <BundleResource Include="Icons\copy.svg" />
+    <BundleResource Include="Icons\cut.svg" />
+    <BundleResource Include="Icons\delete.svg" />
+    <BundleResource Include="Icons\edit.svg" />
+    <BundleResource Include="Icons\function.svg" />
+    <BundleResource Include="Icons\funnel.svg" />
+    <BundleResource Include="Icons\gear.svg" />
+    <BundleResource Include="Icons\paste.svg" />
+    <BundleResource Include="Icons\select-all.svg" />
+    <BundleResource Include="Icons\star-5.svg" />
+    <BundleResource Include="Icons\three-dots-horizontal.svg" />
+    <BundleResource Include="Icons\three-dots-vertical.svg" />
+    <BundleResource Include="Icons\triangle-down.svg" />
+    <BundleResource Include="Icons\triangle-east.svg" />
+    <BundleResource Include="Icons\triangle-left-down.svg" />
+    <BundleResource Include="Icons\triangle-left-up.svg" />
+    <BundleResource Include="Icons\triangle-left.svg" />
+    <BundleResource Include="Icons\triangle-north-east.svg" />
+    <BundleResource Include="Icons\triangle-north-west.svg" />
+    <BundleResource Include="Icons\triangle-north.svg" />
+    <BundleResource Include="Icons\triangle-right-down.svg" />
+    <BundleResource Include="Icons\triangle-right-up.svg" />
+    <BundleResource Include="Icons\triangle-right.svg" />
+    <BundleResource Include="Icons\triangle-south-east.svg" />
+    <BundleResource Include="Icons\triangle-south-west.svg" />
+    <BundleResource Include="Icons\triangle-south.svg" />
+    <BundleResource Include="Icons\triangle-up.svg" />
+    <BundleResource Include="Icons\triangle-west.svg" />
+    <BundleResource Include="Icons\undo.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="C1.iOS.Core">
+      <Version>9.0.20251.1075</Version>
+    </PackageReference>
+    <PackageReference Include="C1.iOS.Grid">
+      <Version>9.0.20251.1075</Version>
+    </PackageReference>
+    <PackageReference Include="C1.iOS.Input">
+      <Version>9.0.20251.1075</Version>
+    </PackageReference>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FlexGridExplorer.gclicx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Update="Resources\data.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+  </ItemGroup>
+</Project>

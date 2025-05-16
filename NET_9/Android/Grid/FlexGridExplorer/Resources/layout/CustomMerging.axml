@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+    <c1.android.grid.FlexGrid
+        android:id="@+id/Grid"
+        app:gridSelectionMode="cellRange"
+        app:isReadOnly="true"
+        app:allowMerging="all"
+        app:headersVisibility="all"
+        app:gridLinesVisibility="all"
+        app:rowHeaderGridLinesVisibility="all"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Grid">
+        <ImageView
+            android:id="@+id/imageView1"
+            android:src="@drawable/retro_tv_filled_50_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dip" />
+        <TextView
+            android:id="@+id/ShowNameLabel"
+            android:text="Walker"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textSize="24dip"
+            android:layout_marginLeft="8dip" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/ShowTimeLabel"
+        android:text="ShowTimeLabel"
+        android:layout_margin="8dip"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

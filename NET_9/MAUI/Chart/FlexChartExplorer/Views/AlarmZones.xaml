@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.AlarmZones"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Alarm Zones">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+        <Color x:Key="Critical">#40FF99A4</Color>
+        <Color x:Key="Caution">#40FCE100</Color>
+        <Color x:Key="Success">#406CCB5F</Color>
+    </ContentPage.Resources>
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <c1:FlexChart x:Name="flexChart" Grid.Row="1" ChartType="Line" Margin="8"
+                      Header="Device Temperature Monitor" 
+                      ItemsSource="{Binding Data}" BindingX="X" Binding="Y" 
+                      Rendering="Rendering" ToolTipContent="{}{y:n1}">
+            <c1:FlexChart.AxisY>
+                <c1:Axis Min="0" Max="100" AxisLine="False" MajorTickMarks="None" MajorGrid="True" 
+                         Title="Temperature (C)"/>
+            </c1:FlexChart.AxisY>
+            <c1:Series>
+                <c1:Series.Style>
+                    <c1:ChartStyle StrokeThickness="2" />
+                </c1:Series.Style>
+            </c1:Series>
+        </c1:FlexChart>
+    </Grid>
+</ContentPage>

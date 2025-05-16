@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.LogAxesPage"
+             xmlns:c1="clr-namespace:C1.Maui.Chart;assembly=C1.Maui.Chart"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Logarithmic Axes">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <StackLayout>
+                <Label Text="Log Scale" />
+                <Switch IsToggled="True" Toggled="OnToggled" />
+            </StackLayout>
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexChart x:Name="flexChart" ChartType="Bubble" Margin="10"
+                      ItemsSource="{Binding Data}" BindingX="PopulationMillions" Binding="GdpBillions,GdpPerCapita" 
+                      Grid.Row="3" ToolTipContent="{}{Country}&#10;{}{GdpPerCapita:n0} US$/year/capita">
+            <c1:FlexChart.AxisX>
+                <c1:Axis Title="Population (millions)" LogBase="10" />
+            </c1:FlexChart.AxisX>
+            <c1:FlexChart.AxisY>
+                <c1:Axis Title="GDP (US$ billions)" LogBase="10" AxisLine="False" MajorGrid="True" MajorTickMarks="None" />
+            </c1:FlexChart.AxisY>
+            <c1:Series />
+        </c1:FlexChart>
+    </Grid>
+</ContentPage>

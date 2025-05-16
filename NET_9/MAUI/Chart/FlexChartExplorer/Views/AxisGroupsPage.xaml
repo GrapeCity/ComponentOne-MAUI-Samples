@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.AxisGroupsPage"
+             xmlns:c1="clr-namespace:C1.Maui.Chart;assembly=C1.Maui.Chart"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Axis Groups">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <StackLayout>
+                <Label Text="Group Separator" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Group Separator"
+                      ItemsSource="{Binding GroupSeparators}" 
+                      SelectedItem="{Binding Path=GroupSeparator, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexChart x:Name="flexChart" Margin="4,10" Grid.Row="3"
+                      Header="GDP (USD trillion) by country (2014)" ToolTipContent="{}{x}&#x0a;{y:n0} million USD"
+                      ItemsSource="{Binding Data}" BindingX="Country"
+                      >
+            <c1:FlexChart.AxisX>
+                <c1:Axis OverlappingLabels="WordWrap" GroupNames="Continent" 
+                         BindingContext="{Binding Source={x:Reference flexChart},Path=BindingContext}"
+                         GroupSeparator="{Binding GroupSeparator}" />
+            </c1:FlexChart.AxisX>
+            <c1:FlexChart.AxisY>
+                <c1:Axis Format="#,#,," AxisLine="False" MajorGrid="True" MajorTickMarks="None" />
+            </c1:FlexChart.AxisY>
+            <c1:Series Binding="Gdp" />
+        </c1:FlexChart>
+    </Grid>
+</ContentPage>

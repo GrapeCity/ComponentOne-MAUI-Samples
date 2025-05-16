@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.PiePage"
+             xmlns:c1="clr-namespace:C1.Maui.Chart;assembly=C1.Maui.Chart"
+             xmlns:c11="clr-namespace:C1.Chart;assembly=C1.Maui.Chart"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Pie Page">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+        <Style TargetType="Stepper">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+        <Style x:Key="stepperLabel" TargetType="Label">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalTextAlignment" Value="End" />
+            <Setter Property="WidthRequest" Value="120" />
+        </Style>
+
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1" >
+            <StackLayout>
+                <Label Text="Palette" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Palette"
+                      ItemsSource="{Binding Palettes}" 
+                      SelectedItem="{Binding Palette, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Label" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker x:Name="pickerPosition" Title="Label"
+                      ItemsSource="{Binding LabelPositions}" 
+                      SelectedItem="{Binding Source={x:Reference chart}, Path=DataLabel.Position, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Style="{StaticResource stepperLabel}" Text="{Binding InnerRadius,StringFormat='Inner Radius: {0:0.00}'}" />
+                <Stepper Minimum="0" Maximum="0.75" Increment="0.25" Value="{Binding InnerRadius}" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Style="{StaticResource stepperLabel}" Text="{Binding Offset,StringFormat='Offset: {0:0.0}'}" />
+                <Stepper Minimum="0" Maximum="0.5" Increment="0.1" Value="{Binding Offset}" />
+            </StackLayout>
+
+        </FlexLayout>
+
+        <BoxView Grid.Row="2" Style="{StaticResource divider}" />
+
+        <c1:FlexPie x:Name="chart" Grid.Row="3" Margin="10"
+                      ItemsSource="{Binding Data}" Binding="Q1" 
+                      BindingName="Country"
+                      InnerRadius="{Binding InnerRadius}"
+                      Offset="{Binding Offset}"
+                      Palette="{Binding Palette}" >
+            <c1:FlexPie.DataLabel>
+                <c1:PieDataLabel Content="{}{y}" Offset="4" />
+            </c1:FlexPie.DataLabel>
+        </c1:FlexPie>
+    </Grid>
+</ContentPage>
