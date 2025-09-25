@@ -24,9 +24,11 @@
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>
-  <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
-    <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.1.11" />
-    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.12.0.1" />
+  <ItemGroup>
+    <PackageReference Include="C1.Maui.Grid">
+      <Version>9.0.20251.1151</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
   </ItemGroup>
   <!-- App Icon -->
   <Choose>
@@ -68,10 +70,7 @@
     <EmbeddedResource Include=".gclicx" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.DataCollection.BindingList" Version="9.0.20242.209" />
-    <PackageReference Include="C1.Maui.Grid">
-      <Version>9.0.20251.1084</Version>
-    </PackageReference>
+    <PackageReference Include="C1.DataCollection.BindingList" Version="9.0.20251.213" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
   </ItemGroup>
   <ItemGroup>

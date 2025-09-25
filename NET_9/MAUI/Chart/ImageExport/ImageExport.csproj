@@ -68,10 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="C1.Maui.Chart">
-      <Version>9.0.20251.1084</Version>
+      <Version>9.0.20251.1151</Version>
     </PackageReference>
     <PackageReference Include="C1.Maui.Core">
-      <Version>9.0.20251.1084</Version>
+      <Version>9.0.20251.1151</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Maui" Version="9.0.3" />
     <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />

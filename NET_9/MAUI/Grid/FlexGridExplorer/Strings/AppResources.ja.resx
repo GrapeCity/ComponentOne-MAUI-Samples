@@ -417,11 +417,12 @@
     <value>郵便コード</value>
   </data>
   <data name="DataTableSampleDescription" xml:space="preserve">
-    <value>Shows how to use FlexGrid bound to Microsoft DataTable and supports all the features. You can see editing, adding, removing, filtering, and sorting in action.</value>
+    <value>Microsoft DataTable にバインドされた FlexGrid の使い方と、すべての機能を紹介します。編集、追加、削除、フィルタリング、並べ替えなどの操作を実際に確認できます。</value>
     <comment>Shows how to use FlexGrid bound to Microsoft DataTable and supports all the features. You can see editing, adding, removing, filtering, and sorting in action.</comment>
   </data>
   <data name="DataTableSampleTitle" xml:space="preserve">
     <value>DataTable</value>
+    <comment>DataTable</comment>
   </data>
   <data name="ChangesInDataTableMessage" xml:space="preserve">
     <value>{0} 行が選択されました

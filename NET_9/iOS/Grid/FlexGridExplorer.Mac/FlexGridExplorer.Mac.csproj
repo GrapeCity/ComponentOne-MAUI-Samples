@@ -15,7 +15,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="C1.iOS.Grid">
-      <Version>9.0.20251.1075</Version>
+      <Version>9.0.20251.1137</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
   </ItemGroup>
