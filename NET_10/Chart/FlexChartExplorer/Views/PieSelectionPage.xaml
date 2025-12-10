@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.PieSelectionPage"
+             xmlns:c1="clr-namespace:C1.Maui.Chart;assembly=C1.Maui.Chart"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Pie Selection Page">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+        <SolidColorBrush x:Key="ChartSelectionColorLight" Color="#ba300d" />
+        <SolidColorBrush x:Key="ChartSelectionColorDark" Color="#ff7961" />
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <StackLayout>
+                <Label Text="Selection Offset" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Selection Offset"
+                      ItemsSource="{Binding Offsets}" 
+                      SelectedItem="{Binding SelectionOffset, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Selection Position" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Selection Position"
+                      ItemsSource="{Binding Positions}" 
+                      SelectedItem="{Binding SelectionPosition, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexPie x:Name="flexPie" Header="Top 10 Electric Vehicle Models" SelectionMode="Point"
+                    ItemsSource="{Binding Data}" BindingName="Model" Binding="Vehicles" Grid.Row="3"
+                    SelectedItemOffset="{Binding SelectionOffset}"  
+                    SelectedItemPosition="{Binding SelectionPosition}"
+                    LegendPosition="Bottom" ToolTipContent="{}{name}: {value} registered vehicles">
+            <c1:FlexPie.HeaderStyle>
+                <c1:ChartStyle FontSize="24" />
+            </c1:FlexPie.HeaderStyle>
+            <c1:FlexPie.SelectionStyle>
+                    <c1:ChartStyle Stroke="{AppThemeBinding Light={StaticResource ChartSelectionColorLight},Dark={StaticResource ChartSelectionColorDark}}"
+                               StrokeThickness="3" 
+                               Fill="{AppThemeBinding Light={StaticResource ChartSelectionColorLight},Dark={StaticResource ChartSelectionColorDark}}" />
+            </c1:FlexPie.SelectionStyle>
+            <c1:FlexPie.DataLabel>
+                <c1:PieDataLabel Position="Outside" Content="{}{p:0}%" Offset="4" />
+            </c1:FlexPie.DataLabel>
+        </c1:FlexPie>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.Legend"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Legend">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <StackLayout>
+                <Label Text="Position" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Position"
+                      ItemsSource="{Binding Positions}" 
+                      SelectedItem="{Binding Position, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Orientation" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Orientation"
+                      ItemsSource="{Binding Orientations}"
+                      SelectedItem="{Binding Orientation}" >
+                </Picker>
+            </StackLayout>
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexChart x:Name="flexChart" Footer="Monthly Mean Temperature"
+                      ChartType="LineSymbols"
+                      LegendPosition="{Binding Position}"
+                      LegendOrientation="{Binding Orientation}" Margin="8"
+                      ItemsSource="{Binding Data}" BindingX="month" Grid.Row="3">
+            <c1:FlexChart.AxisY>
+                <c1:Axis Labels="False" AxisLine="False" MajorGrid="True" MajorTickMarks="None" Min="-5" Max="30" />
+            </c1:FlexChart.AxisY>
+            <c1:Series SeriesName="New York" Binding="NewYork"/>
+            <c1:Series SeriesName="Los Angeles" Binding="LosAngeles"/>
+        </c1:FlexChart>
+    </Grid>
+</ContentPage>

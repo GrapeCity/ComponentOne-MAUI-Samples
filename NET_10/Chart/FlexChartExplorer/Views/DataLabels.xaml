@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.DataLabels"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Data Labels">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <StackLayout>
+                <Label Text="Chart Type" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Chart Type"
+                      ItemsSource="{Binding ChartTypes}" 
+                      SelectedItem="{Binding ChartType, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Position" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Position"
+                      ItemsSource="{Binding Positions}"
+                      SelectedItem="{Binding Position}" SelectedIndexChanged="PositionChanged" >
+                </Picker>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Angle" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Angle"
+                      ItemsSource="{Binding Angles}" 
+                      SelectedItem="{Binding Angle, Mode=TwoWay}" SelectedIndexChanged="AngleChanged">
+                </Picker>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding Source={x:Reference flexChart},Path=DataLabel.Border}"/>
+                <Label Text="Border" Margin="-8,0,0,0" VerticalTextAlignment="Center" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <CheckBox  IsChecked="{Binding Source={x:Reference flexChart},Path=DataLabel.ConnectingLine}"/>
+                <Label Text="Connecting Line" Margin="-8,0,0,0" VerticalTextAlignment="Center" />
+            </StackLayout>
+
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexChart x:Name="flexChart" Header="Monthly Mean Temperature" HeaderAlignment="Left"
+                      ChartType="{Binding ChartType}" Margin="8" LegendPosition="Bottom"
+                      ItemsSource="{Binding Data}" BindingX="month" Grid.Row="3" >
+            <c1:FlexChart.AxisY>
+                <c1:Axis Labels="False" AxisLine="False" MajorGrid="True" MajorTickMarks="None" Min="-5" Max="30" />
+            </c1:FlexChart.AxisY>
+            <c1:FlexChart.DataLabel>
+                <c1:DataLabel Content="{}{value}" Position="Top" Offset="12" Angle="0" />
+            </c1:FlexChart.DataLabel>
+            <c1:Series SeriesName="New York" Binding="NewYork"/>
+            <c1:Series SeriesName="Los Angeles" Binding="LosAngeles"/>
+        </c1:FlexChart>
+    </Grid>
+</ContentPage>

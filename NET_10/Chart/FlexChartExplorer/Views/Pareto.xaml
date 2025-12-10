@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.Pareto"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Pareto">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <c1:FlexChart x:Name="flexChart" ChartType="RangedHistogram"
+                      Binding="Value" BindingX="Name" Grid.Row="1"
+                      Header="Factors Influencing Purchase Decisions" 
+                      LegendPosition="Top" Margin="8" PlotMargin="72,60,72,100">
+            <c1:FlexChart.AxisX>
+                <c1:Axis Position="Bottom" LabelAngle="60" />
+            </c1:FlexChart.AxisX>
+            <c1:FlexChart.AxisY>
+                <c1:Axis Position="Left" Title="No. of Customers" AxisLine="True" MajorGrid="True" />
+            </c1:FlexChart.AxisY>
+            <c1:FlexChart.DataLabel>
+                <c1:DataLabel Position="Top" Content="{}{y}" />
+            </c1:FlexChart.DataLabel>
+            <c1:RangedHistogram x:Name="histogramSeries" ItemsSource="{Binding Data}" SeriesName="Count" SortDescending="True" />
+        </c1:FlexChart>
+    </Grid>
+</ContentPage>

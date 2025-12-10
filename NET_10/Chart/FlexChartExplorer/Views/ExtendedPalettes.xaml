@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.ExtendedPalettes"
+             xmlns:c1="clr-namespace:C1.Maui.Chart;assembly=C1.Maui.Chart"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Extended Palettes">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <StackLayout>
+                <Label Text="Group" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker x:Name="pickerGroup"  Title="Group" WidthRequest="160"
+                      ItemsSource="{Binding Groups}" SelectedIndexChanged="pickerGroup_SelectedIndexChanged" >
+                </Picker>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Palette" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker x:Name="pickerPalette"  Title="Palette" 
+                        SelectedIndexChanged="pickerPalette_SelectedIndexChanged">
+                </Picker>
+            </StackLayout>
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexChart x:Name="flexChart" ItemsSource="{Binding Data}" 
+                      Binding="GdpBillions" BindingX="Country" ToolTipContent="{}{Country}&#x0a;{value:n0}"
+                      Grid.Row="3">
+            <c1:FlexChart.AxisX>
+                <c1:Axis LabelAngle="45" />
+            </c1:FlexChart.AxisX>
+            <c1:Series SymbolRendering="SymbolRendering"/>
+        </c1:FlexChart>
+        
+        <c1:FlexPie x:Name="flexPie" ItemsSource="{Binding Data}" Binding="GdpBillions" BindingName="Country"
+                    LegendPosition="Bottom" ToolTipContent="{}{Country}&#x0a;{value:n0}"
+                    Grid.Row="4"/>
+    </Grid>
+</ContentPage>

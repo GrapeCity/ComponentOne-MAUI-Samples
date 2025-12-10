@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexGridExplorer.EditConfirmation"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="true"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
+    <c1:FlexGrid x:Name="grid" Grid.Row="1" 
+                 AutoGenerateColumns="False" 
+                 BeginningEdit="OnBeginningEdit" 
+                 CellEditEnded="OnCellEditEnded"
+                 GridLinesVisibility="None"
+                 ColumnHeaderGridLinesVisibility="None"
+                 HeadersVisibility="Column"
+                 BackgroundColor="White"
+                 RowBackground="#FFE2EFDB"
+                 RowForeground="Black"
+                 AlternatingRowBackground="White"
+                 ColumnHeaderBackground="#FF70AD46"
+                 ColumnHeaderForeground="White"
+                 ColumnHeaderFontAttributes="Bold"
+                 SelectionBackground="#FF5A823F"
+                 SelectionForeground="White">
+        <c1:FlexGrid.Columns>
+            <c1:GridColumn Binding="Id" IsReadOnly="true" MinWidth="70" Width="*"/>
+            <c1:GridColumn Binding="FirstName" MinWidth="100" Width="*"/>
+            <c1:GridColumn Binding="LastName" MinWidth="100" Width="*"/>
+            <c1:GridColumn Binding="Address" MinWidth="150" Width="*"/>
+            <c1:GridColumn Binding="City" MinWidth="100" Width="*"/>
+            <c1:GridColumn Binding="PostalCode" MinWidth="100" Width="*"/>
+            <c1:GridColumn Binding="Active" MinWidth="70" Width="*"/>
+        </c1:FlexGrid.Columns>
+    </c1:FlexGrid>
+</ContentPage>

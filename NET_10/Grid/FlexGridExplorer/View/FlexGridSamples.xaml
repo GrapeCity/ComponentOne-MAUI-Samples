@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="true"
+             x:Class="FlexGridExplorer.FlexGridSamples">
+    <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding}" ItemTapped="OnItemTapped">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Padding="3, 5" Spacing="10">
+                        <!--<Image Source="{Binding ThumbnailImageSource}" WidthRequest="40" HeightRequest="40" VerticalOptions="Start"/>-->
+                        <StackLayout Spacing="0">
+                            <Label Text="{Binding Name}" TextColor="#9D2235" FontSize="16" VerticalOptions="FillAndExpand" VerticalTextAlignment="End"/>
+                            <Label Text="{Binding Description}" TextColor="Gray" FontSize="14" VerticalOptions="End" />
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

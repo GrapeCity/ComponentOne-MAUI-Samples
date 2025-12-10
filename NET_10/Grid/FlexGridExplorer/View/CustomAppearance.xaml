@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexGridExplorer.CustomAppearance"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="true"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
+    <ContentPage.Resources>
+        <Style x:Key="ExcelBlue" TargetType="c1:FlexGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HeadersVisibility" Value="All"/>
+            <Setter Property="DefaultColumnHeaderRowHeight" Value="28"/>
+            <Setter Property="DefaultRowHeight" Value="28"/>
+            <Setter Property="CellPadding" Value="4"/>
+            <Setter Property="BorderBrush" Value="#FFA3AEB9"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="ShowMarquee" Value="True"/>
+            <Setter Property="SelectionMode" Value="CellRange"/>
+            <Setter Property="RowBackground" Value="Transparent"/>
+            <Setter Property="AlternatingRowBackground" Value="Transparent"/>
+            <Setter Property="CursorBackground" Value="Transparent"/>
+            <Setter Property="EditorBackground" Value="Transparent"/>
+            <Setter Property="TopLeftHeaderBackground" Value="#FFA9C4E9"/>
+            <Setter Property="RowHeaderBackground" Value="#FFE4ECF7"/>
+            <Setter Property="RowHeaderSelectedBackground" Value="#FFFFD58D"/>
+            <Setter Property="GridLinesVisibility" Value="All"/>
+            <Setter Property="GridLinesBrush" Value="#FFD0D7E5"/>
+            <Setter Property="ColumnHeaderGridLinesVisibility" Value="All"/>
+            <Setter Property="ColumnHeaderGridLinesBrush" Value="#FF9EB6CE"/>
+            <Setter Property="RowHeaderGridLinesVisibility" Value="All"/>
+            <Setter Property="RowHeaderGridLinesBrush" Value="#FF9EB6CE"/>
+            <Setter Property="TopLeftHeaderGridLinesVisibility" Value="All"/>
+            <Setter Property="TopLeftHeaderGridLinesBrush" Value="#FF9EB6CE"/>
+            <Setter Property="SelectionBackground" Value="#FFEAECF5"/>
+            <Setter Property="SelectionForeground" Value="Black"/>
+            <Setter Property="CursorForeground" Value="Black"/>
+            <Setter Property="SelectionAdornerBrush" Value="White"/>
+            <Setter Property="SelectionAdornerBorderBrush" Value="Black"/>
+            <Setter Property="ColumnHeaderForeground" Value="Black"/>
+            <Setter Property="ColumnHeaderSelectedBackground">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF8D79B" Offset="0"/>
+                        <GradientStop Color="#FFF1C263" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ColumnHeaderBackground">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF6FAFB" Offset="0"/>
+                        <GradientStop Color="#FFD5DDEA" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <c1:FlexGrid x:Name="grid" AllowDragging="Both" Style="{StaticResource ExcelBlue}"/>
+</ContentPage>

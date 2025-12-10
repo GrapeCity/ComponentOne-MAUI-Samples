@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexChartExplorer", "FlexChartExplorer.csproj", "{52801485-54F8-4C42-BD1A-CC2CD1DE72E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52801485-54F8-4C42-BD1A-CC2CD1DE72E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52801485-54F8-4C42-BD1A-CC2CD1DE72E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52801485-54F8-4C42-BD1A-CC2CD1DE72E4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{52801485-54F8-4C42-BD1A-CC2CD1DE72E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52801485-54F8-4C42-BD1A-CC2CD1DE72E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52801485-54F8-4C42-BD1A-CC2CD1DE72E4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4170CE58-23B5-443F-ABBC-47831CDA272F}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.HistogramDemo"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Histogram">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <StackLayout>
+                <Label Text="Appearance" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Appearance"
+                      ItemsSource="{Binding Appearances}" 
+                      SelectedItem="{Binding Appearance}">
+                </Picker>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <CheckBox CheckedChanged="NormalChanged"/>
+                <Label Text="Normal Curve" Margin="-8,0,0,0" VerticalTextAlignment="Center" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <CheckBox CheckedChanged="CumulativeChanged"/>
+                <Label Text="Cumulative" Margin="-8,0,0,0" VerticalTextAlignment="Center" />
+            </StackLayout>
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexChart x:Name="flexChart" ChartType="Histogram" ItemsSource="{Binding Data}" 
+                      Grid.Row="3" Binding="Y" BindingX="X" Margin="8"
+                      LegendPosition="Bottom">
+            <c1:FlexChart.AxisX>
+                <c1:Axis Title="Height (cm)" />
+            </c1:FlexChart.AxisX>
+            <c1:FlexChart.AxisY>
+                <c1:Axis Title="Weight (kg)" AxisLine="False" MajorGrid="True" MajorTickMarks="None" />
+            </c1:FlexChart.AxisY>
+
+            <c1:Histogram x:Name="histogram" AppearanceType="{Binding Appearance}" SeriesName="Frequency" BinWidth="4">
+                <c1:Histogram.FrequencyPolygonStyle>
+                    <c1:ChartStyle Stroke="Red" StrokeThickness="2"/>
+                </c1:Histogram.FrequencyPolygonStyle>
+                <c1:Histogram.NormalCurve>
+                    <c1:NormalCurve>
+                        <c1:NormalCurve.LineStyle>
+                            <c1:ChartStyle Stroke="Green" StrokeThickness="2"/>
+                        </c1:NormalCurve.LineStyle>
+                    </c1:NormalCurve>
+                </c1:Histogram.NormalCurve>
+            </c1:Histogram>
+            <c1:Series ChartType="Scatter" SeriesName="Weight (kg)"/>
+        </c1:FlexChart>
+    </Grid>
+</ContentPage>

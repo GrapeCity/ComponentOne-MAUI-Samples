@@ -1,0 +1,102 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:res="clr-namespace:FlexGridExplorer.Strings"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+             x:Class="FlexGridExplorer.Validation">
+    <ContentPage.Resources>
+        <DataTemplate x:Key="BugIcon">
+            <c1:C1SvgIcon Source="bug-fill.svg"/>
+        </DataTemplate>
+        <DataTemplate x:Key="ExclamationOctagonIcon">
+            <c1:C1SvgIcon Source="exclamation-octagon.svg"/>
+        </DataTemplate>
+        <DataTemplate x:Key="ExclamationTriangleIcon">
+            <c1:C1SvgIcon Source="exclamation-triangle.svg"/>
+        </DataTemplate>
+        <Style x:Key="ClassicErrorStyle" TargetType="c1:FlexGrid">
+            <Style.Setters>
+                <Setter Property="GridLinesVisibility" Value="All"/>
+                <Setter Property="RowHeaderGridLinesVisibility" Value="All"/>
+                <Setter Property="RowHeaderErrorStyle">
+                    <Setter.Value>
+                        <Style TargetType="c1:GridCellView">
+                            <Setter Property="Foreground" Value="#FFDC000C"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ErrorStyle">
+                    <Setter.Value>
+                        <Style TargetType="c1:GridCellView">
+                            <Setter Property="ValidationForeground" Value="#FFDC000C"/>
+                            <Setter Property="ValidationIndicator" Value="Triangle,Border"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+        <Style x:Key="DataGridErrorStyle" TargetType="c1:FlexGrid">
+            <Style.Setters>
+                <Setter Property="RowHeaderErrorStyle">
+                    <Setter.Value>
+                        <Style TargetType="c1:GridCellView">
+                            <Setter Property="Foreground" Value="#FFDC000C"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="RowErrorStyle">
+                    <Setter.Value>
+                        <Style TargetType="c1:GridCellView">
+                            <Setter Property="ValidationBackground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="#1EDC000C"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ErrorStyle">
+                    <Setter.Value>
+                        <Style TargetType="c1:GridCellView">
+                            <Setter Property="Foreground" Value="#FFDC000C"/>
+                            <Setter Property="ValidationIndicator" Value="None"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+        <Style x:Key="MaterialErrorStyle" TargetType="c1:FlexGrid">
+            <Style.Setters>
+                <Setter Property="ErrorStyle">
+                    <Setter.Value>
+                        <Style TargetType="c1:GridCellView">
+                            <Setter Property="ValidationForeground" Value="#FFDC000C"/>
+                            <Setter Property="ValidationIndicator" Value="Underline"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackLayout Orientation="Horizontal" Margin="2">
+            <Label Text="{x:Static res:AppResources.ErrorIconTemplate}" VerticalOptions="Center"/>
+            <Picker x:Name="errorIconTemplate" SelectedIndexChanged="errorIconTemplate_SelectedIndexChanged" Margin="4,0,4,0"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="2" Grid.Row="1">
+            <Label Text="{x:Static res:AppResources.ErrorStyle}" VerticalOptions="Center"/>
+            <Picker x:Name="errorStyles" SelectedIndexChanged="errorStyles_SelectedIndexChanged" Margin="4,0,4,0"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="2" Grid.Row="2">
+            <c1:C1CheckBox IsChecked="{Binding Source={x:Reference grid},Path=ShowErrors,Mode=TwoWay}" Margin="4"/>
+            <Label Text="{x:Static res:AppResources.ShowErrors}" VerticalOptions="Center"/>
+        </StackLayout>
+        <c1:FlexGrid x:Name="grid" Grid.Row="3" HeadersVisibility="All"/>
+    </Grid>
+</ContentPage>

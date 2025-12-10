@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.LineMarker"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Line Marker">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <c1:FlexChart x:Name="flexChart" ChartType="Line"
+                      ItemsSource="{Binding Data}" 
+                      BindingX="Date" ToolTipContent="{x:Null}"
+                      LegendPosition="Bottom"
+                      Grid.Row="1" Header="Daily Price Movement" >
+            <c1:FlexChart.AxisX>
+                <c1:Axis LabelAlignment="Left" />
+            </c1:FlexChart.AxisX>
+            <c1:FlexChart.AxisY>
+                <c1:Axis Position="Right" MajorGrid="True" AxisLine="False" />
+            </c1:FlexChart.AxisY>
+
+            <c1:Series Binding="High" SeriesName="High" >
+                <c1:Series.Style>
+                    <c1:ChartStyle StrokeThickness="2" />
+                </c1:Series.Style>
+            </c1:Series>
+
+            <c1:FlexChart.Layers>
+                <c1:C1LineMarker x:Name="marker" Lines="Both" Interaction="Move" PositionChanged="PositionChanged" />
+            </c1:FlexChart.Layers>
+        </c1:FlexChart>
+    </Grid>
+</ContentPage>

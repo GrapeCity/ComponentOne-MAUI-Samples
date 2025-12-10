@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexGridExplorer.Unbound"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="true"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
+    <c1:FlexGrid x:Name="grid" HeadersVisibility="All" SelectionMode="CellRange" GridLinesVisibility="None" RowHeaderGridLinesVisibility="Vertical" ColumnHeaderSelectedBackground="#FFF8F8F8" RowHeaderSelectedBackground="#FFF8F8F8"/>
+</ContentPage>

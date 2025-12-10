@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer;assembly=FlexChartExplorer"
+             x:Class="FlexChartExplorer.ErrorBars"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             Title="Error Bars">
+    <ContentPage.Resources>
+        <c1:ChartStyle x:Key="errorStyle" Stroke="Red" StrokeThickness="2" />
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="8,4" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <BoxView Style="{StaticResource divider}" />
+
+        <FlexLayout Wrap="Wrap" Grid.Row="1">
+            <StackLayout>
+                <Label Text="Chart Type" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Chart Type"
+                      ItemsSource="{Binding ChartTypes}" 
+                      SelectedItem="{Binding ChartType, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Error Amount" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Error Amount"
+                      ItemsSource="{Binding ErrorAmounts}" 
+                      SelectedItem="{Binding ErrorAmount}" SelectedIndexChanged="ErrorAmount_SelectionChanged">
+                </Picker>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Error Bar Direction" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Error Bar Direction"
+                      ItemsSource="{Binding Directions}" 
+                      SelectedItem="{Binding Direction}">
+                </Picker>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Error Bar End Style" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Error Bar End Style"
+                      ItemsSource="{Binding EndStyles}" 
+                      SelectedItem="{Binding EndStyle}">
+                </Picker>
+            </StackLayout>
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="2" />
+
+        <c1:FlexChart x:Name="flexChart" Header="Sales Forecast Accuracy" Margin="8"
+                      ItemsSource="{Binding Data}" BindingX="Name" Binding="Sales" Grid.Row="3"
+                      ChartType="{Binding ChartType}">
+            <c1:ErrorBar x:Name="errorBar" ErrorAmount="{Binding ErrorAmount}" ErrorValue="50"
+                         EndStyle="{Binding EndStyle}" Direction="{Binding Direction}"
+                         ErrorBarStyle="{StaticResource errorStyle}" />
+        </c1:FlexChart>
+
+    </Grid>
+</ContentPage>

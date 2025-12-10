@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexChartExplorer"
+             x:Class="FlexChartExplorer.MainPage"
+             Title="{x:OnPlatform Android=FlexChartExplorer,iOS=FlexChartExplorer}">
+    <CollectionView  x:Name="view" ItemsSource="{x:Static local:PageDataViewModel.All}" 
+                    SelectionMode="Single" SelectionChanged="OnSelectionChanged"
+                    IsGrouped="True" ItemSizingStrategy="MeasureAllItems">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="local:PageDataViewModel">
+                <Grid Margin="16,0" Padding="8,4" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image Margin="4" Grid.RowSpan="2" WidthRequest="24" HeightRequest="24"
+                           Source="{Binding ImageSource}" />
+                    <Label Grid.Column="1" Text="{Binding Title}"
+                                   FontAttributes="Bold" />
+                    <Label Grid.Column="1" Grid.Row="1"
+                                   Text="{Binding Description}"
+                                   FontSize="12" FontAttributes="Italic"
+                                   VerticalOptions="End" />
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+        <CollectionView.GroupHeaderTemplate>
+            <DataTemplate x:DataType="local:SampleGroup">
+                    <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <Image Margin="4" Source="{AppThemeBinding Light=folder.png, Dark=folder_dark.png}" />
+                    <Label Padding="4" VerticalTextAlignment="Center" 
+                       Text="{Binding Name}"
+                       FontAttributes="Bold" FontSize="16" />
+                </StackLayout>
+                    <BoxView HeightRequest="1" Margin="{OnPlatform iOS='8,0,8,0', Android='8,0,8,0', WinUI='0,0,8,0'}" 
+                                 BackgroundColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray200}}" />
+                    </StackLayout>
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
+
+    </CollectionView>
+</ContentPage>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexGridExplorer.ConditionalFormatting"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="true"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
+    <c1:FlexGrid x:Name="grid" AutoGenerateColumns="False">
+        <c1:FlexGrid.Columns>
+            <c1:GridColumn Binding="FirstName"/>
+            <c1:GridColumn Binding="LastName"/>
+            <c1:GridColumn Binding="OrderTotal" Format="C2"/>
+            <c1:GridColumn Binding="OrderCount" Format="N1"/>
+            <c1:GridColumn Binding="CountryId" Header="Country"/>
+            <c1:GridDateTimeColumn Binding="LastOrderDate" Format="d" Mode="Date"/>
+            <c1:GridDateTimeColumn Binding="LastOrderDate" Header="Last Order Time" Format="t" Mode="Time"/>
+        </c1:FlexGrid.Columns>
+    </c1:FlexGrid>
+</ContentPage>

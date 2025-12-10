@@ -1,0 +1,38 @@
+﻿<ContentPage x:Class="FlexGridExplorer.HierarchicalRows"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:res="clr-namespace:FlexGridExplorer.Strings"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackLayout Orientation="Horizontal" Margin="4">
+            <Label Text="{x:Static res:AppResources.TreeIndent}" VerticalTextAlignment="Center"/>
+            <c1:C1TextBox Text="{Binding Source={x:Reference Name=grid},Path=TreeIndent}" Margin="4,0,4,0" MinimumWidthRequest="80"/>
+        </StackLayout>
+        <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="4">
+            <Label Text="{x:Static res:AppResources.TreeColumnIndex}" VerticalTextAlignment="Center"/>
+            <c1:C1TextBox Text="{Binding Source={x:Reference Name=grid},Path=TreeColumnIndex}" Margin="4,0,4,0" MinimumWidthRequest="80"/>
+        </StackLayout>
+        <StackLayout Grid.Row="2" Orientation="Horizontal" Margin="4">
+            <Label Text="{x:Static res:AppResources.TreeExpandMode}" VerticalOptions="Center"/>
+            <Picker x:Name="treeExpandModePicker" Margin="4,0,4,0" MinimumWidthRequest="80"/>
+            <Label x:Name="rowsCountLabel" Text="10 rows" VerticalOptions="Center"/>
+        </StackLayout>
+        <StackLayout Grid.Row="3" Orientation="Horizontal" Margin="4">
+            <Label Text="{x:Static res:AppResources.TreeLinesMode}" VerticalOptions="Center"/>
+            <Picker x:Name="treeLinesModePicker" Margin="4,0,4,0" MinimumWidthRequest="80"/>
+        </StackLayout>
+        <StackLayout Grid.Row="4" Orientation="Horizontal" Margin="4">
+            <Label Text="{x:Static res:AppResources.TreeIndentMode}" VerticalOptions="Center"/>
+            <Picker x:Name="treeIndentModePicker" Margin="4,0,4,0" MinimumWidthRequest="80"/>
+        </StackLayout>
+        <c1:FlexGrid x:Name="grid" AutoGeneratingColumn="OnAutoGeneratingColumn" AllowFiltering="False" AllowSorting="False" IsReadOnly="True" ChildItemsPath="SubTasks" TreeColumnIndex="1" Grid.Row="5"/>
+    </Grid>
+</ContentPage>

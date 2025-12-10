@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexGridExplorer.OnDemand"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="true"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml">
+    <StackLayout>
+        <Entry x:Name="search" Completed="OnCompleted" Margin="4"/>
+        <Grid VerticalOptions="FillAndExpand">
+            <c1:FlexGrid x:Name="grid" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" CellDoubleTapped="OnCellDoubleTapped" AllowMerging="ColumnHeaders" AllowDragging="None" AllowResizing="None">
+                <c1:FlexGrid.Columns>
+                    <c1:GridImageColumn Binding="Thumbnail" Header="Title" Placeholder="youtube.png" Width="50"/>
+                    <c1:GridColumn Binding="Title" Header="Title" MinWidth="300" Width="*"/>
+                    <c1:GridColumn Binding="ChannelTitle" Header="Channel"/>
+                </c1:FlexGrid.Columns>
+                <c1:FlexGrid.Behaviors>
+                    <c1:EmptyGridBehavior EmptyView="{x:Reference Name=emptyListLabel}" />
+                </c1:FlexGrid.Behaviors>
+            </c1:FlexGrid>
+            <Label x:Name="emptyListLabel"
+             HorizontalOptions="Center"/>
+            <c1:C1ActivityIndicator x:Name="activityIndicator" VerticalOptions="Center"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>
