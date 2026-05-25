@@ -1,5 +1,5 @@
-## FlexViewer
-#### [Download as zip](https://grapecity.github.io/DownGit/#/home?url=https://github.com/GrapeCity/ComponentOne-MAUI-Samples/tree/master/NET_10/Viewer/FlexViewer)
+﻿## FlexViewer
+#### [Download as zip]
 ____
 #### Demonstrates to use FlexViewer to view Pdf documents, FlexReport and SSRS reports.
 ____

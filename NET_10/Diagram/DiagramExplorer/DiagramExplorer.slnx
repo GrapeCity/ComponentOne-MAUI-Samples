@@ -1,0 +1,6 @@
+<Solution>
+
+  <Project Path="DiagramExplorer.csproj">
+    <Deploy />
+  </Project>
+</Solution>

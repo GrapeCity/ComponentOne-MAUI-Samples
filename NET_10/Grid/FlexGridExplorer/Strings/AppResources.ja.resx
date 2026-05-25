@@ -457,10 +457,12 @@
     <value>FlexGridエクスプローラー</value>
   </data>
   <data name="MatchCase" xml:space="preserve">
-    <value>Match Case</value>
+    <value>大文字と小文字を区別</value>
+    <comment>Match Case</comment>
   </data>
   <data name="MatchWord" xml:space="preserve">
-    <value>Match Whole Word</value>
+    <value>単語単位</value>
+    <comment>Match Whole Word</comment>
   </data>
   <data name="TreeExpandMode" xml:space="preserve">
     <value>ツリー展開モード</value>
@@ -505,25 +507,28 @@
     <value>エラーの表示</value>
     <comment>ShowErrors</comment>
   </data>
-  <data name="ValidationBugIcon" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="ValidationBugIcon" xml:space="preserve">
+    <value>Bug</value>
   </data>
-  <data name="ValidationClassicStyle" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="ValidationClassicStyle" xml:space="preserve">
+    <value>Classic</value>
   </data>
-  <data name="ValidationDataGridStyle" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="ValidationDataGridStyle" xml:space="preserve">
+    <value>DataGrid</value>
   </data>
-  <data name="ValidationDefaultIcon" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="ValidationDefaultIcon" xml:space="preserve">
+    <value>Default</value>
   </data>
-  <data name="ValidationDefaultStyle" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="ValidationDefaultStyle" xml:space="preserve">
+    <value>Default</value>
   </data>
-  <data name="ValidationExclamationOctagonIcon" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="ValidationExclamationOctagonIcon" xml:space="preserve">
+    <value>Exclamation Octagon</value>
   </data>
-  <data name="ValidationExclamationTriangleIcon" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="ValidationExclamationTriangleIcon" xml:space="preserve">
+    <value>Exclamation Triangle</value>
+  </data>
+  <data name="ExcelExportTitle" xml:space="preserve">
+    <value>Excel Export</value>
   </data>
 </root>

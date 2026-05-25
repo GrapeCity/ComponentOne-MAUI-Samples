@@ -1,6 +1,6 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
+# Visual Studio Version 18
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexGridExplorer", "FlexGridExplorer.csproj", "{04662BB9-07E9-4DF9-A61D-5C2F31087950}"
 EndProject
 Global

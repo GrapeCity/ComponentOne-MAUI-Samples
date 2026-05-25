@@ -1,30 +1,32 @@
-﻿using C1.Document;
+using C1.Document;
+using C1.Maui.Viewer;
 using C1.Report;
 using CommunityToolkit.Maui.Core;
-using CommunityToolkit.Maui.Views;
-using Microsoft.Maui.Controls.PlatformConfiguration;
-using Newtonsoft.Json;
-using System.Data.Common;
-using System.Data.OleDb;
 using System.Net;
-using System.Reflection;
-
 
 namespace FlexViewer
 {
     public partial class MainPage : ContentPage
     {
         private string[]? _cachedReportList;
+        private bool _isLoading;
 
         public MainPage()
         {
             InitializeComponent();
-            _ = LoadDefaultPdfAsync();
+            flexViewer.Loaded += OnFlexViewerLoaded;
+        }
+
+        private async void OnFlexViewerLoaded(object? sender, EventArgs e)
+        {
+            flexViewer.Loaded -= OnFlexViewerLoaded;
+            StyleViewerToolbar();
+            await LoadDefaultPdfAsync();
         }
 
         private static async Task<string> EnsureAssetCopiedAsync(string logicalName)
         {
-            var dest = Path.Combine(FileSystem.AppDataDirectory, logicalName);
+            var dest = Path.Combine(Microsoft.Maui.Storage.FileSystem.AppDataDirectory, logicalName);
 
             if (!File.Exists(dest))
             {
@@ -36,75 +38,88 @@ namespace FlexViewer
             return dest;
         }
 
+        private static Task<string> GetSqliteDbPathAsync()
+            => EnsureAssetCopiedAsync("C1NWind.db");
+
+        private static Task<string> GetFlexReportPathAsync()
+            => EnsureAssetCopiedAsync("FlexCommonTasks.flxr");
+
+        /// <summary>
+        /// Shows or hides the full-screen loading overlay, safe to call from any thread.
+        /// </summary>
+        private void SetLoading(bool isLoading, string message = "Loading…")
+        {
+            void Apply()
+            {
+                LoadingLabel.Text = message;
+                LoadingOverlay.IsVisible = isLoading;
+            }
+
+            if (MainThread.IsMainThread)
+                Apply();
+            else
+                MainThread.BeginInvokeOnMainThread(Apply);
+        }
+
+        private void StyleViewerToolbar()
+        {
+            var isDark = Application.Current?.RequestedTheme == AppTheme.Dark;
+
+            // StatusBackground and StatusForeground live on FlexViewer, not Pane.
+            if (isDark)
+            {
+                flexViewer.StatusBackground = new SolidColorBrush(Color.FromArgb("#1A1A28"));
+                flexViewer.StatusForeground  = new SolidColorBrush(Color.FromArgb("#CCCCEE"));
+            }
+            else
+            {
+                flexViewer.StatusBackground = new SolidColorBrush(Colors.White);
+                flexViewer.StatusForeground  = new SolidColorBrush(Color.FromArgb("#333333"));
+            }
+        }
         private async Task LoadDefaultPdfAsync()
         {
-            const string assetName = "DefaultDocument.pdf";
-            var dest = await EnsureAssetCopiedAsync(assetName);
+            if (_isLoading) return;
+            _isLoading = true;
+            SetLoading(true, "Loading PDF…");
 
-            if (new FileInfo(dest).Length == 0)
-                throw new IOException($"Copied file is empty at '{dest}'. Check MauiAsset packaging.");
+            try
+            {
+                var dest = await EnsureAssetCopiedAsync("DefaultDocument.pdf");
 
-            var doc = new C1PdfDocumentSource();
-            doc.LoadFromFile(dest);
+                if (new FileInfo(dest).Length == 0)
+                    throw new IOException($"Copied file is empty: '{dest}'. Check MauiAsset packaging.");
 
-            flexViewer.DocumentSource = doc;
+                // LoadFromFile parses the whole PDF synchronously — runs on a background
+                // thread to keep the UI thread free and prevent ANR on Android.
+                var doc = await Task.Run(() =>
+                {
+                    var source = new C1PdfDocumentSource();
+                    source.LoadFromFile(dest);
+                    return source;
+                });
+
+                flexViewer.DocumentSource = doc;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[FlexViewer] PDF load failed: {ex}");
+                await DisplayAlert("PDF Load Error", ex.Message, "OK");
+            }
+            finally
+            {
+                _isLoading = false;
+                SetLoading(false);
+            }
         }
+
+        private void PdfItem_Tapped(object? sender, TappedEventArgs e) => PdfButton_Clicked(sender!, e);
 
         private async void PdfButton_Clicked(object sender, EventArgs e)
         {
+            PopupOverlay.IsVisible = false;
+            FlexReportExpander.IsExpanded = false;
             await LoadDefaultPdfAsync();
-        }
-
-        private static async Task<string> GetSqliteDbPathAsync()
-        {
-            return await EnsureAssetCopiedAsync("C1NWind.db");
-        }
-
-        private static async Task<string> GetFlexReportPathAsync()
-        {
-#if IOS || MACCATALYST || ANDROID
-            const string logicalName = "FlexCommonTasksSQLite.flxr";
-#else
-        const string logicalName = "FlexCommonTasks.flxr";
-#endif
-            return await EnsureAssetCopiedAsync(logicalName);
-        }
-
-        private async void FlexReportList_SelectionChanged(object sender, EventArgs e)
-        {
-            if (FlexReportList.SelectedItem == null)
-                return;
-
-            string reportName = FlexReportList.SelectedItem.ToString();
-
-            var document = await Task.Run(async () =>
-            {
-                var flxrPath = await GetFlexReportPathAsync();
-
-#if IOS || MACCATALYST || ANDROID
-                var dbPath = await GetSqliteDbPathAsync();
-#endif
-
-                var flexReport = new FlexReport();
-                flexReport.Load(flxrPath, reportName);
-
-#if IOS || MACCATALYST || ANDROID
-                var mainDataSource = flexReport.DataSources["Main"];
-                if (mainDataSource != null && !string.IsNullOrEmpty(mainDataSource.ConnectionString))
-                {
-                    mainDataSource.ConnectionString =
-                        mainDataSource.ConnectionString.Replace("{DB_PATH}", dbPath);
-                }
-#endif
-
-                flexReport.Generate();
-                return flexReport;
-            });
-
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                flexViewer.DocumentSource = document;
-            });
         }
 
         private async void Expander_ExpandedChanged(object? sender, ExpandedChangedEventArgs e)
@@ -114,6 +129,7 @@ namespace FlexViewer
 
             if (_cachedReportList == null)
             {
+                // GetReportList + file I/O — keep off main thread
                 _cachedReportList = await Task.Run(async () =>
                 {
                     var path = await GetFlexReportPathAsync();
@@ -121,6 +137,9 @@ namespace FlexViewer
                 });
             }
 
+            // ItemsSource and SelectedItem must be set on the main thread.
+            // The await above may have continued on a thread-pool thread,
+            // so dispatch explicitly.
             MainThread.BeginInvokeOnMainThread(() =>
             {
                 FlexReportList.ItemsSource = _cachedReportList;
@@ -128,31 +147,96 @@ namespace FlexViewer
             });
         }
 
-
-        private void ReportServiceMenu_Clicked(object sender, EventArgs e)
+        private async void FlexReportList_SelectionChanged(object sender, EventArgs e)
         {
-            var c1SsrsDocumentSource1 = new C1SSRSDocumentSource
-            {
-                Language = new System.Globalization.CultureInfo("en-US"),
-                Credential = new NetworkCredential("ssrs_demo", "bjqveS5gh89BH1Q", "")
-            };
+            if (FlexReportList.SelectedItem is not string reportName)
+                return;
 
-            c1SsrsDocumentSource1.DocumentLocation = new SSRSReportLocation( "http://ssrs.componentone.com:8000/ReportServer", "/AdventureWorks/Employee Sales Summary Detail");
-            c1SsrsDocumentSource1.Generate();
-            flexViewer.DocumentSource = c1SsrsDocumentSource1;
+            if (_isLoading) return;
+            _isLoading = true;
             PopupOverlay.IsVisible = false;
             FlexReportExpander.IsExpanded = false;
+            SetLoading(true, "Loading report…");
+
+            try
+            {
+                var report = await Task.Run(async () =>
+                {
+                    var flxrPath = await GetFlexReportPathAsync();
+                    var dbPath = await GetSqliteDbPathAsync();
+
+                    // One-time substitution of the SQLite DB path into the report XML.
+                    var flxrXml = await File.ReadAllTextAsync(flxrPath);
+                    if (flxrXml.Contains("{DB_PATH}"))
+                        await File.WriteAllTextAsync(flxrPath, flxrXml.Replace("{DB_PATH}", dbPath));
+
+                    var flexReport = new FlexReport();
+                    flexReport.Load(flxrPath, reportName);   // synchronous — must be off main thread
+                    await flexReport.GenerateAsync();
+                    return flexReport;
+                });
+
+                flexViewer.DocumentSource = report;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[FlexViewer] FlexReport load failed: {ex}");
+                await DisplayAlert("Report Load Error", ex.Message, "OK");
+            }
+            finally
+            {
+                _isLoading = false;
+                SetLoading(false);
+            }
         }
 
+        private void ReportServiceItem_Tapped(object? sender, TappedEventArgs e) => ReportServiceMenu_Clicked(sender!, e);
 
-        private async void HeaderMenuButton_Clicked(object sender, EventArgs e)
+        private async void ReportServiceMenu_Clicked(object sender, EventArgs e)
         {
-            var uri = new Uri("https://developer.mescius.com/componentone/maui-ui-controls");
-            await Launcher.Default.OpenAsync(uri);
+            if (_isLoading) return;
+            _isLoading = true;
+            PopupOverlay.IsVisible = false;
+            FlexReportExpander.IsExpanded = false;
+            SetLoading(true, "Loading report service…");
+
+            try
+            {
+                // TODO: Move SSRS credentials to environment variables or secure config.
+                var source = new C1SSRSDocumentSource
+                {
+                    Language = new System.Globalization.CultureInfo("en-US"),
+                    Credential = new NetworkCredential("ssrs_demo", "bjqveS5gh89BH1Q", "")
+                };
+
+                source.DocumentLocation = new SSRSReportLocation(
+                    "http://ssrs.componentone.com:8000/ReportServer",
+                    "/AdventureWorks/Employee Sales Summary Detail"
+                );
+
+                await source.GenerateAsync();
+                flexViewer.DocumentSource = source;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[FlexViewer] SSRS load failed: {ex}");
+                await DisplayAlert("Report Service Error", ex.Message, "OK");
+            }
+            finally
+            {
+                _isLoading = false;
+                SetLoading(false);
+            }
+        }
+
+        private async void HeaderBrand_Tapped(object? sender, TappedEventArgs e)
+        {
+            await Launcher.Default.OpenAsync(new Uri("https://developer.mescius.com/componentone/maui-ui-controls"));
         }
 
         private void MenuPopupButton_Clicked(object sender, EventArgs e)
         {
+            PopupSectionLabel.Text = "OPEN DOCUMENT";
             PopupOverlay.IsVisible = true;
         }
 
@@ -163,5 +247,3 @@ namespace FlexViewer
         }
     }
 }
-
-

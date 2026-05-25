@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:DiagramExplorer.Views"
+             x:Class="DiagramExplorer.Views.DiagramEditor"
+             x:DataType="views:DiagramEditor" >
+    <ContentView.Resources>
+            <Style TargetType="StackLayout">
+                <Setter Property="Margin" Value="8,4" />
+            </Style>
+        <Style x:Key="divider" TargetType="BoxView">
+            <Setter Property="Margin" Value="8" />
+            <Setter Property="HeightRequest" Value="1" />
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray200}}" />
+        </Style>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <FlexLayout Wrap="Wrap">
+            <StackLayout x:Name="directionStack">
+                <Label Text="Direction" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Direction"
+                      ItemsSource="{Binding Directions}" 
+                      SelectedItem="{Binding Direction, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+
+            <StackLayout x:Name="edgeRoutingStack">
+                <Label Text="EdgeRouting" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="EdgeRouting"
+                      ItemsSource="{Binding EdgeRoutings}" 
+                      SelectedItem="{Binding EdgeRouting, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+
+            <StackLayout x:Name="paletteStack" IsVisible="False">
+                <Label Text="Palette" IsVisible="{OnPlatform WinUI=false}" />
+                <Picker Title="Palette"
+                      ItemsSource="{Binding Palettes}" 
+                      SelectedItem="{Binding Palette, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+        </FlexLayout>
+
+        <BoxView Style="{StaticResource divider}" Grid.Row="1" />
+    </Grid>
+</ContentView>

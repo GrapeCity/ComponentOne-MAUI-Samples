@@ -30,6 +30,7 @@
     <MauiFont Include="Resources\Fonts\*" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="FlexViewer.sa3licx" />
     <None Remove="Resources\Raw\DefaultDocument.pdf" />
     <None Remove="Resources\Raw\FlexCommonTasksSQLite.flxr" />
     <None Remove="Resources\Raw\C1NWind.db" />
@@ -38,15 +39,18 @@
     <BundleResource Remove="Resources\Raw\FlexCommonTasksSQLite.flxr" />
     <BundleResource Remove="Resources\Raw\C1NWind.flxr" />
     <BundleResource Remove="Resources\Raw\FlexCommonTasks.flxr" />
+    <EmbeddedResource Include="FlexViewer.sa3licx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <MauiAsset Include="Resources\Raw\DefaultDocument.pdf" LogicalName="DefaultDocument.pdf" />
     <MauiAsset Include="Resources\Raw\FlexCommonTasksSQLite.flxr" LogicalName="FlexCommonTasksSQLite.flxr" />
     <MauiAsset Include="Resources\Raw\C1NWind.db" LogicalName="C1NWind.db" />
     <MauiAsset Include="Resources\Raw\FlexCommonTasks.flxr" LogicalName="FlexCommonTasks.flxr" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.FlexReport" Version="10.0.20252.120" />
+    <PackageReference Include="C1.FlexReport" Version="10.0.20261.150" />
     <PackageReference Include="C1.Maui.Viewer">
-      <Version>10.0.20252.1233-beta</Version>
+      <Version>10.0.20261.50-beta</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Maui" Version="12.2.0" />
     <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.90" />
@@ -54,7 +58,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <None Update=".gclicx">
+    <None Update=".sa3licx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Resources\Raw\DefaultDocument.pdf">

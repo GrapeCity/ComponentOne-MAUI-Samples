@@ -1,0 +1,388 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
+    <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+    <!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
+    <!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+    <!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DiagramExplorer</RootNamespace>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- Display name -->
+    <ApplicationTitle>DiagramExplorer</ApplicationTitle>
+    <!-- App Identifier -->
+    <ApplicationId>com.companyname.diagramexplorer</ApplicationId>
+    <!-- Versions -->
+    <ApplicationVersion>1</ApplicationVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.80" />
+    <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.80" />
+    <PackageReference Include="C1.Maui.Chart">
+      <Version>10.0.20261.50</Version>
+    </PackageReference>
+    <PackageReference Include="C1.Maui.Core">
+      <Version>10.0.20261.50</Version>
+    </PackageReference>
+    <PackageReference Include="C1.Maui.Diagram">
+      <Version>10.0.20261.50</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+    <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.4.2" />
+    <PackageReference Include="Xamarin.AndroidX.Collection.Ktx" Version="1.4.2" />
+    <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.1.11" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.12.0.1" />
+  </ItemGroup>
+  <!-- App Icon -->
+  <Choose>
+    <When Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
+      <ItemGroup>
+        <MauiIcon Condition="" Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" ForegroundScale="0.65" Color="#FFFFFF" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <MauiIcon Condition="" Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#FFFFFF" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <!-- Splash Screen -->
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" TintColor="#e56a54" Color="#efedea" BaseSize="128,128" />
+    <!-- Images -->
+    <MauiImage Include="Resources\Images\*" />
+    <!-- Custom Fonts -->
+    <MauiFont Include="Resources\Fonts\*" />
+    <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove=".gclicx" />
+    <None Remove=".sa3licx" />
+    <None Remove="Resources\African_Elephant.png" />
+    <None Remove="Resources\Amanda_Rodriguez.png" />
+    <None Remove="Resources\Andrew_Miller.png" />
+    <None Remove="Resources\animals10.csv" />
+    <None Remove="Resources\backend.mermaid" />
+    <None Remove="Resources\Bald_Eagle.png" />
+    <None Remove="Resources\Blue_Whale.png" />
+    <None Remove="Resources\countries.csv" />
+    <None Remove="Resources\data.mermaid" />
+    <None Remove="Resources\David_Chen.png" />
+    <None Remove="Resources\decision-tree.mermaid" />
+    <None Remove="Resources\Domestic_Cat.png" />
+    <None Remove="Resources\Domestic_Dog.png" />
+    <None Remove="Resources\family-tree.mermaid" />
+    <None Remove="Resources\frontend.mermaid" />
+    <None Remove="Resources\House_Mouse.png" />
+    <None Remove="Resources\Human.png" />
+    <None Remove="Resources\Images\flags\AE.png" />
+    <None Remove="Resources\Images\flags\AR.png" />
+    <None Remove="Resources\Images\flags\AT.png" />
+    <None Remove="Resources\Images\flags\AU.png" />
+    <None Remove="Resources\Images\flags\BD.png" />
+    <None Remove="Resources\Images\flags\BE.png" />
+    <None Remove="Resources\Images\flags\BR.png" />
+    <None Remove="Resources\Images\flags\BW.png" />
+    <None Remove="Resources\Images\flags\CA.png" />
+    <None Remove="Resources\Images\flags\CD.png" />
+    <None Remove="Resources\Images\flags\CI.png" />
+    <None Remove="Resources\Images\flags\CL.png" />
+    <None Remove="Resources\Images\flags\CM.png" />
+    <None Remove="Resources\Images\flags\CN.png" />
+    <None Remove="Resources\Images\flags\CO.png" />
+    <None Remove="Resources\Images\flags\CU.png" />
+    <None Remove="Resources\Images\flags\CZ.png" />
+    <None Remove="Resources\Images\flags\DE.png" />
+    <None Remove="Resources\Images\flags\DK.png" />
+    <None Remove="Resources\Images\flags\DO.png" />
+    <None Remove="Resources\Images\flags\DZ.png" />
+    <None Remove="Resources\Images\flags\EC.png" />
+    <None Remove="Resources\Images\flags\EG.png" />
+    <None Remove="Resources\Images\flags\ES.png" />
+    <None Remove="Resources\Images\flags\ET.png" />
+    <None Remove="Resources\Images\flags\FJ.png" />
+    <None Remove="Resources\Images\flags\FM.png" />
+    <None Remove="Resources\Images\flags\FR.png" />
+    <None Remove="Resources\Images\flags\GB.png" />
+    <None Remove="Resources\Images\flags\GH.png" />
+    <None Remove="Resources\Images\flags\GR.png" />
+    <None Remove="Resources\Images\flags\GT.png" />
+    <None Remove="Resources\Images\flags\HU.png" />
+    <None Remove="Resources\Images\flags\ID.png" />
+    <None Remove="Resources\Images\flags\IL.png" />
+    <None Remove="Resources\Images\flags\IN.png" />
+    <None Remove="Resources\Images\flags\IT.png" />
+    <None Remove="Resources\Images\flags\JM.png" />
+    <None Remove="Resources\Images\flags\JP.png" />
+    <None Remove="Resources\Images\flags\KE.png" />
+    <None Remove="Resources\Images\flags\KR.png" />
+    <None Remove="Resources\Images\flags\KZ.png" />
+    <None Remove="Resources\Images\flags\MA.png" />
+    <None Remove="Resources\Images\flags\MN.png" />
+    <None Remove="Resources\Images\flags\MX.png" />
+    <None Remove="Resources\Images\flags\NA.png" />
+    <None Remove="Resources\Images\flags\NG.png" />
+    <None Remove="Resources\Images\flags\NL.png" />
+    <None Remove="Resources\Images\flags\NO.png" />
+    <None Remove="Resources\Images\flags\NZ.png" />
+    <None Remove="Resources\Images\flags\PA.png" />
+    <None Remove="Resources\Images\flags\PE.png" />
+    <None Remove="Resources\Images\flags\PG.png" />
+    <None Remove="Resources\Images\flags\PK.png" />
+    <None Remove="Resources\Images\flags\PL.png" />
+    <None Remove="Resources\Images\flags\PT.png" />
+    <None Remove="Resources\Images\flags\QA.png" />
+    <None Remove="Resources\Images\flags\RO.png" />
+    <None Remove="Resources\Images\flags\SA.png" />
+    <None Remove="Resources\Images\flags\SB.png" />
+    <None Remove="Resources\Images\flags\SE.png" />
+    <None Remove="Resources\Images\flags\SG.png" />
+    <None Remove="Resources\Images\flags\SN.png" />
+    <None Remove="Resources\Images\flags\TH.png" />
+    <None Remove="Resources\Images\flags\TN.png" />
+    <None Remove="Resources\Images\flags\TZ.png" />
+    <None Remove="Resources\Images\flags\UA.png" />
+    <None Remove="Resources\Images\flags\US.png" />
+    <None Remove="Resources\Images\flags\UY.png" />
+    <None Remove="Resources\Images\flags\UZ.png" />
+    <None Remove="Resources\Images\flags\VE.png" />
+    <None Remove="Resources\Images\flags\VN.png" />
+    <None Remove="Resources\Images\flags\WS.png" />
+    <None Remove="Resources\Images\flags\ZA.png" />
+    <None Remove="Resources\Jennifer_Williams.png" />
+    <None Remove="Resources\Karen_White.png" />
+    <None Remove="Resources\Linda_Campbell.png" />
+    <None Remove="Resources\literature.mermaid" />
+    <None Remove="Resources\Little_Brown_Bat.png" />
+    <None Remove="Resources\Platypus.png" />
+    <None Remove="Resources\programming-language-tree.mermaid" />
+    <None Remove="Resources\Red_Kangaroo.png" />
+    <None Remove="Resources\Robert_Taylor.png" />
+    <None Remove="Resources\Sarah_Mitchell.png" />
+    <None Remove="Resources\Sophia_Lewis.png" />
+    <None Remove="Resources\Thomas_Anderson.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include=".sa3licx" />
+    <EmbeddedResource Include="Resources\African_Elephant.png" />
+    <EmbeddedResource Include="Resources\Amanda_Rodriguez.png" />
+    <EmbeddedResource Include="Resources\Andrew_Miller.png" />
+    <EmbeddedResource Include="Resources\countries.csv" />
+    <EmbeddedResource Include="Resources\Images\flags\AE.png" />
+    <EmbeddedResource Include="Resources\Images\flags\AR.png" />
+    <EmbeddedResource Include="Resources\Images\flags\AT.png" />
+    <EmbeddedResource Include="Resources\Images\flags\AU.png" />
+    <EmbeddedResource Include="Resources\Images\flags\BD.png" />
+    <EmbeddedResource Include="Resources\Images\flags\BE.png" />
+    <EmbeddedResource Include="Resources\Images\flags\BR.png" />
+    <EmbeddedResource Include="Resources\Images\flags\BW.png" />
+    <EmbeddedResource Include="Resources\Images\flags\CA.png" />
+    <EmbeddedResource Include="Resources\Images\flags\CD.png" />
+    <EmbeddedResource Include="Resources\Images\flags\CI.png" />
+    <EmbeddedResource Include="Resources\Images\flags\CL.png" />
+    <EmbeddedResource Include="Resources\Images\flags\CM.png" />
+    <EmbeddedResource Include="Resources\Images\flags\CN.png" />
+    <EmbeddedResource Include="Resources\Images\flags\CO.png" />
+    <EmbeddedResource Include="Resources\Images\flags\CU.png" />
+    <EmbeddedResource Include="Resources\Images\flags\CZ.png" />
+    <EmbeddedResource Include="Resources\Images\flags\DE.png" />
+    <EmbeddedResource Include="Resources\Images\flags\DK.png" />
+    <EmbeddedResource Include="Resources\Images\flags\DO.png" />
+    <EmbeddedResource Include="Resources\Images\flags\DZ.png" />
+    <EmbeddedResource Include="Resources\Images\flags\EC.png" />
+    <EmbeddedResource Include="Resources\Images\flags\EG.png" />
+    <EmbeddedResource Include="Resources\Images\flags\ES.png" />
+    <EmbeddedResource Include="Resources\Images\flags\ET.png" />
+    <EmbeddedResource Include="Resources\Images\flags\FJ.png" />
+    <EmbeddedResource Include="Resources\Images\flags\FM.png" />
+    <EmbeddedResource Include="Resources\Images\flags\FR.png" />
+    <EmbeddedResource Include="Resources\Images\flags\GB.png" />
+    <EmbeddedResource Include="Resources\Images\flags\GH.png" />
+    <EmbeddedResource Include="Resources\Images\flags\GR.png" />
+    <EmbeddedResource Include="Resources\Images\flags\GT.png" />
+    <EmbeddedResource Include="Resources\Images\flags\HU.png" />
+    <EmbeddedResource Include="Resources\Images\flags\ID.png" />
+    <EmbeddedResource Include="Resources\Images\flags\IL.png" />
+    <EmbeddedResource Include="Resources\Images\flags\IN.png" />
+    <EmbeddedResource Include="Resources\Images\flags\IT.png" />
+    <EmbeddedResource Include="Resources\Images\flags\JM.png" />
+    <EmbeddedResource Include="Resources\Images\flags\JP.png" />
+    <EmbeddedResource Include="Resources\Images\flags\KE.png" />
+    <EmbeddedResource Include="Resources\Images\flags\KR.png" />
+    <EmbeddedResource Include="Resources\Images\flags\KZ.png" />
+    <EmbeddedResource Include="Resources\Images\flags\MA.png" />
+    <EmbeddedResource Include="Resources\Images\flags\MN.png" />
+    <EmbeddedResource Include="Resources\Images\flags\MX.png" />
+    <EmbeddedResource Include="Resources\Images\flags\NA.png" />
+    <EmbeddedResource Include="Resources\Images\flags\NG.png" />
+    <EmbeddedResource Include="Resources\Images\flags\NL.png" />
+    <EmbeddedResource Include="Resources\Images\flags\NO.png" />
+    <EmbeddedResource Include="Resources\Images\flags\NZ.png" />
+    <EmbeddedResource Include="Resources\Images\flags\PA.png" />
+    <EmbeddedResource Include="Resources\Images\flags\PE.png" />
+    <EmbeddedResource Include="Resources\Images\flags\PG.png" />
+    <EmbeddedResource Include="Resources\Images\flags\PK.png" />
+    <EmbeddedResource Include="Resources\Images\flags\PL.png" />
+    <EmbeddedResource Include="Resources\Images\flags\PT.png" />
+    <EmbeddedResource Include="Resources\Images\flags\QA.png" />
+    <EmbeddedResource Include="Resources\Images\flags\RO.png" />
+    <EmbeddedResource Include="Resources\Images\flags\SA.png" />
+    <EmbeddedResource Include="Resources\Images\flags\SB.png" />
+    <EmbeddedResource Include="Resources\Images\flags\SE.png" />
+    <EmbeddedResource Include="Resources\Images\flags\SG.png" />
+    <EmbeddedResource Include="Resources\Images\flags\SN.png" />
+    <EmbeddedResource Include="Resources\Images\flags\TH.png" />
+    <EmbeddedResource Include="Resources\Images\flags\TN.png" />
+    <EmbeddedResource Include="Resources\Images\flags\TZ.png" />
+    <EmbeddedResource Include="Resources\Images\flags\UA.png" />
+    <EmbeddedResource Include="Resources\Images\flags\US.png" />
+    <EmbeddedResource Include="Resources\Images\flags\UY.png" />
+    <EmbeddedResource Include="Resources\Images\flags\UZ.png" />
+    <EmbeddedResource Include="Resources\Images\flags\VE.png" />
+    <EmbeddedResource Include="Resources\Images\flags\VN.png" />
+    <EmbeddedResource Include="Resources\Images\flags\WS.png" />
+    <EmbeddedResource Include="Resources\Images\flags\ZA.png" />
+    <EmbeddedResource Include="Resources\mammals.csv" />
+    <EmbeddedResource Include="Resources\animals10.csv" />
+    <EmbeddedResource Include="Resources\backend.mermaid" />
+    <EmbeddedResource Include="Resources\Bald_Eagle.png" />
+    <EmbeddedResource Include="Resources\Blue_Whale.png" />
+    <EmbeddedResource Include="Resources\data.mermaid" />
+    <EmbeddedResource Include="Resources\David_Chen.png" />
+    <EmbeddedResource Include="Resources\decision-tree.mermaid" />
+    <EmbeddedResource Include="Resources\Domestic_Cat.png" />
+    <EmbeddedResource Include="Resources\Domestic_Dog.png" />
+    <EmbeddedResource Include="Resources\family-tree.mermaid" />
+    <EmbeddedResource Include="Resources\frontend.mermaid" />
+    <EmbeddedResource Include="Resources\House_Mouse.png" />
+    <EmbeddedResource Include="Resources\Human.png" />
+    <EmbeddedResource Include="Resources\Jennifer_Williams.png" />
+    <EmbeddedResource Include="Resources\Karen_White.png" />
+    <EmbeddedResource Include="Resources\Linda_Campbell.png" />
+    <EmbeddedResource Include="Resources\literature.mermaid" />
+    <EmbeddedResource Include="Resources\Little_Brown_Bat.png" />
+    <EmbeddedResource Include="Resources\Platypus.png" />
+    <EmbeddedResource Include="Resources\programming-language-tree.mermaid" />
+    <EmbeddedResource Include="Resources\Red_Kangaroo.png" />
+    <EmbeddedResource Include="Resources\Robert_Taylor.png" />
+    <EmbeddedResource Include="Resources\Sarah_Mitchell.png" />
+    <EmbeddedResource Include="Resources\Sophia_Lewis.png" />
+    <EmbeddedResource Include="Resources\Thomas_Anderson.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Collapsible.xaml.cs">
+      <DependentUpon>Collapsible.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CustomShape.xaml.cs">
+      <DependentUpon>CustomShape.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\NodeTemplate.xaml.cs">
+      <DependentUpon>NodeTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\FlexChartFamily.xaml.cs">
+      <DependentUpon>FlexChartFamily.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\FamilyTree.xaml.cs">
+      <DependentUpon>FamilyTree.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dynamic.xaml.cs">
+      <DependentUpon>Dynamic.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Animals.xaml.cs">
+      <DependentUpon>Animals.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\HitTesting.xaml.cs">
+      <DependentUpon>HitTesting.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Tooltips.xaml.cs">
+      <DependentUpon>Tooltips.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Selection.xaml.cs">
+      <DependentUpon>Selection.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\OrgChart.xaml.cs">
+      <DependentUpon>OrgChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ProgrammingLanguages.xaml.cs">
+      <DependentUpon>ProgrammingLanguages.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Literature.xaml.cs">
+      <DependentUpon>Literature.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DecisionTree.xaml.cs">
+      <DependentUpon>DecisionTree.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Intro.xaml.cs">
+      <DependentUpon>Intro.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <MauiXaml Update="Views\Collapsible.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\DiagramEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\CustomShape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\NodeTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\FlexChartFamily.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\FamilyTree.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Dynamic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Animals.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\HitTesting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Tooltips.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Selection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\OrgChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\ProgrammingLanguages.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Literature.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\DecisionTree.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Intro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+  </ItemGroup>
+</Project>

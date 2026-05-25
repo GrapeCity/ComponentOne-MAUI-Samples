@@ -1,0 +1,45 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:DiagramExplorer.Views"
+             x:Class="DiagramExplorer.NodeTemplate"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml"
+             Title="Node Template">
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <views:DiagramEditor />
+
+        <c1:FlexDiagram x:Name="diagram" Grid.Row="1" Binding = "Class,Name" 
+                        LegendPosition="None" ScaleMode="ScaleToFit" >
+            <c1:FlexDiagram.NodeTemplate>
+                <DataTemplate>
+                    <Border Padding="8" StrokeShape="RoundRectangle 4">
+                        <StackLayout>
+                            <Label Text="{Binding }" LineBreakMode="NoWrap" >
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding}" Value="Mammalia">
+                                        <Setter Property="FontSize" Value="24" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+
+                            <Label Text="{Binding NameScientific}" FontSize="10" FontAttributes="Italic" LineBreakMode="NoWrap"/>
+
+                            <Image Source="{Binding ImageSource}" WidthRequest="128" HeightRequest="128" >
+                                <Image.Triggers>
+                                    <DataTrigger TargetType="Image" Binding="{Binding}" Value="Mammalia">
+                                        <Setter Property="IsVisible" Value="False" />
+                                    </DataTrigger>
+                                </Image.Triggers>
+                            </Image>
+
+                        </StackLayout>
+                        
+                    </Border>
+                </DataTemplate>
+            </c1:FlexDiagram.NodeTemplate>
+        </c1:FlexDiagram>
+    </Grid>
+</ContentPage>

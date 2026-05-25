@@ -21,12 +21,15 @@
     <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|AnyCPU'">
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="C1.Maui.Grid">
-      <Version>10.0.20252.1233</Version>
+      <Version>10.0.20261.50</Version>
+    </PackageReference>
+    <PackageReference Include="C1.Maui.Grid.Excel">
+      <Version>10.0.20261.50</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
   </ItemGroup>
@@ -63,14 +66,14 @@
     <EmbeddedResource Remove="Resources\AppResources.zh-Hans.resx" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove=".gclicx" />
+    <None Remove=".sa3licx" />
     <None Remove="Resources\Fonts\ShantellSans-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include=".gclicx" />
+    <EmbeddedResource Include=".sa3licx" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.DataCollection.BindingList" Version="10.0.20252.3" />
+    <PackageReference Include="C1.DataCollection.BindingList" Version="10.0.20261.3" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +81,9 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="View\ExcelExport.xaml.cs">
+      <DependentUpon>ExcelExport.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\TransposedGrid.xaml.cs">
       <DependentUpon>TransposedGrid.xaml</DependentUpon>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <MauiXaml Update="View\ExcelExport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
     <MauiXaml Update="View\HierarchicalRows.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>

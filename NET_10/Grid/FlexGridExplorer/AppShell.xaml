@@ -54,6 +54,8 @@
                       ContentTemplate="{DataTemplate local:CustomSortIcon}" />
     <ShellContent Title="{x:Static res:AppResources.ExportTitle}"
                       ContentTemplate="{DataTemplate local:Export}" />
+    <ShellContent Title="{x:Static res:AppResources.ExcelExportTitle}"
+                      ContentTemplate="{DataTemplate local:ExcelExport}" />
     <ShellContent Title="{x:Static res:AppResources.ValidationTitle}"
                       ContentTemplate="{DataTemplate local:Validation}" />
     <ShellContent Title="{x:Static res:AppResources.DataTableSampleTitle}"

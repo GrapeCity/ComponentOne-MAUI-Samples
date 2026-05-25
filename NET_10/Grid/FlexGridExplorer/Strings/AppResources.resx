@@ -484,4 +484,7 @@
   <data name="ValidationExclamationTriangleIcon" xml:space="preserve">
     <value>Exclamation Triangle</value>
   </data>
+  <data name="ExcelExportTitle" xml:space="preserve">
+    <value>Excel Export</value>
+  </data>
 </root>

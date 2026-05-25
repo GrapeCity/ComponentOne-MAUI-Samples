@@ -1,58 +1,63 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FlexViewer.MainPage"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:c1="clr-namespace:C1.Maui.Viewer;assembly=C1.Maui.Viewer">
 
+    <Grid RowDefinitions="54,*" ColumnDefinitions="*,*">
 
-    <Grid RowDefinitions="50,Auto,*" ColumnDefinitions="*,*">
-
-        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="#D6564C" HeightRequest="50">
+        <!-- App header -->
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="#D6564C" HeightRequest="54">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <HorizontalStackLayout Grid.Column="0" Padding="12,0" VerticalOptions="Center" Spacing="12" HorizontalOptions="Start">
-                <Button x:Name="HeaderMenuButton" Text="ComponentOne  |  Maui Controls" BackgroundColor="Transparent" TextColor="White"  Clicked="HeaderMenuButton_Clicked">
-                    <VisualStateManager.VisualStateGroups>
-                        <VisualStateGroupList>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal" />
-                                <VisualState x:Name="PointerOver">
-                                    <VisualState.Setters>
-                                        <Setter Property="BackgroundColor" Value="#EB6C61"/>
-                                    </VisualState.Setters>
-                                </VisualState>
-                                <VisualState x:Name="Pressed">
-                                    <VisualState.Setters>
-                                        <Setter Property="BackgroundColor" Value="#FF766A"/>
-                                    </VisualState.Setters>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateGroupList>
-                    </VisualStateManager.VisualStateGroups>
-                </Button>
-            </HorizontalStackLayout>
+            <!-- Brand: tappable, navigates to product page -->
+            <Border Grid.Column="0" Background="Transparent" StrokeThickness="0"
+                    HorizontalOptions="Start" VerticalOptions="Center" Margin="12,0">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="HeaderBrand_Tapped"/>
+                </Border.GestureRecognizers>
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 6"
+                            Background="#33FFFFFF"
+                            WidthRequest="28" HeightRequest="28"
+                            HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="C1" FontSize="11" FontAttributes="Bold"
+                               TextColor="White"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <VerticalStackLayout Spacing="1" VerticalOptions="Center">
+                        <Label Text="ComponentOne" FontSize="13" FontAttributes="Bold"
+                               TextColor="White" LineBreakMode="NoWrap"/>
+                        <Label Text="Maui Controls" FontSize="10"
+                               TextColor="#CCffffff" LineBreakMode="NoWrap"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Border>
 
-            <Button Grid.Column="1" x:Name="MenuPopupButton" WidthRequest="42" HeightRequest="42" CornerRadius="21" BackgroundColor="Transparent"
-                Clicked="MenuPopupButton_Clicked" HorizontalOptions="End" Margin="0,0,12,0">
-                <Button.ImageSource>
-                    <FontImageSource Glyph="&#xE700;" FontFamily="Segoe MDL2 Assets" Size="20" Color="White"/>
-                </Button.ImageSource>
+            <!-- Hamburger -->
+            <Button Grid.Column="1" x:Name="MenuPopupButton"
+                    WidthRequest="40" HeightRequest="40" CornerRadius="20"
+                    BackgroundColor="Transparent"
+                    Clicked="MenuPopupButton_Clicked"
+                    HorizontalOptions="End" Margin="0,0,12,0"
+                    ToolTipProperties.Text="Open document"
+                    Text="&#xF035C;" FontSize="19" FontFamily="MDI" TextColor="White">
                 <VisualStateManager.VisualStateGroups>
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Normal"/>
                             <VisualState x:Name="PointerOver">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#EB6C61"/>
+                                    <Setter Property="BackgroundColor" Value="#26FFFFFF"/>
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Pressed">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#FF766A"/>
+                                    <Setter Property="BackgroundColor" Value="#40FFFFFF"/>
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -61,9 +66,11 @@
             </Button>
         </Grid>
 
-        <c1:FlexViewer x:Name="flexViewer" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <!-- Viewer -->
+        <c1:FlexViewer x:Name="flexViewer" Grid.Row="1" Grid.ColumnSpan="2"/>
 
-        <Grid x:Name="PopupOverlay" Grid.RowSpan="3" Grid.ColumnSpan="2" IsVisible="False">
+        <!-- Document picker overlay -->
+        <Grid x:Name="PopupOverlay" Grid.RowSpan="2" Grid.ColumnSpan="2" IsVisible="False">
 
             <BoxView Color="#01000000">
                 <BoxView.GestureRecognizers>
@@ -71,75 +78,93 @@
                 </BoxView.GestureRecognizers>
             </BoxView>
 
-            <Border StrokeThickness="0" Background="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}"
-        HorizontalOptions="End" VerticalOptions="Start" Margin="0,58,12,0" WidthRequest="320">
+            <Border StrokeShape="RoundRectangle 16"
+                    StrokeThickness="1"
+                    Stroke="{AppThemeBinding Light=#E8E8E8, Dark=#38384A}"
+                    Background="{AppThemeBinding Light=#FFFFFF, Dark=#252535}"
+                    HorizontalOptions="End" VerticalOptions="Start"
+                    Margin="0,58,12,0" WidthRequest="300">
 
-                <VerticalStackLayout x:Name="PopupCard" Spacing="8" Padding="12">
+                <VerticalStackLayout x:Name="PopupCard" Spacing="0" Padding="12,14">
 
-                    <Button Text="PDF" Clicked="PdfButton_Clicked" Background="#D6564C">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroupList>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal" />
-                                    <VisualState x:Name="PointerOver">
-                                        <VisualState.Setters>
-                                            <Setter Property="BackgroundColor" Value="#EB6C61"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                    <VisualState x:Name="Pressed">
-                                        <VisualState.Setters>
-                                            <Setter Property="BackgroundColor" Value="#FF766A"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateGroupList>
-                        </VisualStateManager.VisualStateGroups>
-                    </Button>
+                    <Label x:Name="PopupSectionLabel"
+                           Text="OPEN DOCUMENT"
+                           FontSize="10" FontAttributes="Bold" CharacterSpacing="1.2"
+                           TextColor="{AppThemeBinding Light=#AAAAAA, Dark=#55556A}"
+                           Margin="4,0,0,8"/>
 
+                    <!-- PDF -->
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 10"
+                            Background="Transparent">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PdfItem_Tapped"/>
+                        </Border.GestureRecognizers>
+                        <Grid ColumnDefinitions="44,*" Padding="4,8" ColumnSpacing="8">
+                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 8"
+                                    Background="#26D6564C" WidthRequest="32" HeightRequest="32"
+                                    HorizontalOptions="Center" VerticalOptions="Center">
+                                <Label Text="&#xF0226;" FontSize="15" FontFamily="MDI"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                <Label Text="PDF" FontSize="14" FontAttributes="Bold"
+                                       TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#EBEBEB}"/>
+                                <Label Text="DefaultDocument.pdf" FontSize="11"
+                                       TextColor="{AppThemeBinding Light=#999999, Dark=#666677}"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+
+                    <BoxView HeightRequest="1" Margin="4,4"
+                             Color="{AppThemeBinding Light=#F0F0F0, Dark=#2E2E40}"/>
+
+                    <!-- Flex Report -->
                     <toolkit:Expander x:Name="FlexReportExpander" ExpandedChanged="Expander_ExpandedChanged">
                         <toolkit:Expander.Header>
-                            <Border x:Name="FlexHeader"
-                        Background="#D6564C" StrokeThickness="0" StrokeShape="RoundRectangle 8" Padding="10" HeightRequest="44">
-                
-                                <Grid ColumnDefinitions="Auto,Auto" HorizontalOptions="Center" VerticalOptions="Center">
-                                    <Label Text="Flex Report" TextColor="White" VerticalOptions="Center"/>
-                                    <Label Grid.Column="1" x:Name="FlexReportArrow" Text=" ▼" TextColor="White" VerticalOptions="Center">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference FlexReportExpander}, Path=IsExpanded}"  Value="True">
-                                                <Setter Property="Text" Value=" ▲"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                </Grid>
-
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroupList>
-                                        <VisualStateGroup x:Name="CommonStates">
-                                            <VisualState x:Name="Normal" />
-                                            <VisualState x:Name="PointerOver">
-                                                <VisualState.Setters>
-                                                    <Setter Property="Background" Value="#EB6C61"/>
-                                                </VisualState.Setters>
-                                            </VisualState>
-                                            <VisualState x:Name="Pressed">
-                                                <VisualState.Setters>
-                                                    <Setter Property="Background" Value="#FF766A"/>
-                                                </VisualState.Setters>
-                                            </VisualState>
-                                        </VisualStateGroup>
-                                    </VisualStateGroupList>
-                                </VisualStateManager.VisualStateGroups>
-                            </Border>
+                            <Grid ColumnDefinitions="44,*,Auto" Padding="4,8" ColumnSpacing="8">
+                                <Border StrokeThickness="0" StrokeShape="RoundRectangle 8"
+                                        Background="#26D6564C" WidthRequest="32" HeightRequest="32"
+                                        HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="&#xF0128;" FontSize="15" FontFamily="MDI"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                    <Label Text="Flex Report" FontSize="14" FontAttributes="Bold"
+                                           TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#EBEBEB}"/>
+                                    <Label Text="Choose a report…" FontSize="11"
+                                           TextColor="{AppThemeBinding Light=#999999, Dark=#666677}"/>
+                                </VerticalStackLayout>
+                                <Label x:Name="FlexReportArrow" Grid.Column="2"
+                                       Text="▼" FontSize="10"
+                                       TextColor="{AppThemeBinding Light=#AAAAAA, Dark=#55556A}"
+                                       VerticalOptions="Center" Margin="0,0,4,0">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding Source={x:Reference FlexReportExpander}, Path=IsExpanded}"
+                                                     Value="True">
+                                            <Setter Property="Text" Value="▲"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </Grid>
                         </toolkit:Expander.Header>
 
-                        <VerticalStackLayout Spacing="8" Padding="8,0,12,12" Margin="0,8,0,0">
-                            <Label Text="Select a Flex Report" FontSize="14" Margin="0,0,0,4"/>
-                            <Border StrokeThickness="1" Stroke="#D9D9D9" BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#2A2A2A}"  StrokeShape="RoundRectangle 10" Padding="10" Margin="0,4,0,8">
-                                <CollectionView x:Name="FlexReportList" HeightRequest="180" SelectionMode="Single" SelectionChanged="FlexReportList_SelectionChanged">
+                        <VerticalStackLayout Spacing="6" Padding="4,4,4,8">
+                            <Label Text="Select a report" FontSize="12"
+                                   TextColor="{AppThemeBinding Light=#AAAAAA, Dark=#55556A}"
+                                   Margin="4,0,0,0"/>
+                            <Border StrokeThickness="1"
+                                    Stroke="{AppThemeBinding Light=#E8E8E8, Dark=#38384A}"
+                                    BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#1C1C2A}"
+                                    StrokeShape="RoundRectangle 10" Padding="4">
+                                <CollectionView x:Name="FlexReportList" HeightRequest="160"
+                                                SelectionMode="Single"
+                                                SelectionChanged="FlexReportList_SelectionChanged">
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
-                                            <Grid Padding="10">
-                                                <Label Text="{Binding .}" FontSize="14" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                                            <Grid Padding="8,10">
+                                                <Label Text="{Binding .}" FontSize="13"
+                                                       TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#DDDDE8}"/>
                                             </Grid>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
@@ -148,27 +173,52 @@
                         </VerticalStackLayout>
                     </toolkit:Expander>
 
-                    <Button Text="Report Service" Clicked="ReportServiceMenu_Clicked" Background="#D6564C">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroupList>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal" />
-                                    <VisualState x:Name="PointerOver">
-                                        <VisualState.Setters>
-                                            <Setter Property="BackgroundColor" Value="#EB6C61"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                    <VisualState x:Name="Pressed">
-                                        <VisualState.Setters>
-                                            <Setter Property="BackgroundColor" Value="#FF766A"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateGroupList>
-                        </VisualStateManager.VisualStateGroups>
-                    </Button>
+                    <BoxView HeightRequest="1" Margin="4,4"
+                             Color="{AppThemeBinding Light=#F0F0F0, Dark=#2E2E40}"/>
+
+                    <!-- Report Service -->
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 10"
+                            Background="Transparent">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ReportServiceItem_Tapped"/>
+                        </Border.GestureRecognizers>
+                        <Grid ColumnDefinitions="44,*" Padding="4,8" ColumnSpacing="8">
+                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 8"
+                                    Background="#26D6564C" WidthRequest="32" HeightRequest="32"
+                                    HorizontalOptions="Center" VerticalOptions="Center">
+                                <Label Text="&#xF059F;" FontSize="15" FontFamily="MDI"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                <Label Text="Report Service" FontSize="14" FontAttributes="Bold"
+                                       TextColor="{AppThemeBinding Light=#1A1A1A, Dark=#EBEBEB}"/>
+                                <Label Text="SSRS remote report" FontSize="11"
+                                       TextColor="{AppThemeBinding Light=#999999, Dark=#666677}"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+
                 </VerticalStackLayout>
             </Border>
         </Grid>
+
+        <!-- Loading overlay -->
+        <Grid x:Name="LoadingOverlay" Grid.RowSpan="2" Grid.ColumnSpan="2" IsVisible="False"
+              BackgroundColor="#80000000" ZIndex="100">
+            <Border Background="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}"
+                    StrokeThickness="0" StrokeShape="RoundRectangle 12"
+                    HorizontalOptions="Center" VerticalOptions="Center"
+                    Padding="32,24" MinimumWidthRequest="140">
+                <VerticalStackLayout Spacing="16" HorizontalOptions="Center">
+                    <ActivityIndicator IsRunning="True" Color="#D6564C"
+                                       WidthRequest="40" HeightRequest="40"
+                                       HorizontalOptions="Center"/>
+                    <Label x:Name="LoadingLabel" Text="Loading…"
+                           TextColor="{AppThemeBinding Light=#333333, Dark=#CCCCCC}"
+                           FontSize="14" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+
     </Grid>
 </ContentPage>

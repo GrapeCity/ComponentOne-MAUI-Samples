@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
     <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
@@ -33,10 +33,10 @@
     <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.80" />
     <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.80" />
     <PackageReference Include="C1.Maui.Chart">
-      <Version>10.0.20252.1233</Version>
+      <Version>10.0.20261.50</Version>
     </PackageReference>
     <PackageReference Include="C1.Maui.Core">
-      <Version>10.0.20252.1233</Version>
+      <Version>10.0.20261.50</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
@@ -101,13 +101,13 @@
     <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove=".gclicx" />
+    <None Remove=".sa3licx" />
     <None Remove="Resources\cars.json" />
     <None Remove="Resources\gdp.json" />
     <None Remove="Resources\tempNY-SF.csv" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include=".gclicx" />
+    <EmbeddedResource Include=".sa3licx" />
     <EmbeddedResource Include="Resources\cars.json" />
     <EmbeddedResource Include="Resources\gdp.json" />
     <EmbeddedResource Include="Resources\tempNY-SF.csv" />

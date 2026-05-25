@@ -473,4 +473,28 @@
   <data name="ShowErrors" xml:space="preserve">
     <value>ShowErrors</value>
   </data>
+  <data name="ValidationBugIcon" xml:space="preserve">
+    <value>Bug</value>
+  </data>
+  <data name="ValidationClassicStyle" xml:space="preserve">
+    <value>Classic</value>
+  </data>
+  <data name="ValidationDataGridStyle" xml:space="preserve">
+    <value>DataGrid</value>
+  </data>
+  <data name="ValidationDefaultIcon" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="ValidationDefaultStyle" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="ValidationExclamationOctagonIcon" xml:space="preserve">
+    <value>Exclamation Octagon</value>
+  </data>
+  <data name="ValidationExclamationTriangleIcon" xml:space="preserve">
+    <value>Exclamation Triangle</value>
+  </data>
+  <data name="ExcelExportTitle" xml:space="preserve">
+    <value>Excel Export</value>
+  </data>
 </root>

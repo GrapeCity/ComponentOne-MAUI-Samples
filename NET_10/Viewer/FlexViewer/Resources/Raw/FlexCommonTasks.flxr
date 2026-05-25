@@ -26,8 +26,8 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>Employees</RecordSource>
         <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
@@ -364,8 +364,8 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>SELECT Categories.*, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
@@ -928,9 +928,10 @@ Parameters</Keywords>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>Products</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
     </DataSources>
     <ReportParameters>
@@ -1813,8 +1814,8 @@ The </Value>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>SELECT Categories.*, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
@@ -2327,8 +2328,8 @@ When specified this way, the custom paper size is used regardless of what printe
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>SELECT Categories.*, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
@@ -2899,8 +2900,8 @@ The report also suppresses the page header on the first page by setting the </Va
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>SELECT Categories.*, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
@@ -3328,8 +3329,8 @@ Outlines</Keywords>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>SELECT Employees.EmployeeID as EmployeeID,
        Employees.FirstName as FirstName,
        Employees.LastName as LastName,
@@ -4265,9 +4266,10 @@ Also this report demonstrates how a report can be customized with parameters.</V
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
-        <RecordSource>SELECT Employees.Country, 
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
+        <RecordSource>SELECT Employees.Country,
        Employees.EmployeeID,
        Employees.LastName,
        Employees.FirstName,
@@ -4302,7 +4304,7 @@ Also this report demonstrates how a report can be customized with parameters.</V
       </ReportParameter>
       <ReportParameter>
         <Name>pEndingDate</Name>
-        <Value sys="datetime">2016-01-01T00:00:00.0000000</Value>
+        <Value sys="datetime">2026-02-28T00:00:00.0000000</Value>
         <Prompt>Ending Date</Prompt>
         <ParameterType>DateTime</ParameterType>
         <AllowedValuesDefinition>
@@ -5371,15 +5373,17 @@ The Employee group is sorted by the employee's total sales in descending order.<
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>SELECT Categories.*, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID where Products.CategoryID in pCategory</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsCategories</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>select CategoryID, CategoryName from Categories order by CategoryName</RecordSource>
       </DataSource>
     </DataSources>
@@ -6165,8 +6169,9 @@ This report contains a </Value>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>select orderid, orders.customerid, companyname, employees.firstname, employees.lastname, orderdate, RequiredDate, shippeddate, Freight
   from (orders inner join customers on orders.customerid = customers.customerid) inner join employees on orders.employeeid = employees.employeeid
  where orders.CustomerID in pCustomers</RecordSource>
@@ -6179,8 +6184,9 @@ This report contains a </Value>
       </DataSource>
       <DataSource>
         <Name>dsCountries</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>select Country, Count(*) as CustomerCount from Customers group by Country order by Country</RecordSource>
         <CalculatedFields>
           <CalculatedField>
@@ -6191,8 +6197,9 @@ This report contains a </Value>
       </DataSource>
       <DataSource>
         <Name>dsCustomers</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>select CustomerID, CompanyName from Customers where Country = pCountry</RecordSource>
       </DataSource>
     </DataSources>
@@ -7025,8 +7032,8 @@ This report also demonstrates the use of </Value>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>Products</RecordSource>
         <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
@@ -7430,20 +7437,23 @@ The current subsection has Visible set to false so that it does not show in the 
     <DataSources>
       <DataSource>
         <Name>dsCategories</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>select distinct Category from Cars order by Category</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsLeftBrands</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>select distinct Brand from Cars where Category in pLeftCategories order by Brand</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsRightBrands</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>select distinct Brand from Cars where Category in pRightCategories order by Brand</RecordSource>
       </DataSource>
     </DataSources>
@@ -7706,20 +7716,23 @@ BrandGroup_Footer.SubSections(0).Border.Color = pColor
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>select * from Cars where Category in pCategories and Brand in pBrands</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsCategories</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>select distinct Category from Cars order by Category</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsBrands</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>select distinct Brand from Cars where Category in pCategories order by Brand</RecordSource>
       </DataSource>
     </DataSources>
@@ -8193,8 +8206,8 @@ Brands:
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>select o.OrderID, 
        c.CompanyName,
        e.LastName,
@@ -9066,8 +9079,8 @@ The use of report.Layout.Overlay feature is also demonstrated (used here to show
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>Products</RecordSource>
         <RecordSourceType>TableDirect</RecordSourceType>
         <CalculatedFields>
@@ -9313,8 +9326,8 @@ Outlines</Keywords>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>SELECT Categories.*, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
@@ -10029,8 +10042,8 @@ endif</OnFormat>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>select c.*, (select count(*) from products p where p.CategoryID = c.CategoryID) as ProductCount from Categories c</RecordSource>
       </DataSource>
     </DataSources>
@@ -10290,8 +10303,8 @@ Subsection containing this text is has Visible = false so this text not showed i
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>Employees</RecordSource>
         <RecordSourceType>TableDirect</RecordSourceType>
         <CalculatedFields>
@@ -12421,8 +12434,9 @@ New in 2016v3.5</Keywords>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>select orderid, orders.customerid, companyname, employees.firstname, employees.lastname, orderdate, RequiredDate, shippeddate, Freight
   from (orders inner join customers on orders.customerid = customers.customerid) inner join employees on orders.employeeid = employees.employeeid
  where orders.CustomerID = pCustomer</RecordSource>
@@ -12438,8 +12452,9 @@ New in 2016v3.5</Keywords>
       </DataSource>
       <DataSource>
         <Name>dsCountries</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>select Country, Count(*) as CustomerCount from Customers group by Country order by Country</RecordSource>
         <CalculatedFields>
           <CalculatedField>
@@ -12450,8 +12465,9 @@ New in 2016v3.5</Keywords>
       </DataSource>
       <DataSource>
         <Name>dsCustomers</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <RecordSource>select CustomerID, CompanyName from Customers where Country = pCountry</RecordSource>
       </DataSource>
     </DataSources>
@@ -13473,24 +13489,39 @@ New in 2016v3.5</Keywords>
     <DataSources>
       <DataSource>
         <Name>dsProducts</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>SELECT Categories.*, Categories.CategoryID as CategoryID, Products.* FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsOrdersDetails</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>select o.OrderId as OrderID, o.OrderDate, od.UnitPrice, od.Quantity from Orders o, [Order Details] od where o.OrderId = od.OrderId</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsOrdersAmount</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
-        <RecordSource>SELECT Month(OrderDate) AS OrderMonth, Max(Amount) as MaxAmount, Min(Amount) as MinAmount, First(Amount) as FirstAmount, Last(Amount) as LastAmount
-FROM (SELECT orders.OrderID, Sum([Order Details].Quantity*[Order Details].UnitPrice) AS Amount, First(orders.OrderDate) as OrderDate
-FROM orders INNER JOIN [Order Details] ON orders.OrderID = [Order Details].OrderID
-WHERE Year([OrderDate])=2014 GROUP BY orders.OrderID)  AS [Amounts] group by Month(OrderDate)</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
+        <RecordSource>
+			SELECT
+			strftime('%m', OrderDate) AS OrderMonth,
+			MAX(Amount) AS MaxAmount,
+			MIN(Amount) AS MinAmount,
+			MIN(OrderDate) AS FirstAmount,
+			MAX(OrderDate) AS LastAmount
+			FROM (
+			SELECT
+			orders.OrderID,
+			SUM([Order Details].Quantity * [Order Details].UnitPrice) AS Amount,
+			MIN(orders.OrderDate) AS OrderDate
+			FROM orders
+			INNER JOIN [Order Details] ON orders.OrderID = [Order Details].OrderID
+			WHERE strftime('%Y', OrderDate) = '2014'
+			GROUP BY orders.OrderID
+			) AS Amounts
+			GROUP BY strftime('%m', OrderDate);
+		</RecordSource>
       </DataSource>
     </DataSources>
     <Sections>
@@ -15357,8 +15388,8 @@ New in 2016v3.5</Keywords>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>SELECT Categories.*, Categories.CategoryID as CategoryID, Products.* FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
     </DataSources>
@@ -16033,8 +16064,8 @@ New in 2016v3.5</Keywords>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>SELECT o.OrderDate, od.Quantity * od.UnitPrice AS OrderItemSum
   FROM Orders AS o, [Order Details] AS od
  WHERE o.OrderId = od.OrderId
@@ -16290,8 +16321,8 @@ New in 2016v3.5</Keywords>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=Microsoft.ACE.OLEDB.12.0;Data Source=?(SpecialFolder.MyDocuments)\ComponentOne Samples\Common\C1NWind.mdb;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source={DB_PATH};</ConnectionString>
         <RecordSource>select o.OrderId, 
        o.OrderDate,
        o.CustomerId,
@@ -16299,15 +16330,16 @@ New in 2016v3.5</Keywords>
        c.CompanyName,
        (select sum(od.Quantity * od.UnitPrice) from [Order Details] od where od.OrderId = o.OrderId) as OrderSum
   from Orders o, Customers c
- where o.CustomerId = c.CustomerId and Year(OrderDate) = pYear</RecordSource>
+ where o.CustomerId = c.CustomerId and strftime('%Y', OrderDate) = pYear</RecordSource>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
       </DataSource>
     </DataSources>
     <ReportParameters>
       <ReportParameter>
         <Name>pYear</Name>
-        <Value sys="int">2012</Value>
+        <Value sys="string">2014</Value>
         <Prompt>Year</Prompt>
-        <ParameterType>Integer</ParameterType>
+        <ParameterType>String</ParameterType>
         <AllowedValuesDefinition>
           <Values />
         </AllowedValuesDefinition>

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <!--<TargetFrameworks>net8.0.0-ios;net8.0.0-android;net8.0.0-maccatalyst</TargetFrameworks>-->
     <TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
@@ -48,7 +48,7 @@
     <MauiFont Include="Resources\Fonts\*" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include=".gclicx" />
+    <EmbeddedResource Include=".sa3licx" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Fonts\cour.ttf" />
@@ -71,10 +71,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="C1.Maui.Calendar">
-      <Version>10.0.20252.1233</Version>
+      <Version>10.0.20261.50</Version>
     </PackageReference>
     <PackageReference Include="C1.Maui.Core">
-      <Version>10.0.20252.1233</Version>
+      <Version>10.0.20261.50</Version>
     </PackageReference>
   </ItemGroup>
 </Project>

@@ -20,8 +20,7 @@ namespace FlexChartExplorer
             set { chartType = value; OnPropertyChanged("ChartType"); }
         }
 
-        public RadarChartType[] ChartTypes => new [] { RadarChartType.Line,
-            RadarChartType.LineSymbols, RadarChartType.Area, RadarChartType.Scatter};
+        public RadarChartType[] ChartTypes => Enum.GetValues<RadarChartType>();
 
         Stacking stacking = Stacking.None;
 
@@ -31,7 +30,7 @@ namespace FlexChartExplorer
             set { stacking = value; OnPropertyChanged("Stacking"); }
         }
 
-        public Stacking[] Stackings => new[] { Stacking.None, Stacking.Stacked, Stacking.Stacked100pc };
+        public Stacking[] Stackings => Enum.GetValues<Stacking>();
 
         Palette palette = Palette.Standard;
 
