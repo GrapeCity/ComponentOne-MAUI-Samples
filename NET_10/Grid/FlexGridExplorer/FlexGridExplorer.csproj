@@ -26,10 +26,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="C1.Maui.Grid">
-      <Version>10.0.20261.50</Version>
+      <Version>10.0.20261.130</Version>
     </PackageReference>
     <PackageReference Include="C1.Maui.Grid.Excel">
-      <Version>10.0.20261.50</Version>
+      <Version>10.0.20261.130</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
   </ItemGroup>
@@ -73,7 +73,7 @@
     <EmbeddedResource Include=".sa3licx" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.DataCollection.BindingList" Version="10.0.20261.3" />
+    <PackageReference Include="C1.DataCollection.BindingList" Version="10.0.20261.8" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
   </ItemGroup>
   <ItemGroup>

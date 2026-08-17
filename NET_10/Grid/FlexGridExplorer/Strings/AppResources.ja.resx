@@ -454,7 +454,7 @@
     <value>ツリーインデント</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>FlexGridエクスプローラー</value>
+    <value>FlexGrid エクスプローラー</value>
   </data>
   <data name="MatchCase" xml:space="preserve">
     <value>大文字と小文字を区別</value>
@@ -508,27 +508,35 @@
     <comment>ShowErrors</comment>
   </data>
   <data name="ValidationBugIcon" xml:space="preserve">
-    <value>Bug</value>
+    <value>バグ</value>
+    <comment>Bug</comment>
   </data>
   <data name="ValidationClassicStyle" xml:space="preserve">
-    <value>Classic</value>
+    <value>クラシック</value>
+    <comment>Classic</comment>
   </data>
   <data name="ValidationDataGridStyle" xml:space="preserve">
-    <value>DataGrid</value>
+    <value>データグリッド</value>
+    <comment>DataGrid</comment>
   </data>
   <data name="ValidationDefaultIcon" xml:space="preserve">
-    <value>Default</value>
+    <value>既定</value>
+    <comment>Default</comment>
   </data>
   <data name="ValidationDefaultStyle" xml:space="preserve">
-    <value>Default</value>
+    <value>既定</value>
+    <comment>Default</comment>
   </data>
   <data name="ValidationExclamationOctagonIcon" xml:space="preserve">
-    <value>Exclamation Octagon</value>
+    <value>感嘆符八角形</value>
+    <comment>Exclamation Octagon</comment>
   </data>
   <data name="ValidationExclamationTriangleIcon" xml:space="preserve">
-    <value>Exclamation Triangle</value>
+    <value>感嘆符三角形</value>
+    <comment>Exclamation Triangle</comment>
   </data>
   <data name="ExcelExportTitle" xml:space="preserve">
-    <value>Excel Export</value>
+    <value>Excel エクスポート</value>
+    <comment>Excel Export</comment>
   </data>
 </root>
