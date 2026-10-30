@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:res="clr-namespace:FlexViewer.Resources"
+             x:Class="FlexViewer.GettingStarted">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="32,40" Spacing="20" MaximumWidthRequest="640" HorizontalOptions="Center">
+
+            <Label Text="{x:Static res:Resources.WelcomeHeading}"
+                   FontSize="28" FontAttributes="Bold"/>
+
+            <Label Text="{x:Static res:Resources.WelcomeDescription}"
+                   FontSize="15" LineHeight="1.4"
+                   TextColor="{AppThemeBinding Light=#555555, Dark=#AAAAAA}"/>
+
+            <Label Text="{x:Static res:Resources.ExploreSectionTitle}"
+                   FontSize="12" FontAttributes="Bold" CharacterSpacing="1.2"
+                   TextColor="{AppThemeBinding Light=#AAAAAA, Dark=#55556A}"
+                   Margin="0,16,0,0"/>
+
+            <!-- PDF -->
+            <Border StrokeThickness="1" StrokeShape="RoundRectangle 12"
+                    Stroke="{AppThemeBinding Light=#E8E8E8, Dark=#38384A}"
+                    Padding="14">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PdfBadge_Tapped"/>
+                </Border.GestureRecognizers>
+                <Grid ColumnDefinitions="44,*" ColumnSpacing="12">
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 8"
+                            Background="#26D6564C" WidthRequest="32" HeightRequest="32"
+                            HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="&#xF0226;" FontSize="15" FontFamily="MDI"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                        <Label Text="{x:Static res:Resources.PdfFormatLabel}" FontAttributes="Bold" FontSize="15"/>
+                        <Label Text="{x:Static res:Resources.PdfViewerHint}" FontSize="12"
+                               TextColor="{AppThemeBinding Light=#999999, Dark=#666677}"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <!-- Flex Report -->
+            <Border StrokeThickness="1" StrokeShape="RoundRectangle 12"
+                    Stroke="{AppThemeBinding Light=#E8E8E8, Dark=#38384A}"
+                    Padding="14">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ReportBadge_Tapped"/>
+                </Border.GestureRecognizers>
+                <Grid ColumnDefinitions="44,*" ColumnSpacing="12">
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 8"
+                            Background="#26D6564C" WidthRequest="32" HeightRequest="32"
+                            HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="&#xF0128;" FontSize="15" FontFamily="MDI"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                        <Label Text="{x:Static res:Resources.FlexReportSectionTitle}" FontAttributes="Bold" FontSize="15"/>
+                        <Label Text="{x:Static res:Resources.ChooseReportHint}" FontSize="12"
+                               TextColor="{AppThemeBinding Light=#999999, Dark=#666677}"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <!-- Report Service -->
+            <Border StrokeThickness="1" StrokeShape="RoundRectangle 12"
+                    Stroke="{AppThemeBinding Light=#E8E8E8, Dark=#38384A}"
+                    Padding="14">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="SsrsBadge_Tapped"/>
+                </Border.GestureRecognizers>
+                <Grid ColumnDefinitions="44,*" ColumnSpacing="12">
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 8"
+                            Background="#26D6564C" WidthRequest="32" HeightRequest="32"
+                            HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="&#xF059F;" FontSize="15" FontFamily="MDI"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                        <Label Text="{x:Static res:Resources.ReportServiceSectionTitle}" FontAttributes="Bold" FontSize="15"/>
+                        <Label Text="{x:Static res:Resources.SsrsRemoteReportHint}" FontSize="12"
+                               TextColor="{AppThemeBinding Light=#999999, Dark=#666677}"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

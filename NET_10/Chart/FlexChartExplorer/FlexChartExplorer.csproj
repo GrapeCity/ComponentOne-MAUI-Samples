@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
     <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
@@ -30,13 +30,13 @@
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.80" />
-    <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.80" />
+    <PackageReference Update="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+    <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
     <PackageReference Include="C1.Maui.Chart">
-      <Version>10.0.20261.130</Version>
+      <Version>10.0.20262.66</Version>
     </PackageReference>
     <PackageReference Include="C1.Maui.Core">
-      <Version>10.0.20261.130</Version>
+      <Version>10.0.20262.66</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
@@ -137,6 +137,9 @@
     <Compile Update="Views\Pareto.xaml.cs">
       <DependentUpon>Pareto.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Quadrants.xaml.cs">
+      <DependentUpon>Quadrants.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\WaterfallDemo.xaml.cs">
       <DependentUpon>WaterfallDemo.xaml</DependentUpon>
     </Compile>
@@ -220,6 +223,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <MauiXaml Update="Views\Quadrants.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\RangeZones.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
     <MauiXaml Update="Views\AnimationPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>

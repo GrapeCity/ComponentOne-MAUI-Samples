@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- Navigation -->
+  <data name="GettingStartedTitle" xml:space="preserve"><value>Getting Started</value></data>
+  <data name="PdfViewerTitle" xml:space="preserve"><value>PDF Viewer</value></data>
+  <data name="FlexReportViewerTitle" xml:space="preserve"><value>Report Viewer</value></data>
+  <data name="SsrsViewerTitle" xml:space="preserve"><value>Report Service</value></data>
+
+  <!-- Getting Started page -->
+  <data name="WelcomeHeading" xml:space="preserve"><value>FlexViewer for .NET MAUI</value></data>
+  <data name="WelcomeDescription" xml:space="preserve"><value>FlexViewer is a universal document viewer for .NET MAUI apps. It renders PDF files, FlexReport documents, and SQL Server Reporting Services (SSRS) reports in a single control. Pick a format below, or use the navigation menu, to see it in action.</value></data>
+  <data name="ExploreSectionTitle" xml:space="preserve"><value>EXPLORE THE SAMPLES</value></data>
+  <data name="PdfViewerHint" xml:space="preserve"><value>View a local PDF document</value></data>
+
+  <!-- Sample formats -->
+  <data name="PdfFormatLabel" xml:space="preserve"><value>PDF</value></data>
+  <data name="FlexReportSectionTitle" xml:space="preserve"><value>Flex Report</value></data>
+  <data name="ChooseReportHint" xml:space="preserve"><value>Choose a report…</value></data>
+  <data name="SelectReportLabel" xml:space="preserve"><value>Select a report</value></data>
+  <data name="ReportServiceSectionTitle" xml:space="preserve"><value>Report Service</value></data>
+  <data name="SsrsRemoteReportHint" xml:space="preserve"><value>SSRS remote report</value></data>
+
+  <!-- Loading overlay -->
+  <data name="LoadingText" xml:space="preserve"><value>Loading…</value></data>
+  <data name="LoadingPdfText" xml:space="preserve"><value>Loading PDF…</value></data>
+  <data name="LoadingReportText" xml:space="preserve"><value>Loading report…</value></data>
+  <data name="LoadingReportServiceText" xml:space="preserve"><value>Loading report service…</value></data>
+
+  <!-- Alerts -->
+  <data name="PdfLoadErrorTitle" xml:space="preserve"><value>PDF Load Error</value></data>
+  <data name="ReportLoadErrorTitle" xml:space="preserve"><value>Report Load Error</value></data>
+  <data name="ReportServiceErrorTitle" xml:space="preserve"><value>Report Service Error</value></data>
+  <data name="OkButton" xml:space="preserve"><value>OK</value></data>
+
+</root>

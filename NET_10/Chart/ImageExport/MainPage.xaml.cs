@@ -1,7 +1,6 @@
 ﻿using C1.Chart;
 using CommunityToolkit.Maui.Storage;
 using Microsoft.Maui.Graphics.Skia;
-using SkiaSharp;
 using System.Diagnostics;
 
 namespace ImageExport
@@ -55,17 +54,19 @@ namespace ImageExport
             var ms = new MemoryStream();
             context.WriteToStream(ms);
 
-            // save image to picture library
-            var photoLibrary = new PhotoLibrary();
-            await photoLibrary.SavePhotoAsync(ms.ToArray(), "", fileName);
+            SaveStreamToFile(ms, fileName);
         }
 
         async Task SaveSvg(string fileName)
         {
             var ms = new MemoryStream();
             flexChart.SaveSvg(ms);
+            SaveStreamToFile(ms, fileName);
+        }
 
-            var fileSaverResult = await FileSaver.Default.SaveAsync(fileName, ms);
+        async Task SaveStreamToFile(Stream stream, string fileName)
+        {
+            var fileSaverResult = await FileSaver.Default.SaveAsync(fileName, stream);
             if (fileSaverResult.IsSuccessful)
                 Debug.WriteLine($"The file was saved successfully to location: {fileSaverResult.FilePath}");
             else

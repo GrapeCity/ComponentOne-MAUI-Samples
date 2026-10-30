@@ -48,12 +48,12 @@
     <MauiAsset Include="Resources\Raw\FlexCommonTasks.flxr" LogicalName="FlexCommonTasks.flxr" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.FlexReport" Version="10.0.20261.161" />
+    <PackageReference Include="C1.FlexReport" Version="10.0.20262.176" />
     <PackageReference Include="C1.Maui.Viewer">
-      <Version>10.0.20261.130-beta</Version>
+      <Version>10.0.20262.66</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Maui" Version="12.2.0" />
-    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.90" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
     <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
   </ItemGroup>

@@ -1,0 +1,6 @@
+<Solution>
+
+  <Project Path="CalendarExplorer\CalendarExplorer.csproj">
+    <Deploy />
+  </Project>
+</Solution>

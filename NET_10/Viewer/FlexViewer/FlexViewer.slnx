@@ -1,0 +1,6 @@
+<Solution>
+
+  <Project Path="FlexViewer.csproj">
+    <Deploy />
+  </Project>
+</Solution>

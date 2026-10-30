@@ -71,10 +71,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="C1.Maui.Calendar">
-      <Version>10.0.20261.130</Version>
+      <Version>10.0.20262.66</Version>
     </PackageReference>
     <PackageReference Include="C1.Maui.Core">
-      <Version>10.0.20261.130</Version>
+      <Version>10.0.20262.66</Version>
     </PackageReference>
   </ItemGroup>
 </Project>

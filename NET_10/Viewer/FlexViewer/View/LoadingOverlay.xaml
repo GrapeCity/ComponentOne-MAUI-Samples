@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlexViewer.LoadingOverlay">
+
+    <Grid x:Name="Root" IsVisible="False" BackgroundColor="#80000000" ZIndex="100">
+        <Border Background="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}"
+                StrokeThickness="0" StrokeShape="RoundRectangle 12"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                Padding="32,24" MinimumWidthRequest="140">
+            <VerticalStackLayout Spacing="16" HorizontalOptions="Center">
+                <ActivityIndicator IsRunning="{Binding Source={x:Reference Root}, Path=IsVisible}"
+                                   Color="#D6564C"
+                                   WidthRequest="40" HeightRequest="40"
+                                   HorizontalOptions="Center"/>
+                <Label x:Name="MessageLabel"
+                       TextColor="{AppThemeBinding Light=#333333, Dark=#CCCCCC}"
+                       FontSize="14" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentView>

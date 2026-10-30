@@ -1,0 +1,6 @@
+<Solution>
+
+  <Project Path="FlexGridExplorer.csproj">
+    <Deploy />
+  </Project>
+</Solution>

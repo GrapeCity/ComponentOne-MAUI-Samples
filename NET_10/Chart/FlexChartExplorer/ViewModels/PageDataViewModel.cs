@@ -78,6 +78,10 @@
                                       "Show Contour Chart") { Image = "treemap" },
                             new PageDataViewModel(typeof(ColumnHeatmapPage), "Column & Heatmap",
                                       "Show combination of Range Column and Heatmap Charts") { Image = "treemap" },
+                            new PageDataViewModel(typeof(RangeZones), "Range Zones",
+                                      "Show chart with RangeZone's") { Image = "line_chart" },
+                            new PageDataViewModel(typeof(Quadrants), "Quadrants",
+                                      "Show chart with quadrants") { Image = "bubble_chart" },
                     }),
                     new SampleGroup(
                        "Interaction",

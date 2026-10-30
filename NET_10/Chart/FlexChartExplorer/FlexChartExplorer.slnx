@@ -1,0 +1,6 @@
+<Solution>
+
+  <Project Path="FlexChartExplorer.csproj">
+    <Deploy />
+  </Project>
+</Solution>

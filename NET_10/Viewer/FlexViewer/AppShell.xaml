@@ -4,10 +4,47 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:FlexViewer"
-    Shell.FlyoutBehavior="Disabled"
+    xmlns:res="clr-namespace:FlexViewer.Resources"
     Title="FlexViewer">
 
-    <ShellContent
-    ContentTemplate="{DataTemplate local:MainPage}"
-    Route="MainPage" />
+    <Shell.FlyoutHeader>
+        <Border Background="#D6564C" StrokeThickness="0" HeightRequest="64" Padding="16,0">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="FlyoutHeaderBrand_Tapped"/>
+            </Border.GestureRecognizers>
+            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 6"
+                        Background="#33FFFFFF"
+                        WidthRequest="28" HeightRequest="28"
+                        HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="C1" FontSize="11" FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Border>
+                <VerticalStackLayout Spacing="1" VerticalOptions="Center">
+                    <Label Text="ComponentOne" FontSize="13" FontAttributes="Bold"
+                           TextColor="White" LineBreakMode="NoWrap"/>
+                    <Label Text="Maui Controls" FontSize="10"
+                           TextColor="#CCffffff" LineBreakMode="NoWrap"/>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+        </Border>
+    </Shell.FlyoutHeader>
+
+    <ShellContent Title="{x:Static res:Resources.GettingStartedTitle}"
+                  Route="GettingStarted"
+                  ContentTemplate="{DataTemplate local:GettingStarted}" />
+
+    <ShellContent Title="{x:Static res:Resources.PdfViewerTitle}"
+                  Route="PdfViewer"
+                  ContentTemplate="{DataTemplate local:PdfViewer}" />
+
+    <ShellContent Title="{x:Static res:Resources.FlexReportViewerTitle}"
+                  Route="FlexReportViewer"
+                  ContentTemplate="{DataTemplate local:FlexReportViewer}" />
+
+    <ShellContent Title="{x:Static res:Resources.SsrsViewerTitle}"
+                  Route="SsrsViewer"
+                  ContentTemplate="{DataTemplate local:SsrsViewer}" />
+
 </Shell>

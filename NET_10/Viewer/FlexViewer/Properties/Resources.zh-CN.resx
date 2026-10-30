@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="PdfFormatLabel" xml:space="preserve"><value>PDF</value></data>
+  <data name="FlexReportSectionTitle" xml:space="preserve"><value>Flex Report</value></data>
+  <data name="ChooseReportHint" xml:space="preserve"><value>选择报表…</value></data>
+  <data name="SelectReportLabel" xml:space="preserve"><value>选择报表</value></data>
+  <data name="ReportServiceSectionTitle" xml:space="preserve"><value>报表服务</value></data>
+  <data name="SsrsRemoteReportHint" xml:space="preserve"><value>SSRS 远程报表</value></data>
+  <data name="LoadingText" xml:space="preserve"><value>正在加载…</value></data>
+  <data name="LoadingPdfText" xml:space="preserve"><value>正在加载 PDF…</value></data>
+  <data name="LoadingReportText" xml:space="preserve"><value>正在加载报表…</value></data>
+  <data name="LoadingReportServiceText" xml:space="preserve"><value>正在加载报表服务…</value></data>
+  <data name="PdfLoadErrorTitle" xml:space="preserve"><value>PDF 加载错误</value></data>
+  <data name="ReportLoadErrorTitle" xml:space="preserve"><value>报表加载错误</value></data>
+  <data name="ReportServiceErrorTitle" xml:space="preserve"><value>报表服务错误</value></data>
+  <data name="OkButton" xml:space="preserve"><value>OK</value></data>
+</root>

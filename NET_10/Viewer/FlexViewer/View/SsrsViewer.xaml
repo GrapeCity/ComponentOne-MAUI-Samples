@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c1="clr-namespace:C1.Maui.Viewer;assembly=C1.Maui.Viewer"
+             xmlns:local="clr-namespace:FlexViewer"
+             x:Class="FlexViewer.SsrsViewer">
+
+    <Grid>
+        <c1:FlexViewer x:Name="flexViewer"
+                       StatusBackground="{AppThemeBinding Light=White, Dark=#1A1A28}"
+                       StatusForeground="{AppThemeBinding Light=#333333, Dark=#CCCCEE}"/>
+        <local:LoadingOverlay x:Name="loadingOverlay" Grid.ZIndex="100"/>
+    </Grid>
+</ContentPage>
